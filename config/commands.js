@@ -631,6 +631,94 @@ var commands = exports.commands = {
 			'&amp; <b>Leader</b> - The above, and they can promote moderators and force ties<br />'+
 			'~ <b>Administrator</b> - They can do anything, like change what this message says');
 	},
+	
+	blakjack: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('BlakJack <br />'+
+	 	    '<i>"Trolltraptor Gonna Troll Ur Ass Off"</i> <br />'+
+	 	    'Ace: Staraptor <br />'+
+			'<img src="http://i.imgur.com/7FypAPq.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/staraptor.gif">')},
+			
+	skarr: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Skarr <br />'+
+	 	    '<i>"Do you know how i got these Skarr\'s?."</i> <br />'+
+	 	    'Ace: Terrakion <br />'+
+			'<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
+			
+	checkm8t: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Checkm8t <br />'+
+	 	    '<i>""Wobbuffet is going to find you >:D"</i> <br />'+
+	 	    'Ace: Wobbuffet <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},		
+
+	queenofdubstep: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Queen Of Dubstep <br />'+
+	 	    '<i>"Never Back Down"</i> <br />'+
+	 	    'Ace: Salamence <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif">')},
+			
+	surfersunite: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Surfers Unite <br />'+
+	 	    '<i>"Offense, defense put them together and you have the ultimate battle strategy"</i> <br />'+
+	 	    'Ace: Gallade <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
+			
+	zerotoxic: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Zero Toxic <br />'+
+	 	    '<i>"You Poor Bastard Why Do You Persist In A Dream Thats Non-Existent?"</i> <br />'+
+	 	    'Ace: Nidoking <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/nidoking.gif">')},
+			
+	boo118: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('boo118 <br />'+
+	 	    '<i>"Get Ready To Be Trolled"</i> <br />'+
+	 	    'Ace: Porygon 2 <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
+			
+	proflef: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Prof. Le❄f <br />'+
+	 	    '<i>"grass cannot harm me as the icy chill of death close upon you"</i> <br />'+
+	 	    'Ace: Cloyster <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/cloyster.gif">')},		
+			
+	sooperpooper: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Sooper Pooper <br />'+
+	 	    '<i>"Did I ever tell you the definition... of insanity?"</i> <br />'+
+	 	    'Ace: Ampharos <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/ampharos.gif">')},	
+
+       championzard: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Champion Zard <br />'+
+	 	    '<i>"Whoever Stands In My Way Will Feel My Rage"</i> <br />'+
+	 	    'Ace: Infernape <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},				
+					
+			
+	championyognas: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Champion Yognas <br />'+
+		    'Champ League<br/>'+
+	 	    '<i>"Don\'t be so humble - you are not that great."</i> <br />'+
+	 	    'Ace: Mightyena <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/trainers/70.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/mightyena.gif">')},
+			
+	champvolt: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('♚ChampVolt♚ <br />'+
+		    '<i>"Were Going High"</i> <br />'+
+	 	    'Ace: Gyarados <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">');		
+	 	    		
+	},
 
 	opensource: function(target, room, user) {
 		if (!this.canBroadcast()) return;
