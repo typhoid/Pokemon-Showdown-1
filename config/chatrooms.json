@@ -1,0 +1,16 @@
+[
+{"title":"Lobby","autojoin":true},
+{"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
+{"title":"Tournaments","desc":"Pls Ask A Voice '+' to host tournaments here"},
+{"title":"PokeWorld"},
+{"title":"Crisis City","auth":{"supersilverex":"#","gymleaderzeron":"%"},"desc":"Welcome To Crisis City. Enjoy, Battle And watch For Lava pits"},
+{"title":"Roulette","desc":"Come Here Bet On A Number And Win BP"},
+{"title":"ChessMaster","isPrivate":true,"auth":{"checkm8t":"#","absoljackk":"%","blakjack":"%"}},
+{"title":"The Legend Place","auth":{"funnytraineryousef":"#","gymldrmonkeys":"%"}},
+{"title":"Temple of the Psychics","auth":{"surfersunite":"#"},"desc":"Only strong Psychics allowed unless you are Kill The Noise"},
+{"title":"The Armageddon","auth":{"achampaero":"#","achampdarkoath":"#","aeliteirerd":"%","aleadertakashi":"+","aleadermawile":"+","aelitelosedude":"%","aelitezero":"%","aleaderfromabove":"%","aleaderkinjiro":"+","aleaderyugik":"%","aleaderjakemeta":"+","aleaderepicman":"+","aleaderjmac":"+"},"desc":"Welcome To The Armageddon League! Follow All Rules, GL+Hf"},
+{"title":"Kill The Noise "},
+{"title":"Hindi Tuitions With Skarr"},
+{"title":"discussions ","isPrivate":true},
+{"title":"Solutions Room"}
+]
