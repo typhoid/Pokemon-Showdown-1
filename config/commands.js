@@ -667,12 +667,12 @@ var commands = exports.commands = {
 	 	    'Ace: Gallade <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
 			
-	zerotoxic: function(target, room, user) {  
+	gymleaderzeron: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Zero Toxic <br />'+
+	 	this.sendReplyBox('GymLeader Zeron <br />'+
 	 	    '<i>"You Poor Bastard Why Do You Persist In A Dream Thats Non-Existent?"</i> <br />'+
-	 	    'Ace: Nidoking <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/nidoking.gif">')},
+	 	    'Ace: Kabutops <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/kabutops.gif">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
