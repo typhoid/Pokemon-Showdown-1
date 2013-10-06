@@ -719,13 +719,13 @@ var commands = exports.commands = {
 	 	    'Ace: Gyarados <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    		
-         	},
+         	
      	e4zeppy: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('E4 Zeppy <br />'+
 		    '<i>""Even in the toughest of situations, quitting is never an option.""</i> <br />'+
 	 	    'Ace: Sceptile <br />'+
-			'<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">')		
+			'<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">')},	
 	 	    		
      	},
 	opensource: function(target, room, user) {
