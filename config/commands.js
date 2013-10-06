@@ -727,7 +727,7 @@ var commands = exports.commands = {
 	 	    'Ace: Sceptile <br />'+
 		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">');	
 	 	    	
-    
+     	}, 
 	opensource: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Pokemon Showdown is open source:<br />- Language: JavaScript<br />- <a href="https://github.com/Zarel/Pokemon-Showdown/commits/master">What\'s new?</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown">Server source code</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown-Client">Client source code</a>');
