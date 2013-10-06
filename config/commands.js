@@ -644,6 +644,8 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Skarr <br />'+
 	 	    '<i>"Do you know how i got these Skarr\'s?."</i> <br />'+
 	 	    'Ace: Terrakion <br />'+
+	 	    'Rules:Dont be ass<br />+
+	 	           
 			'<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
 			
 	checkm8t: function(target, room, user) {  
