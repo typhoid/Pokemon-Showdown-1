@@ -644,9 +644,8 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Skarr <br />'+
 	 	    '<i>"Do you know how i got these Skarr\'s?."</i> <br />'+
 	 	    'Ace: Terrakion <br />'+
-	 	    'Rules:Dont be ass<br />+
-	 	           
-			'<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
+	 	    'Rules:Dont be ass<br />'+
+	 	        '<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
 			
 	checkm8t: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
@@ -718,10 +717,17 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('♚ChampVolt♚ <br />'+
 		    '<i>"Were Going High"</i> <br />'+
 	 	    'Ace: Gyarados <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">');		
+			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    		
-	},
-
+         	},
+     	e4zeppy: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('E4 Zeppy <br />'+
+		    '<i>""Even in the toughest of situations, quitting is never an option.""</i> <br />'+
+	 	    'Ace: Sceptile <br />'+
+			'<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">')		
+	 	    		
+     	},
 	opensource: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Pokemon Showdown is open source:<br />- Language: JavaScript<br />- <a href="https://github.com/Zarel/Pokemon-Showdown/commits/master">What\'s new?</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown">Server source code</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown-Client">Client source code</a>');
