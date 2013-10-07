@@ -337,6 +337,17 @@ var commands = exports.commands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '"+target+"' could not be joined.");
 		}
+		if (target.toLowerCase() == "lobby") {
+			return connection.sendTo('lobby','|html|<div class="infobox" style="border-color:blue"><center><b><u>Welcome to the Kill The Noise League Server!</u></b></center><br /> ' +
+			'Battle users in the ladder or in tournaments, learn how to play Pokemon or just chat in lobby!<br /><br />' +
+			'Feel Free To Challenge The League.<br /><br />' +
+			'All Rules And Regulations On Our Site ktnl.weebly.com<br /><br />' +
+			'Make sure to type <b>/help</b> to get a list of commands that you can use and <b>/faq</b> to check out frequently asked questions.<br /><br />' +
+			'If you have any questions, issues or concerns should be directed at someone with a rank such as Voice (+), Driver (%), Moderator (@) and Leader (&). <br /><br />' +
+			'Only serious issues or questions should be directed to Administrators (~).<br /><br />' +
+			'</div>');
+		}
+		
 	},
 
 	roomban: function(target, room, user, connection) {
