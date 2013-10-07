@@ -1525,6 +1525,55 @@ hide: function(target, room, user) {
 		user.makeChallenge(targetUser, target);
 	},
 
+	 afk: 'away',
+	away: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+
+		if (!user.isAway) {
+			var originalName = user.name;
+			var awayName = user.name + ' - Away';
+			//delete the user object with the new name in case it exists - if it does it can cause issues with forceRename
+			delete Users.get(awayName);
+			user.forceRename(awayName, undefined, true);
+
+			this.add('|raw|-- <b><font color="#4F86F7">' + originalName +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
+
+			user.isAway = true;
+		}
+		else {
+			return this.sendReply('You are already set as away, type /back if you are now back');
+		}
+
+		user.updateIdentity();
+	},
+
+	back: function(target, room, user, connection) {
+		if (!this.can('lock')) return false;
+
+		if (user.isAway) {
+
+			var name = user.name;
+
+			var newName = name.substr(0, name.length - 7);
+
+			//delete the user object with the new name in case it exists - if it does it can cause issues with forceRename
+			delete Users.get(newName);
+
+			user.forceRename(newName, undefined, true);
+
+			//user will be authenticated
+			user.authenticated = true;
+
+			this.add('|raw|-- <b><font color="#4F86F7">' + newName + '</font color></b> is no longer away');
+
+			user.isAway = false;
+		}
+		else {
+			return this.sendReply('You are not set as away');
+		}
+
+		user.updateIdentity();
+	},
 	
 	cchall: 'cancelChallenge',
 	cancelchallenge: function(target, room, user) {
