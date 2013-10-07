@@ -140,7 +140,7 @@ exports.customavatars = {
 	  'quality': 'quality.png',
 	  'skarr': 'skarr.gif',
 	  'laaagar': 'laaagar.gif',
-	  'zerotoxic': 'zerotoxic.png',
+	  'gymleaderzeron': 'zerotoxic.png',
 	  'frankentein': 'frankentein.png',
 	  'championtobias': 'championtobias.png',
 	  'proflef': 'proflef.png',
@@ -163,6 +163,7 @@ exports.customavatars = {
 	  'achampaero': 'achampaero.png',
 	  'pangorojackk': 'pangorojackk.png',
 	  'championyognas': 'championyognas.png',
+	  'e4arsh': 'e4arsh.gif'
 	  
 };
 
