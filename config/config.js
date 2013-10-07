@@ -164,6 +164,7 @@ exports.customavatars = {
 	  'pangorojackk': 'pangorojackk.png',
 	  'championyognas': 'championyognas.png',
 	  'e4arsh': 'e4arsh.gif',
+	  'gymleaderlucy': 'gymleaderlucy.gif',
 	  
 };
 
