@@ -235,6 +235,51 @@ var commands = exports.commands = {
 		}
 		return this.parse('/msg '+this.targetUsername+', /invite '+roomid);
 	},
+	
+	/*********************************************************
+	 * Additional Commands
+	 *********************************************************/
+
+	getrandom: 'pickrandom',
+	pickrandom: function (target, room, user) {
+		if (!target) return this.sendReply('/pickrandom [option 1], [option 2], ... - Randomly chooses one of the given options.');
+		if (!this.canBroadcast()) return;
+		var targets;
+		if (target.indexOf(',') === -1) {
+			targets = target.split(' ');
+		} else {
+			targets = target.split(',');
+		};
+		var result = Math.floor(Math.random() * targets.length);
+		return this.sendReplyBox(targets[result].trim());
+	},
+
+	poke: function(target, room, user){
+		if(!target) return this.sendReply('/poke needs a target.');
+		return this.parse('/me pokes ' + target);
+	},
+
+	slap: function(target, room, user){
+		if(!target) return this.sendReply('/poke needs a target.');
+		return this.parse('/me slaps ' + target + ' in the face with a slipper');
+	},
+
+	s: function(target, room, user){
+		if(!target) return this.sendReply('/spank needs a target.');
+		return this.parse('/me spanks ' + target + '!');
+	},
+
+	tierpoll: 'tiervote',
+	tiervote: function(target, room, user){
+		return this.parse('/poll Tournament Tier?,randombattle,ou,ubers,uu,pointscore,perseverance,ru,nu,lc,cap,challengecup1vs1,oumonotype,1v1');
+	},
+
+	gurl: function(target, room, user){
+		if(!target) return this.sendReply('/sass needs a target.');
+		return this.parse('/me sasses ' + target + '!');
+	},
+     
+
 
 	/*********************************************************
 	 * Informational commands
