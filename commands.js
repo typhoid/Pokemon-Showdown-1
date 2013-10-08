@@ -1597,6 +1597,20 @@ hide: function(target, room, user) {
 		user.updateIdentity();
 	},
 	
+	customavatar: function(target, room, user, connection) {
+		if (!this.can('customavatars')) return false;
+		if (!target) return connection.sendTo(room, 'Usage: /customavatar URL, filename');
+		var http = require('http-get');
+		target = target.split(", ");
+		http.get(target[0], 'config/avatars/' + target[1], function (error, result) {
+		    if (error) {
+    		    connection.sendTo(room, '/customavatar - You supplied an invalid URL or file name!');
+    		} else {
+	    	    connection.sendTo(room, 'File saved to: ' + result.file);
+	    	}
+		});
+	},
+	
 	cchall: 'cancelChallenge',
 	cancelchallenge: function(target, room, user) {
 		user.cancelChallengeTo(target);
