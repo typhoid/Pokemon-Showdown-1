@@ -301,17 +301,17 @@ exports.tour = function(t) {
 				var tooSmall = '';
 				var p = 'bucks';
 				if (!Rooms.rooms[rid].auth) {
-					if (tour[rid].size >= 32) {
+					if (tour[rid].size >= 16) {
 						tourMoney = 3;
 					}
-					if (tour[rid].size >= 16 && tour[rid].size < 32) {
+					if (tour[rid].size >= 16 && tour[rid].size < 8) {
 						tourMoney = 2;
 					}
-					if (tour[rid].size < 16 && tour[rid].size >= 8) {
+					if (tour[rid].size < 16 && tour[rid].size >= 4) {
 						tourMoney = 1;
 						p = 'buck';
 					}
-					if (tour[rid].size < 8) {
+					if (tour[rid].size < 4) {
 						tourMoney = 0;
 						tooSmall = tooSmall + '(the tour was too small)';
 					}
