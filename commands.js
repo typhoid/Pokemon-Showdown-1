@@ -525,7 +525,7 @@ var commands = exports.commands = {
 			price = 20;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a custom avatar. You need to message an Admin capable of adding (Frost Developer or BrittleWind).');
+				this.sendReply('You have purchased a custom avatar. You need to message an Admin capable of adding (Ask BlakJack or Skarr).');
 				user.canCustomAvatar = true;
 				this.add(user.name + ' has purchased a custom avatar!');
 			} else {
@@ -536,7 +536,7 @@ var commands = exports.commands = {
 			price = 35;
 			if (price <= user.money) {
 				user.money = user.money - price;
-				this.sendReply('You have purchased a custom animated avatar. You need to message an Admin capable of adding (Frost Developer or BrittleWind).');
+				this.sendReply('You have purchased a custom animated avatar. You need to message an Admin capable of adding (BlakJack or Skarr).');
 				user.canAnimatedAvatar = true;
 				this.add(user.name + ' has purchased a custom animated avatar!');
 			} else {
