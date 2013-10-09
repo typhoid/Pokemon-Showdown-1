@@ -169,7 +169,8 @@ exports.customavatars = {
 	  'e4alice': 'e4alice.png',
 	  'frontiersilverex': 'frontiersilverex.gif',
 	  'championsarynade': 'championsarynade.gif',
-	  'championonyxe': 'championonyxe.png'
+	  'championonyxe': 'championonyxe.png',
+	  'e4cat': 'e4cat.png'
 };
 
 // appealurl - specify a URL containing information on how users can appeal
