@@ -710,7 +710,7 @@ var commands = exports.commands = {
 	 	    '<i>" The storm is here!"</i> <br />'+
 	 	    'Ace: Electivire <br />'+
 	 	    'Rules:No Priority And Hazards<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/Electivire.gif">')}, 	    
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/electivire.gif">')}, 	    
 			
 	checkm8t: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
