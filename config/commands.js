@@ -684,7 +684,8 @@ var commands = exports.commands = {
 	 	    '<i>"Trolltraptor Gonna Troll Ur Ass Off"</i> <br />'+
 	 	    'Ace: Staraptor <br />'+
 			'<img src="http://i.imgur.com/7FypAPq.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/staraptor.gif">')},
-			
+	
+	frontierheadskarr: 'skarr',
 	skarr: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Skarr <br />'+
