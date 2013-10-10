@@ -694,6 +694,23 @@ var commands = exports.commands = {
 	 	    'Ace: Terrakion <br />'+
 	 	    'Rules:Dont be ass<br />'+
 	 	    '<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
+	 	    
+	alice: 'e4alice',
+	e4alice: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4 Alice₪ <br />'+
+	 	    '<i>"Surrender what is, let go of what was, have faith in what will be"</i> <br />'+
+	 	    'Ace: Cradily <br />'+
+	 	    'Rules:No Priority And Hazards<br />'+
+	 	    '<img src="http://fc08.deviantart.net/fs71/f/2012/071/0/a/saber_alter_sprite_by_houkuha-d4qvx3v.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/cradily.gif">')}, 	    
+
+        e4cat: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4 Cat₪ <br />'+
+	 	    '<i>" The storm is here!"</i> <br />'+
+	 	    'Ace: Electivire <br />'+
+	 	    'Rules:No Priority And Hazards<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/Electivire.gif">')}, 	    
 			
 	checkm8t: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
