@@ -160,7 +160,7 @@ exports.customavatars = {
 	  'plox': 'plox.png',
 	  'ncrypt': 'ncrypt.gif',
 	  'boo118': 'boo118.gif',
-	  'achampaero': 'achampaero.png',
+	  'achampaero': 'achampaero.gif',
 	  'pangorojackk': 'pangorojackk.png',
 	  'championyognas': 'championyognas.png',
 	  'e4arsh': 'e4arsh.gif',
