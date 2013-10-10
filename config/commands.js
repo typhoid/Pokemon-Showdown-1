@@ -710,7 +710,16 @@ var commands = exports.commands = {
 	 	    '<i>" The storm is here!"</i> <br />'+
 	 	    'Ace: Electivire <br />'+
 	 	    'Rules:No Priority And Hazards<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/electivire.gif">')}, 	    
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/electivire.gif">')},
+	
+	tak: 'e4takuto', 	    
+	e4takuto: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4 Takuto₪ <br />'+
+	 	    '<i>"Life shows us many paths, but only one leads to victory"</i> <br />'+
+	 	    'Ace: Kyurem-Black<br />'+
+	 	    'Rules:No Hazards And No Stat Boosting Moves<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 	    
 			
 	checkm8t: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
