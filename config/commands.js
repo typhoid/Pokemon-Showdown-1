@@ -785,13 +785,18 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},				
 					
 			
-	championyognas: function(target, room, user) {  
+	celitenuru: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Champion Yognas <br />'+
-		    'Champ League<br/>'+
-	 	    '<i>"Don\'t be so humble - you are not that great."</i> <br />'+
-	 	    'Ace: Mightyena <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/trainers/70.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/mightyena.gif">')},
+	 	this.sendReplyBox('CElite-Nuru. <br />'+
+		    'The Armageddon League, C Region.<br/>'+
+	 	    '<i>"Appear weak when you are strong, and strong when you are weak."</i> <br />'+
+	 	    'Ace: Excadrill <br />'+
+		    '<img src="http://play.pokemonshowdown.com/sprites/trainers/154.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/excadrill.gif"><br />'+
+		    'Rules: No Hazards<br />'+
+		    'No Sleeping Moves<br />'+
+		    'No Weather Bar Sandstorm<br />'+
+		    'No More Than 1 Legenadary<br />'+
+		    'No Speed Move Boost/Ability')},
 			
 	champvolt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
