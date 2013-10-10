@@ -698,7 +698,14 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Checkm8t <br />'+
 	 	    '<i>""Wobbuffet is going to find you >:D"</i> <br />'+
 	 	    'Ace: Wobbuffet <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},		
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},
+			
+	e4arsh: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4 Arsh₪ <br />'+
+	 	    '<i>"Imma Never Let U Win The Match"</i> <br />'+
+	 	    'Ace: Yanmega <br />'+
+			'<img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 
 	queenofdubstep: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
