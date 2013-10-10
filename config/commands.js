@@ -678,6 +678,7 @@ var commands = exports.commands = {
 			'~ <b>Administrator</b> - They can do anything, like change what this message says');
 	},
 	
+	arshmalik: 'blakjack',
 	blakjack: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('BlakJack <br />'+
