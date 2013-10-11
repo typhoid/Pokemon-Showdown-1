@@ -707,10 +707,10 @@ var commands = exports.commands = {
         e4cat: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Cat₪ <br />'+
-	 	    '<i>" The storm is here!"</i> <br />'+
-	 	    'Ace: Electivire <br />'+
-	 	    'Rules:No Priority And Hazards<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/electivire.gif">')},
+	 	    '<i>" When you lose your soul belongs to me"</i> <br />'+
+	 	    'Ace: Krookodile <br />'+
+	 	    'Rules:No Priority And Unburden<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/krookodile.gif">')},
 	
 	e4frostie: 'frostie', 	    
 	frostie: function(target, room, user) {  
@@ -758,12 +758,13 @@ var commands = exports.commands = {
 	 	    'Ace: Gallade <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
 			
-	gymleaderzeron: function(target, room, user) {  
+	gymleaderzeron: 'zero',
+	zero: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('GymLeader Zeron <br />'+
-	 	    '<i>"You Poor Bastard Why Do You Persist In A Dream Thats Non-Existent?"</i> <br />'+
+	 	this.sendReplyBox('Gym Leader Zeron <br />'+
+	 	    '<i>"My Soul Is Strong As Rock"</i> <br />'+
 	 	    'Ace: Kabutops <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/kabutops.gif">')},
+		    '<img src="http://fc04.deviantart.net/fs71/f/2012/191/5/a/poke_trainer_sprite_by_rellosaur-d56njeu.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/kabutops.gif">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
