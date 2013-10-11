@@ -545,7 +545,7 @@ var commands = exports.commands = {
 			}
 		}
 		if (target === 'room') {
-			price = 80;
+			price = 100;
 			if (price <= user.money) {
 				user.money = user.money - price;
 				this.sendReply('You have purchased a chat room. You need to message an Admin so that the room can be made.');
