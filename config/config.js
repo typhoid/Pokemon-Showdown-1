@@ -164,7 +164,7 @@ exports.customavatars = {
 	  'pangorojackk': 'pangorojackk.png',
 	  'championyognas': 'championyognas.png',
 	  'e4arsh': 'e4arsh.gif',
-	  'gymleaderlucy': 'gymleaderlucy.gif',
+	  'e4frostie': 'gymleaderlucy.gif',
 	  'e4zeppy': 'e4zeppy.gif',
 	  'e4alice': 'e4alice.png',
 	  'frontiersilverex': 'frontiersilverex.gif',
@@ -178,6 +178,7 @@ exports.customavatars = {
 	  'e4takuto': 'e4takuto.gif',
 	  'gymleaderwinx': 'gymleaderwinx.gif',
 	  'achampdarkoath': 'achampdarkoath.png',
+	  'e4savyy': 'e4savyy.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
