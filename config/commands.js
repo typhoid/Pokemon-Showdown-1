@@ -712,6 +712,15 @@ var commands = exports.commands = {
 	 	    'Rules:No Priority And Hazards<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/electivire.gif">')},
 	
+	e4frostie: 'frostie', 	    
+	frostie: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4♥Frostie₪ <br />'+
+	 	    '<i>" Are you prepared to go down in a glorious inferno?"</i> <br />'+
+	 	    'Ace: Charizard <br />'+
+	 	    'Rules:No Priority And Hazards<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/charizard.gif">')}, 	    
+	
 	tak: 'e4takuto', 	    
 	e4takuto: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
