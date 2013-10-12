@@ -180,7 +180,6 @@ exports.customavatars = {
 	  'gymleaderwinx': 'gymleaderwinx.gif',
 	  'achampdarkoath': 'achampdarkoath.png',
 	  'e4savyy': 'e4savyy.gif',
-	  'gymleaderdraygon': 'gymleaderdraygon.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
