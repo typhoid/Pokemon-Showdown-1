@@ -260,6 +260,7 @@ exports.groups = {
 		jurisdiction: 'u',
 		roomdriver: true,
 		roommod: true,
+		roomoperator: true,
 		roomonly: true,
 		declare: true,
 		modchatall: true,
