@@ -2750,6 +2750,7 @@ exports.BattleFormatsData = {
 	},
 	kecleon: {
 		viableMoves: {"stealthrock":1,"recover":1,"return":1,"thunderwave":1,"suckerpunch":1},
+		dreamWorldRelease: true,
 		tier: "NU"
 	},
 	shuppet: {
@@ -3665,6 +3666,7 @@ exports.BattleFormatsData = {
 		tier: "Uber"
 	},
 	arceusfairy: {
+		requiredItem: "Pixie Plate",
 		tier: "Limbo"
 	},
 	arceusfighting: {

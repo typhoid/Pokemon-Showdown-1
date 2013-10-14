@@ -2616,6 +2616,24 @@ exports.BattleItems = {
 		gen: 3,
 		desc: "No competitive use."
 	},
+	"pixieplate": {
+		id: "pixieplate",
+		name: "Pixie Plate",
+		spritenum: -6,
+		fling: {
+			basePower: 90
+		},
+		onPlate: 'Fairy',
+		onBasePowerPriority: 6,
+		onBasePower: function(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify(1.2);
+			}
+		},
+		num: 311,
+		gen: 6,
+		desc: "Holder's Fairy-type attacks have 1.2x power. Judgment is Fairy-type."
+	},
 	"plumefossil": {
 		id: "plumefossil",
 		name: "Plume Fossil",
@@ -3074,6 +3092,15 @@ exports.BattleItems = {
 		gen: 3,
 		desc: "Raises Speed by 1 when at 1/4 max HP or less. Single use."
 	},
+	"scizornite": {
+		id: "scizornite",
+		name: "Scizornite",
+		spritenum: 0,
+		//todo
+		num: -6,
+		gen: 6,
+		desc: "Mega-evolves Scizor into Mega Scizor."
+	},	
 	"scopelens": {
 		id: "scopelens",
 		name: "Scope Lens",
