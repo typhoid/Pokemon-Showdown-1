@@ -759,9 +759,9 @@ var commands = exports.commands = {
 	zero: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Gym Leader Zeron <br />'+
-	 	    '<i>"My Soul Is Strong As Rock"</i> <br />'+
-	 	    'Ace: Kabutops <br />'+
-		    '<img src="http://fc04.deviantart.net/fs71/f/2012/191/5/a/poke_trainer_sprite_by_rellosaur-d56njeu.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/kabutops.gif">')},
+	 	    '<i>"Never Give Up Never Surrender!"</i> <br />'+
+	 	    'Ace: Empoleon <br />'+
+		    '<img src="http://fc04.deviantart.net/fs71/f/2012/191/5/a/poke_trainer_sprite_by_rellosaur-d56njeu.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/empoleon.gif">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
