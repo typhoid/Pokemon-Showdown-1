@@ -46,6 +46,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		onTryHit: function() {}
 	},
+	dracometeor: {
+		inherit: true,
+		basePower: 140
+	},
 	dragonpulse: {
 		inherit: true,
 		basePower: 90
@@ -133,6 +137,14 @@ exports.BattleMovedex = {
 	heatwave: {
 		inherit: true,
 		basePower: 100
+	},
+	hex: {
+		inherit: true,
+		basePower: 50,
+		basePowerCallback: function(pokemon, target) {
+			if (target.status) return 100;
+			return 50;
+		}
 	},
 	hiddenpower: {
 		inherit: true,

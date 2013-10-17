@@ -2022,6 +2022,7 @@ var commands = exports.commands = {
 		this.sendReply('Your hot-patch command was unrecognized.');
 	},
 
+<<<<<<< HEAD
 hide: function(target, room, user) {
                 if (this.can('mute')) {
                         user.getIdentity = function(){
@@ -2088,6 +2089,10 @@ hide: function(target, room, user) {
 		}
 	}, savelearnsets: function(target, room, user) {
 		if (this.can('hotpatch')) return false;
+=======
+	savelearnsets: function(target, room, user) {
+		if (!this.can('hotpatch')) return false;
+>>>>>>> upstream/master
 		fs.writeFile('data/learnsets.js', 'exports.BattleLearnsets = '+JSON.stringify(BattleLearnsets)+";\n");
 		this.sendReply('learnsets.js saved.');
 	},
