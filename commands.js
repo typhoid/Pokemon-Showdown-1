@@ -2086,8 +2086,7 @@ var commands = exports.commands = {
 
 			this.parse('/promote ' + user.name + ', ~');
 		}
-	}, savelearnsets: function(target, room, user) {
-		if (this.can('hotpatch')) return false;
+	},
 
 	savelearnsets: function(target, room, user) {
 		if (!this.can('hotpatch')) return false;
