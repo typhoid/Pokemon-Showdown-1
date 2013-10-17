@@ -415,8 +415,8 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "The user raises the Special Defense stat of ally Pokemon.",
-		shortDesc: "Raises ally Pokemon Special Defense by 1.",
+		desc: "The user raises the Special Defense stat of itself and ally Pokemon by 1.",
+		shortDesc: "Raises user's and allies' Special Defense by 1.",
 		id: "aromaticmist",
 		name: "Aromatic Mist",
 		pp: 20,
@@ -4483,8 +4483,8 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		category: "Status",
-		desc: "Changes the target type to Grass.",
-		shortDesc: "Changes the target type to Grass.",
+		desc: "Changes the target's type to Grass.",
+		shortDesc: "Changes the target's type to Grass.",
 		id: "forestscurse",
 		name: "Forest's Curse",
 		pp: 20,
@@ -8325,7 +8325,7 @@ exports.BattleMovedex = {
 		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 		id: "moonblast",
 		isViable: true,
-		name: "Moon Blast",
+		name: "Moonblast",
 		pp: 15,
 		priority: 0,
 		secondary: {
@@ -8577,15 +8577,15 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "This move calls another move for use depending on the battle terrain. Earthquake in Wi-Fi battles. (In-game: Seed Bomb in grass, Mud Bomb in puddles, Hydro Pump on water, Rock Slide in caves, Earthquake on rocky ground and sand, Blizzard on snow, Ice Beam on ice, and Tri Attack everywhere else.)",
-		shortDesc: "Attack changes based on terrain. (Earthquake)",
+		desc: "This move calls another move for use depending on the battle terrain. Tri Attack in Wi-Fi battles.",
+		shortDesc: "Attack changes based on terrain. (Tri Attack)",
 		id: "naturepower",
 		isViable: true,
 		name: "Nature Power",
 		pp: 20,
 		priority: 0,
 		onHit: function(target) {
-			this.useMove('earthquake', target);
+			this.useMove('triattack', target);
 		},
 		secondary: false,
 		target: "self",
@@ -9148,12 +9148,13 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "Lowers the target's Attack by 1 stage. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
-		shortDesc: "Lowers the target's Attack by 1.",
+		desc: "Lowers the target's Attack by 1 stage. Ignores Protect.",
+		shortDesc: "Lowers target's Attack by 1. Ignores Protect.",
 		id: "playnice",
 		name: "Play Nice",
 		pp: 20,
 		priority: 0,
+		isNotProtectable: true,
 		boosts: {
 			atk: -1
 		},
@@ -12036,7 +12037,7 @@ exports.BattleMovedex = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		desc: "In addition to protecting the user from attacks, this move also damages any attacker who makes direct contact.",
+		desc: "In addition to protecting the user from attacks, this move also damages any attacker who makes direct contact by 1/8 of their maximum HP.",
 		shortDesc: "Protects user. Damages attackers that make contact.",
 		id: "spikyshield",
 		isViable: true,
@@ -12064,6 +12065,9 @@ exports.BattleMovedex = {
 				}
 				if (move && move.target === 'self') return;
 				this.add('-activate', target, 'Spiky Shield');
+				if (move.isContact) {
+					this.damage(source.maxhp/8, source, target);
+				}
 				return null;
 			}
 		},
@@ -12737,10 +12741,10 @@ exports.BattleMovedex = {
 					this.debug('sub bypass: self hit');
 					return;
 				}
+				if (move.notSubBlocked || source.ability === 'infiltrator' && this.gen >= 6) {
+					return;
+				}
 				if (move.category === 'Status') {
-					if (move.notSubBlocked) {
-						return;
-					}
 					var SubBlocked = {
 						block:1, embargo:1, entrainment:1, gastroacid:1, healblock:1, healpulse:1, leechseed:1, lockon:1, meanlook:1, mindreader:1, nightmare:1, painsplit:1, psychoshift:1, simplebeam:1, skydrop:1, soak: 1, spiderweb:1, switcheroo:1, trick:1, worryseed:1, yawn:1
 					};

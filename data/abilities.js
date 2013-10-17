@@ -848,6 +848,19 @@ exports.BattleAbilities = {
 		rating: 0,
 		num: 82
 	},
+	"gooey": {
+		// TODO: Better descriptions
+		desc: "Contact with the Pokémon lowers the attacker's Speed stat.",
+		shortDesc: "Contact with the Pokémon lowers the attacker's Speed stat.",
+		onAfterDamage: function(damage, target, source, effect) {
+			if (effect && effect.isContact) this.boost({spe: -1}, source, target);
+		},
+		id: "gooey",
+		name: "Gooey",
+		rating: 3.5,
+		num: -10,
+		gen: 6
+	},
 	"guts": {
 		desc: "When this Pokemon is poisoned (including Toxic), burned, paralyzed or asleep (including self-induced Rest), its Attack stat receives a 50% boost; the burn status' Attack drop is also ignored.",
 		shortDesc: "If this Pokemon is statused, its Attack is 1.5x; burn's Attack drop is ignored.",
@@ -1109,7 +1122,7 @@ exports.BattleAbilities = {
 	},
 	"intimidate": {
 		desc: "When this Pokemon enters the field, the Attack stat of each of its opponents lowers by one stage.",
-		shortDesc: "On switch-in, this Pokemon lowers adjacent foes' Attack by 1.",
+		shortDesc: "On switch-in, this Pokemon lowers adjacent foes' Attack by 2.",
 		onStart: function(pokemon) {
 			var foeactive = pokemon.side.foe.active;
 			for (var i=0; i<foeactive.length; i++) {
@@ -1119,7 +1132,7 @@ exports.BattleAbilities = {
 					this.add('-activate',foeactive[i],'Substitute','ability: Intimidate','[of] '+pokemon);
 				} else {
 					this.add('-ability',pokemon,'Intimidate','[of] '+foeactive[i]);
-					this.boost({atk: -1}, foeactive[i], pokemon);
+					this.boost({atk: -2}, foeactive[i], pokemon);
 				}
 			}
 		},
@@ -1179,6 +1192,9 @@ exports.BattleAbilities = {
 				boost['accuracy'] = 0;
 				if (!effect.secondaries) this.add("-fail", target, "unboost", "accuracy", "[from] ability: Keen Eye", "[of] "+target);
 			}
+		},
+		onModifyMove: function(move) {
+			move.ignoreEvasion = true;
 		},
 		id: "keeneye",
 		name: "Keen Eye",
