@@ -675,6 +675,7 @@ var commands = exports.commands = {
 			'~ <b>Administrator</b> - They can do anything, like change what this message says');
 	},
 	
+	arsh: 'blakjack',
 	arshmalik: 'blakjack',
 	blakjack: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
@@ -734,6 +735,7 @@ var commands = exports.commands = {
 	 	    'Ace: Wobbuffet <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},
 			
+	heart: 'e4arsh',
 	e4arsh: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Arsh₪ <br />'+
@@ -741,14 +743,16 @@ var commands = exports.commands = {
 	 	    'Ace: Yanmega <br />'+
 			'<img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 
-	queenofdubstep: function(target, room, user) {  
+	queenofdubstep: 'qod',
+	qod: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Queen Of Dubstep <br />'+
 	 	    '<i>"Never Back Down"</i> <br />'+
 	 	    'Ace: Salamence <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif">')},
 			
-	surfersunite: function(target, room, user) {  
+	surfersunite: 'surfing',
+	surfing: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Surfers Unite <br />'+
 	 	    '<i>"Offense, defense put them together and you have the ultimate battle strategy"</i> <br />'+
@@ -813,12 +817,15 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    		
          	
-     	e4zeppy: function(target, room, user) {  
+     	zeppy: 'zep',
+     	e4zeppy: 'zep',
+     	zep: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('E4 Zeppy <br />'+
-		    '<i>""Even in the toughest of situations, quitting is never an option.""</i> <br />'+
-	 	    'Ace: Sceptile <br />'+
-		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">');	
+		    '<i>"Even in the toughest of situations, quitting is never an option."</i> <br />'+
+	 	    'Ace: Politoed <br />'+
+	 	    'Rules: No Hazards and No Sub/Protect/Detect <br />'+
+		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/186.gif">');	
 	 	    	
      	}, 
 	opensource: function(target, room, user) {
