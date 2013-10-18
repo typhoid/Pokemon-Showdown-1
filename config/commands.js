@@ -991,7 +991,7 @@ var commands = exports.commands = {
 	},
 	
 	leaguerule: 'leaguerules',
-	leguerules: function(target, room, user) {
+	leaguerules: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Please follow the rules:<br />' +
 			'- <a href="http://ktnl.weebly.com/rules.html">League Rules</a><br />' +
