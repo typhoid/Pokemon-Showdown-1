@@ -989,6 +989,22 @@ var commands = exports.commands = {
 			'- <a href="http://pokemonshowdown.com/rules">Rules</a><br />' +
 			'</div>');
 	},
+	
+	leaguerule: 'leaguerules',
+	leguerules: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Please follow the rules:<br />' +
+			'- <a href="http://ktnl.weebly.com/rules.html">League Rules</a><br />' +
+			'</div>');
+	},
+	
+	leaguesite: 'site',
+	site: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Link For The Leagues Site<br />' +
+			'- <a href="http://ktnl.weebly.com/">League Site</a><br />' +
+			'</div>');
+	},
 
 	faq: function(target, room, user) {
 		if (!this.canBroadcast()) return;
