@@ -727,13 +727,24 @@ var commands = exports.commands = {
 	 	    'Ace: Kyurem-Black<br />'+
 	 	    'Rules:No Hazards And No Stat Boosting Moves<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 	    
+	
+	
+	snowman: 'winx', 	    
+	gymleadersnowman: 'winx',
+	winx: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪E4 Takuto₪ <br />'+
+	 	    '<i>"Everything is better DeepFried."</i> <br />'+
+	 	    'Ace: Kyurem-Black<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 
 			
-	checkm8t: function(target, room, user) {  
+	queenejade: 'ejade',
+	ejade: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Checkm8t <br />'+
-	 	    '<i>""Wobbuffet is going to find you >:D"</i> <br />'+
-	 	    'Ace: Wobbuffet <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},
+	 	    '<i>"Obey Your Queen"</i> <br />'+
+	 	    'Ace: Porygon 2 <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
 			
 	heart: 'e4arsh',
 	e4arsh: function(target, room, user) {  
