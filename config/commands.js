@@ -705,10 +705,10 @@ var commands = exports.commands = {
         e4cat: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Cat₪ <br />'+
-	 	    '<i>" When you lose your soul belongs to me"</i> <br />'+
-	 	    'Ace: Krookodile <br />'+
-	 	    'Rules:No Priority And Unburden<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/krookodile.gif">')},
+	 	    '<i>"Tell me what you cherish the most...I\'ll enjoy destroying it"</i> <br />'+
+	 	    'Ace: Bisharp <br />'+
+	 	    'Rules:No Hazards And No Speed Boosting Abilities<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/bisharp.gif">')},
 	
 	e4frostie: 'frostie', 	    
 	frostie: function(target, room, user) {  
