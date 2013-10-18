@@ -733,7 +733,7 @@ var commands = exports.commands = {
 	gymleadersnowman: 'winx',
 	winx: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪E4 Takuto₪ <br />'+
+	 	this.sendReplyBox('₪Gym Leader SnowMan₪ <br />'+
 	 	    '<i>"Everything is better DeepFried."</i> <br />'+
 	 	    'Ace: Kyurem-Black<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 
