@@ -710,6 +710,14 @@ var commands = exports.commands = {
 	 	    'Rules:No Hazards And No Speed Boosting Abilities<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/bisharp.gif">')},
 	
+	gymleaderdemelza: 'demelza',
+	demelza: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪GymLeader Demelza₪ <br />'+
+	 	    '<i>" Welcome to the Fairy world, I will be your guide."</i> <br />'+
+	 	    'Ace: Mega-Gardevoir<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bw/gardevoir-mega.png">')},
+	
 	e4frostie: 'frostie', 	    
 	frostie: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
