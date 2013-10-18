@@ -151,7 +151,9 @@ exports.BattleMovedex = {
 		basePower: 0,
 		basePowerCallback: function(pokemon) {
 			return pokemon.hpPower || 70;
-		}
+		},
+		desc: "Deals damage to one adjacent target. This move's type and power depend on the user's individual values (IVs). Power varies between 30 and 70, and type can be any but Normal.",
+		shortDesc: "Varies in power and type based on the user's IVs."
 	},
 	hiddenpowerbug: {
 		inherit: true,
@@ -290,6 +292,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		accuracy: 80
 	},
+	powergem: {
+		inherit: true,
+		basePower: 70
+	},
 	rocktomb: {
 		inherit: true,
 		accuracy: 80,
@@ -332,6 +338,14 @@ exports.BattleMovedex = {
 	sweetkiss: {
 		inherit: true,
 		type: "Normal"
+	},
+	swordsdance: {
+		inherit: true,
+		pp: 30
+	},
+	synchronoise: {
+		inherit: true,
+		basePower: 70
 	},
 	thief: {
 		inherit: true,
