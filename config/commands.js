@@ -741,7 +741,7 @@ var commands = exports.commands = {
 	queenejade: 'ejade',
 	ejade: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Checkm8t <br />'+
+	 	this.sendReplyBox('Queen EJade <br />'+
 	 	    '<i>"Obey Your Queen"</i> <br />'+
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
