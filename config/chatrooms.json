@@ -1,5 +1,5 @@
 [
-{"title":"Lobby","autojoin":true},
+{"title":"Lobby","autojoin":true,"isOfficial":true},
 {"title":"Staff","isPrivate":true,"staffRoom":true,"staffAutojoin":true},
 {"title":"Tournaments","desc":"Pls Ask A Voice '+' to host tournaments here"},
 {"title":"PokeWorld"},
