@@ -156,7 +156,7 @@ exports.customavatars = {
 	  'gymleaderzard': 'gymleaderzard.png',
 	  'yorolo': 'yorolo.gif',
 	  'queenofdubstep': 'queenofdubstep.gif',
-	  'championcorper': 'championcorper.png',
+	  'championcorper': 'championcorper.gif',
 	  'plox': 'plox.png',
 	  'ncrypt': 'ncrypt.gif',
 	  'boo118': 'boo118.gif',
