@@ -675,6 +675,7 @@ var commands = exports.commands = {
 			'~ <b>Administrator</b> - They can do anything, like change what this message says');
 	},
 	
+	arsh: 'blakjack',
 	arshmalik: 'blakjack',
 	blakjack: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
@@ -704,10 +705,18 @@ var commands = exports.commands = {
         e4cat: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Cat₪ <br />'+
-	 	    '<i>" When you lose your soul belongs to me"</i> <br />'+
-	 	    'Ace: Krookodile <br />'+
-	 	    'Rules:No Priority And Unburden<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/krookodile.gif">')},
+	 	    '<i>"Tell me what you cherish the most...I\'ll enjoy destroying it"</i> <br />'+
+	 	    'Ace: Bisharp <br />'+
+	 	    'Rules:No Hazards And No Speed Boosting Abilities<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/bisharp.gif">')},
+	
+	gymleaderdemelza: 'demelza',
+	demelza: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪GymLeader Demelza₪ <br />'+
+	 	    '<i>" Welcome to the Fairy world, I will be your guide."</i> <br />'+
+	 	    'Ace: Mega-Gardevoir<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bw/gardevoir-mega.png">')},
 	
 	e4frostie: 'frostie', 	    
 	frostie: function(target, room, user) {  
@@ -726,14 +735,26 @@ var commands = exports.commands = {
 	 	    'Ace: Kyurem-Black<br />'+
 	 	    'Rules:No Hazards And No Stat Boosting Moves<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 	    
-			
-	checkm8t: function(target, room, user) {  
+	
+	
+	snowman: 'winx', 	    
+	gymleadersnowman: 'winx',
+	winx: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Checkm8t <br />'+
-	 	    '<i>""Wobbuffet is going to find you >:D"</i> <br />'+
-	 	    'Ace: Wobbuffet <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/wobbuffet.gif">')},
+	 	this.sendReplyBox('₪Gym Leader SnowMan₪ <br />'+
+	 	    '<i>"Everything is better DeepFried."</i> <br />'+
+	 	    'Ace: Kyurem-Black<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 
 			
+	queenejade: 'ejade',
+	ejade: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Queen EJade <br />'+
+	 	    '<i>"Obey Your Queen"</i> <br />'+
+	 	    'Ace: Porygon 2 <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
+			
+	heart: 'e4arsh',
 	e4arsh: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Arsh₪ <br />'+
@@ -741,14 +762,16 @@ var commands = exports.commands = {
 	 	    'Ace: Yanmega <br />'+
 			'<img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 
-	queenofdubstep: function(target, room, user) {  
+	queenofdubstep: 'qod',
+	qod: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Queen Of Dubstep <br />'+
 	 	    '<i>"Never Back Down"</i> <br />'+
 	 	    'Ace: Salamence <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif">')},
 			
-	surfersunite: function(target, room, user) {  
+	surfersunite: 'surfing',
+	surfing: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Surfers Unite <br />'+
 	 	    '<i>"Offense, defense put them together and you have the ultimate battle strategy"</i> <br />'+
@@ -813,12 +836,15 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    		
          	
-     	e4zeppy: function(target, room, user) {  
+     	zeppy: 'zep',
+     	e4zeppy: 'zep',
+     	zep: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('E4 Zeppy <br />'+
-		    '<i>""Even in the toughest of situations, quitting is never an option.""</i> <br />'+
-	 	    'Ace: Sceptile <br />'+
-		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/254.gif">');	
+		    '<i>"Even in the toughest of situations, quitting is never an option."</i> <br />'+
+	 	    'Ace: Politoed <br />'+
+	 	    'Rules: No Hazards and No Sub/Protect/Detect <br />'+
+		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/186.gif">');	
 	 	    	
      	}, 
 	opensource: function(target, room, user) {
@@ -961,6 +987,22 @@ var commands = exports.commands = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Please follow the rules:<br />' +
 			'- <a href="http://pokemonshowdown.com/rules">Rules</a><br />' +
+			'</div>');
+	},
+	
+	leaguerule: 'leaguerules',
+	leaguerules: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Please follow the rules:<br />' +
+			'- <a href="http://ktnl.weebly.com/rules.html">League Rules</a><br />' +
+			'</div>');
+	},
+	
+	leaguesite: 'site',
+	site: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('Link For The Leagues Site<br />' +
+			'- <a href="http://ktnl.weebly.com/">League Site</a><br />' +
 			'</div>');
 	},
 
