@@ -796,7 +796,7 @@ var commands = exports.commands = {
         frontiersilverex: 'silverex',
         silverex: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('bFrontier SilverEX <br />'+
+	 	this.sendReplyBox('Frontier SilverEX <br />'+
 	 	    '<i>"I never back down or give up.... and neither should you"</i> <br />'+
 	 	    'Ace: Mega Charizard Y <br />'+
 		    '<img src="http://www.mmii.info/_ign/42346.gif"> <img src="http://play.pokemonshowdown.com/sprites/bw/charizard-mega-y.png">')},		
