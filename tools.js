@@ -181,7 +181,10 @@ module.exports = (function () {
 			if (!template.genderRatio) template.genderRatio = {M:0.5,F:0.5};
 			if (!template.tier) template.tier = 'Illegal';
 			if (!template.gen) {
-				if (template.num >= 650 || template.forme.substr(0,4) === 'Mega') template.gen = 6;
+				if (template.forme && template.forme.substr(0,4) === 'Mega') {
+					template.gen = 6;
+					template.isMega = true;
+				} else if (template.num >= 650) template.gen = 6;
 				else if (template.num >= 494) template.gen = 5;
 				else if (template.num >= 387) template.gen = 4;
 				else if (template.num >= 252) template.gen = 3;
@@ -772,6 +775,7 @@ module.exports = (function () {
 		}
 
 		var template = this.getTemplate(string(set.species));
+		if (template.isMega) template = this.getTemplate(template.baseSpecies);
 		if (!template.exists) {
 			return ["The Pokemon '"+set.species+"' does not exist."];
 		}

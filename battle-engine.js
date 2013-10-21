@@ -639,7 +639,6 @@ var BattlePokemon = (function() {
 		for (var statName in this.stats) {
 			this.stats[statName] = pokemon.stats[statName];
 		}
-		this.ability = pokemon.ability;
 		this.moveset = [];
 		this.moves = [];
 		this.set.ivs = (this.battle.gen >= 5 ? this.set.ivs : pokemon.set.ivs);
@@ -665,6 +664,8 @@ var BattlePokemon = (function() {
 		for (var j in pokemon.boosts) {
 			this.boosts[j] = pokemon.boosts[j];
 		}
+		this.battle.add('-transform', this, pokemon);
+		this.setAbility(pokemon.ability);
 		this.update();
 		return true;
 	};
@@ -2252,7 +2253,8 @@ var Battle = (function() {
 		for (var m in pokemon.moveset) {
 			pokemon.moveset[m].used = false;
 		}
-		this.add('switch', side.active[pos], side.active[pos].getDetails);
+		this.add('switch', pokemon, pokemon.getDetails);
+		if (pokemon.template.isMega) this.add('-formechange', pokemon, pokemon.template.species);
 		pokemon.update();
 		this.runEvent('SwitchIn', pokemon);
 		this.addQueue({pokemon: pokemon, choice: 'runSwitch'});
@@ -2902,6 +2904,7 @@ var Battle = (function() {
 					'beforeTurnMove': 99,
 					'switch': 6,
 					'runSwitch': 6.1,
+					'megaEvo': 5.9,
 					'residual': -100,
 					'team': 102,
 					'start': 101
@@ -3039,6 +3042,9 @@ var Battle = (function() {
 			if (!decision.pokemon.isActive) return false;
 			if (decision.pokemon.fainted) return false;
 			this.runMove(decision.move, decision.pokemon, this.getTarget(decision), decision.sourceEffect);
+			break;
+		case 'megaEvo':
+			if (this.runMegaEvo) this.runMegaEvo(decision.pokemon);
 			break;
 		case 'beforeTurnMove':
 			if (!decision.pokemon.isActive) return false;
@@ -3417,6 +3423,9 @@ var Battle = (function() {
 
 			case 'move':
 				var targetLoc = 0;
+				var pokemon = side.pokemon[i];
+				var validMoves = pokemon.getValidMoves();
+				var moveid = '';
 
 				if (data.substr(data.length-2) === ' 1') targetLoc = 1;
 				if (data.substr(data.length-2) === ' 2') targetLoc = 2;
@@ -3427,9 +3436,14 @@ var Battle = (function() {
 
 				if (targetLoc) data = data.substr(0, data.lastIndexOf(' '));
 
-				var pokemon = side.pokemon[i];
-				var validMoves = pokemon.getValidMoves();
-				var moveid = '';
+				if (data.substr(data.length-5) === ' mega') {
+					decisions.push({
+						choice: 'megaEvo',
+						pokemon: pokemon
+					});
+					data = data.substr(0, data.length-5);
+				}
+
 				if (data.search(/^[0-9]+$/) >= 0) {
 					moveid = validMoves[parseInt(data, 10) - 1];
 				} else {
