@@ -185,6 +185,7 @@ exports.customavatars = {
 	  'gymleaderdemelza': 'gymleaderdemelza.png',
 	  'arshmalik': 'blakjack.png',
 	  'queenejade': 'queenejade.gif',
+	  'gymleaderakash': 'gymleaderakash.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
