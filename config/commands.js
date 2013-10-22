@@ -797,7 +797,7 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Gym Leader Zeron <br />'+
 	 	    '<i>"Never Give Up Never Surrender!"</i> <br />'+
 	 	    'Ace: Empoleon <br />'+
-		    '<img src="http://fc04.deviantart.net/fs71/f/2012/191/5/a/poke_trainer_sprite_by_rellosaur-d56njeu.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/empoleon.gif">')},
+		    '<img src="http://fc06.deviantart.net/fs71/f/2010/208/0/8/Pixel_PokemonTrainer_Empoleon_by_Shampie.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/empoleon.gif">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
