@@ -278,6 +278,11 @@ var commands = exports.commands = {
 		if(!target) return this.sendReply('/sass needs a target.');
 		return this.parse('/me sasses ' + target + '!');
 	},
+       
+        twerk: function(target, room, user){
+		 return this.parse('/me  twerks their ass out '!');
+	},
+     
      
 
 
