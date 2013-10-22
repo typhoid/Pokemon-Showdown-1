@@ -268,6 +268,12 @@ var commands = exports.commands = {
 		if(!target) return this.sendReply('/spank needs a target.');
 		return this.parse('/me spanks ' + target + '!');
 	},
+	
+	ideclare: 'image',
+	image: function(target, room, user){
+		if(!target) return this.sendReply('/image needs a link.');
+		return this.parse('/declare  <img src='+ target +'>');
+	},
 
 	tierpoll: 'tiervote',
 	tiervote: function(target, room, user){
