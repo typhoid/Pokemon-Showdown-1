@@ -280,7 +280,7 @@ var commands = exports.commands = {
 	},
        
         twerk: function(target, room, user){
-		 return this.parse('/me  twerks their ass out '!');
+		 return this.parse('/me  twerks their ass out !');
 	},
      
      
