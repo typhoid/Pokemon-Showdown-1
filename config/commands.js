@@ -301,10 +301,12 @@ var commands = exports.commands = {
 		var newTargets = Tools.dataSearch(target);
 		if (newTargets && newTargets.length) {
 			for (var i = 0; i < newTargets.length; i++) {
+				var template = Tools.getTemplate(newTargets[i].species);
 				if (newTargets[i].id !== targetId && !Tools.data.Aliases[targetId] && !i) {
 					data = "No Pokemon, item, move or ability named '" + target + "' was found. Showing the data of '" + newTargets[0].name + "' instead.\n";
 				}
 				data += '|c|~|/data-' + newTargets[i].searchType + ' ' + newTargets[i].name + '\n';
+				if (newTargets[i].searchType === 'pokemon') data += 'Tier: ' + template.tier + '\n';
 			}
 		} else {
 			data = "No Pokemon, item, move or ability named '" + target + "' was found. (Check your spelling?)";
