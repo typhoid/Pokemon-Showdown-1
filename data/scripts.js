@@ -974,11 +974,11 @@ exports.BattleScripts = {
 				case 'bugbite':
 					if (hasMove['uturn']) rejected = true;
 					break;
-				case 'crosschop': case 'highjumpkick':
+				case 'crosschop': case 'hijumpkick':
 					if (hasMove['closecombat']) rejected = true;
 					break;
 				case 'drainpunch':
-					if (hasMove['closecombat'] || hasMove['highjumpkick'] || hasMove['crosschop']) rejected = true;
+					if (hasMove['closecombat'] || hasMove['hijumpkick'] || hasMove['crosschop']) rejected = true;
 					break;
 				case 'thunderbolt':
 					if (hasMove['discharge'] || hasMove['voltswitch'] || hasMove['thunder']) rejected = true;

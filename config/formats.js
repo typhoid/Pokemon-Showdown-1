@@ -304,12 +304,11 @@ exports.Formats = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		name: "Pokebank Ubers",
+		name: "Generation 5.5",
 		section: "OM of the Month",
 
-		mod: 'pokebank',
-		ruleset: ['Pokemon', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'OHKO Clause', 'HP Percentage Mod'],
-		banlist: ['Illegal']
+		ruleset: ['Pokemon', 'HP Percentage Mod', 'Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Team Preview'],
+		banlist: ['Unreleased', 'Illegal', 'Uber', 'Limbo']
 	},
 	{
 		name: "Ability Exchange",
@@ -474,13 +473,6 @@ exports.Formats = [
 				};
 			}
 		}
-	},
-	{
-		name: "Generation 5.5",
-		section: "Other Metagames",
-
-		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
-		banlist: ['Uber', 'Limbo']
 	},
 	{
 		name: "Challenge Cup",
@@ -667,41 +659,10 @@ exports.Formats = [
 		name: "[Gen 6] Ubers (beta)",
 		section: "Pokémon X/Y",
 
+		searchShow: false,
 		debug: true,
 		ruleset: ['Pokemon', 'Team Preview', 'Standard Ubers'],
 		banlist: [],
-
-		column: 2
-	},
-	{
-		name: "[Gen 6] OU (beta)",
-		section: "Pokémon X/Y",
-
-		debug: true,
-		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
-		banlist: ['Uber', 'Soul Dew'],
-
-		column: 2
-	},
-	{
-		name: "[Gen 6] Smogon Doubles (beta)",
-		section: "Pokémon X/Y",
-
-		gameType: 'doubles',
-		debug: true,
-		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
-		banlist: ['Uber', 'Soul Dew', 'Dark Void'],
-
-		column: 2
-	},
-	{
-		name: "[Gen 6] LC (beta)",
-		section: "Pokémon X/Y",
-
-		maxLevel: 5,
-		debug: true,
-		ruleset: ['Pokemon', 'Standard', 'Team Preview', 'Little Cup'],
-		banlist: ['Sonicboom', 'Dragon Rage', 'Scyther'],
 
 		column: 2
 	},

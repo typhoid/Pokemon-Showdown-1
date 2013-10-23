@@ -16,7 +16,7 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 90
 	},
-	feintattack: {
+	faintattack: {
 		inherit: true,
 		basePower: 90
 	},
@@ -1064,13 +1064,13 @@ exports.BattleMovedex = {
 		}
 	},
 	/******************************************************************
-	High Jump Kick:
+	Hi Jump Kick:
 	- 100 bp
 
 	Justification:
 	- Blaziken nerf
 	******************************************************************/
-	highjumpkick: {
+	hijumpkick: {
 		inherit: true,
 		basePower: 100
 	},

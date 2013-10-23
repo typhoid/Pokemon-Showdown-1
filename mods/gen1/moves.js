@@ -536,7 +536,7 @@ exports.BattleMovedex = {
 			volatileStatus: 'flinch'
 		}
 	},
-	highjumpkick: {
+	hijumpkick: {
 		inherit: true,
 		basePower: 85,
 		desc: "If this attack misses the target, the user takes 1 HP of damage.",
