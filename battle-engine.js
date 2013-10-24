@@ -187,7 +187,7 @@ var BattlePokemon = (function() {
 		this.baseTemplate = this.battle.getTemplate(set.species || set.name);
 		if (!this.baseTemplate.exists) {
 			this.battle.debug('Unidentified species: '+this.species);
-			this.baseTemplate = this.battle.getTemplate('Bulbasaur');
+			this.baseTemplate = this.battle.getTemplate('Unown');
 		}
 		this.species = this.baseTemplate.species;
 		if (set.name === set.species || !set.name || !set.species) {
@@ -234,6 +234,7 @@ var BattlePokemon = (function() {
 
 		this.types = this.baseTemplate.types;
 
+		var intendedHPType = '';
 		if (this.set.moves) {
 			for (var i=0; i<this.set.moves.length; i++) {
 				var move = this.battle.getMove(this.set.moves[i]);
@@ -242,6 +243,7 @@ var BattlePokemon = (function() {
 					if (!this.set.ivs || Object.values(this.set.ivs).every(31)) {
 						this.set.ivs = this.battle.getType(move.type).HPivs;
 					}
+					intendedHPType = move.type;
 					move = this.battle.getMove('hiddenpower');
 				}
 				this.baseMoveset.push({
@@ -301,6 +303,16 @@ var BattlePokemon = (function() {
 			var maxTypes = (this.battle.gen && this.battle.gen < 6)? 15 : 16;
 			this.hpType = hpTypes[Math.floor(hpTypeX * maxTypes / 63)];
 			this.hpPower = (this.battle.gen && this.battle.gen < 6)? Math.floor(hpPowerX * 40 / 63) + 30 : 60;
+		}
+
+		if (intendedHPType && intendedHPType !== this.hpType && this.battle.getType(intendedHPType).HPivs) {
+			// autocorrect Hidden Power type
+			this.set.ivs = this.battle.getType(intendedHPType).HPivs;
+			for (var i in stats) {
+				if (!this.set.ivs[i]) this.set.ivs[i] = 31;
+			}
+			this.hpType = intendedHPType;
+			this.hpPower = (this.battle.gen && this.battle.gen < 6)? 70 : 60;
 		}
 
 		this.boosts = {
@@ -1303,6 +1315,7 @@ var Battle = (function() {
 		this.id = roomid;
 		this.rated = rated;
 		this.weatherData = {id:''};
+		this.terrainData = {id:''};
 		this.pseudoWeather = {};
 
 		this.format = toId(format);
@@ -1331,6 +1344,7 @@ var Battle = (function() {
 	Battle.prototype.lastUpdate = 0;
 	Battle.prototype.currentRequest = '';
 	Battle.prototype.weather = '';
+	Battle.prototype.terrain = '';
 	Battle.prototype.ended = false;
 	Battle.prototype.started = false;
 	Battle.prototype.active = false;
@@ -1443,7 +1457,7 @@ var Battle = (function() {
 			seed = nextSeed;
 		}
 		return seed;
-	}
+	};
 
 	Battle.prototype.setWeather = function(status, source, sourceEffect) {
 		status = this.getEffect(status);
@@ -1497,6 +1511,60 @@ var Battle = (function() {
 	Battle.prototype.getWeather = function() {
 		return this.getEffect(this.weather);
 	};
+
+	Battle.prototype.setTerrain = function(status, source, sourceEffect) {
+		status = this.getEffect(status);
+		if (sourceEffect === undefined && this.effect) sourceEffect = this.effect;
+		if (source === undefined && this.event && this.event.target) source = this.event.target;
+
+		if (this.terrain === status.id) return false;
+		if (this.terrain && !status.id) {
+			var oldstatus = this.getTerrain();
+			this.singleEvent('End', oldstatus, this.terrainData, this);
+		}
+		var prevTerrain = this.terrain;
+		var prevTerrainData = this.terrainData;
+		this.terrain = status.id;
+		this.terrainData = {id: status.id};
+		if (source) {
+			this.terrainData.source = source;
+			this.terrainData.sourcePosition = source.position;
+		}
+		if (status.duration) {
+			this.terrainData.duration = status.duration;
+		}
+		if (status.durationCallback) {
+			this.terrainData.duration = status.durationCallback.call(this, source, sourceEffect);
+		}
+		if (!this.singleEvent('Start', status, this.terrainData, this, source, sourceEffect)) {
+			this.terrain = prevTerrain;
+			this.terrainData = prevTerrainData;
+			return false;
+		}
+		this.update();
+		return true;
+	};
+	Battle.prototype.clearTerrain = function() {
+		return this.setTerrain('');
+	};
+	Battle.prototype.effectiveTerrain = function(target) {
+		if (this.event) {
+			if (!target) target = this.event.target;
+		}
+		if (!this.runEvent('TryTerrain', target)) return '';
+		return this.terrain;
+	};
+	Battle.prototype.isTerrain = function(terrain, target) {
+		var ourTerrain = this.effectiveTerrain(target);
+		if (!Array.isArray(terrain)) {
+			return ourTerrain === toId(terrain);
+		}
+		return (terrain.map(toId).indexOf(ourTerrain) >= 0);
+	};
+	Battle.prototype.getTerrain = function() {
+		return this.getEffect(this.terrain);
+	};
+
 	Battle.prototype.getFormat = function() {
 		return this.getEffect(this.format);
 	};
@@ -1964,6 +2032,11 @@ var Battle = (function() {
 			status = this.getWeather();
 			if (status[callbackType] !== undefined || (getAll && thing.weatherData[getAll])) {
 				statuses.push({status: status, callback: status[callbackType], statusData: this.weatherData, end: this.clearWeather, thing: thing, priority: status[callbackType+'Priority']||0});
+				this.resolveLastPriority(statuses,callbackType);
+			}
+			status = this.getTerrain();
+			if (status[callbackType] !== undefined || (getAll && thing.terrainData[getAll])) {
+				statuses.push({status: status, callback: status[callbackType], statusData: this.terrainData, end: this.clearTerrain, thing: thing, priority: status[callbackType+'Priority']||0});
 				this.resolveLastPriority(statuses,callbackType);
 			}
 			status = this.getFormat();
