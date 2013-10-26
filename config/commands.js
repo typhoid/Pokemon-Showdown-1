@@ -806,6 +806,14 @@ var commands = exports.commands = {
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
 			
+			
+	vaderdarkside: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('VaderDarkside<br />'+
+	 	    '<i>" Laugh My Friend And The Whole Worlds Laught With You"</i> <br />'+
+	 	    'Ace: Hitmonlee <br />'+
+			'<img src="http://fc07.deviantart.net/fs48/f/2009/208/d/d/sasuke_cursed_seal_2_by_wazzaworks.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/hitmonlee.gif">')},		
+			
         frontiersilverex: 'silverex',
         silverex: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
