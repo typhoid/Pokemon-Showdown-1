@@ -844,18 +844,16 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},				
 					
 			
-	celitenuru: function(target, room, user) {  
+	championlugi: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('CElite-Nuru. <br />'+
-		    'The Armageddon League, C Region.<br/>'+
-	 	    '<i>"Appear weak when you are strong, and strong when you are weak."</i> <br />'+
-	 	    'Ace: Excadrill <br />'+
-		    '<img src="http://play.pokemonshowdown.com/sprites/trainers/154.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/excadrill.gif"><br />'+
-		    'Rules: No Hazards<br />'+
-		    'No Sleeping Moves<br />'+
-		    'No Weather Bar Sandstorm<br />'+
-		    'No More Than 1 Legenadary<br />'+
-		    'No Speed Move Boost/Ability')},
+	 	this.sendReplyBox('Champion Lugi. <br />'+
+		    'Tranquility League.<br/>'+
+	 	    '<i>"All Warfare Is Based On Deception."</i> <br />'+
+	 	    'Ace: Kyurem-Black <br />'+
+	 	    'Format OU/Ubers. <br />'+
+		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif"><br />'+
+		    'Rules: Only Gen 5 and under Moves/Abilities/Items/Pokemon.<br />'+
+		    'http://tranquilityleague.weebly.com/')},
 			
 	champvolt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
