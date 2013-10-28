@@ -759,13 +759,13 @@ var commands = exports.commands = {
 	 	    'Ace: Kyurem-Black<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 
 			
-	queenejade: 'ejade',
-	ejade: function(target, room, user) {  
+	e4ericaj: 'erica',
+	erica: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Queen EJade <br />'+
-	 	    '<i>"Obey Your Queen"</i> <br />'+
-	 	    'Ace: Porygon 2 <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
+	 	this.sendReplyBox('E4 EricaJ <br />'+
+	 	    '<i>"The Iron Lady"</i> <br />'+
+	 	    'Ace: Metagross <br />'+
+			'<img src="http://sprites.pokecheck.org/t/114.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/metagross.gif">')},
 			
 	heart: 'e4arsh',
 	e4arsh: function(target, room, user) {  
@@ -800,13 +800,13 @@ var commands = exports.commands = {
 	 	    'Ace: Gallade <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
 			
-	gymleaderzeron: 'zero',
+	frontierzeron: 'zero',
 	zero: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Gym Leader Zeron <br />'+
+	 	this.sendReplyBox('Frontier Zeron <br />'+
 	 	    '<i>"Never Give Up Never Surrender!"</i> <br />'+
 	 	    'Ace: Empoleon <br />'+
-		    '<img src="http://fc06.deviantart.net/fs71/f/2010/208/0/8/Pixel_PokemonTrainer_Empoleon_by_Shampie.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/empoleon.gif">')},
+		    '<img src="http://fc06.deviantart.net/fs71/f/2010/208/0/8/Pixel_PokemonTrainer_Empoleon_by_Shampie.gif"><img src="http://cap.smogon.com/Sprites/frontnormal-mpyroak.png">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
@@ -814,6 +814,14 @@ var commands = exports.commands = {
 	 	    '<i>"Get Ready To Be Trolled"</i> <br />'+
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
+			
+	gymleaderaltirex: 'altirex',
+	altirex: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('boo118 <br />'+
+	 	    '<i>"I\'m The Best Fuck The Rest"</i> <br />'+
+	 	    'Ace: Aegislash <br />'+
+			'<img src="http://images.wikia.com/dragonballfanon/images/f/ff/Goku_Sprite.gif"><img src="http://play.pokemonshowdown.com/sprites/bw/aegislash-blade.png">')},		
 			
 			
 	vaderdarkside: function(target, room, user) {  
@@ -831,6 +839,15 @@ var commands = exports.commands = {
 	 	    'Ace: Mega Charizard Y <br />'+
 		    '<img src="http://www.mmii.info/_ign/42346.gif"> <img src="http://play.pokemonshowdown.com/sprites/bw/charizard-mega-y.png">')},		
 			
+	 e4yanmega: 'yanmega',
+	 yanmega: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('E4 Yanmega <br />'+
+	 	    '<i>"Do You Even Know What Hazards Are"</i> <br />'+
+	 	    'Ace: Yanmega <br />'+
+		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
+			
+	
 	proflef: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Prof. Le❄f <br />'+
