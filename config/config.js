@@ -187,6 +187,7 @@ exports.customavatars = {
 	  'queenejade': 'queenejade.gif',
 	  'gymleaderakash': 'gymleaderakash.gif',
 	  'kingarani': 'kingarani.gif',
+	  'gymleaderruki': 'gymleaderruki.gif'
 };
 
 // appealurl - specify a URL containing information on how users can appeal
@@ -265,6 +266,7 @@ exports.groups = {
 		inherit: '@',
 		jurisdiction: 'u',
 		roomdriver: true,
+		roomoperator: true,
 		roommod: true,
 		roomonly: true,
 		declare: true,
