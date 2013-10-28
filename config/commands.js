@@ -779,7 +779,7 @@ var commands = exports.commands = {
         ruki: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪Gym Leader Ruk₪ <br />'+
-	 	    '<i>"Imma Never Let U Win The Match"</i> <br />'+
+	 	    '<i>"Show Me Your Fighting Sprit And Battle Me Till The End!"</i> <br />'+
 	 	    'Ace: Heracross <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/blaziken.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/heracross.gif">')},		
  
