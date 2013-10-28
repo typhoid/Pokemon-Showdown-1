@@ -804,9 +804,9 @@ var commands = exports.commands = {
 	zero: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Frontier Zeron <br />'+
-	 	    '<i>"Never Give Up Never Surrender!"</i> <br />'+
-	 	    'Ace: Empoleon <br />'+
-		    '<img src="http://fc06.deviantart.net/fs71/f/2010/208/0/8/Pixel_PokemonTrainer_Empoleon_by_Shampie.gif"><img src="http://cap.smogon.com/Sprites/frontnormal-mpyroak.png">')},
+	 	    '<i>"Just Give Up You Cant Win"</i> <br />'+
+	 	    'Ace: Pyroak <br />'+
+		    '<img src="http://pokecharms.com/data/trainercardmaker/characters/custom/Other/Male-073.png"><img src="http://cap.smogon.com/Sprites/frontnormal-mpyroak.png">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
