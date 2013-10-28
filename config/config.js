@@ -140,7 +140,7 @@ exports.customavatars = {
 	  'quality': 'quality.png',
 	  'skarr': 'skarr.gif',
 	  'laaagar': 'laaagar.gif',
-	  'frontierzeron': 'gymleaderzeron.gif',
+	  'frontierzeron': 'gymleaderzeron.png',
 	  'frankentein': 'frankentein.png',
 	  'championtobias': 'championtobias.png',
 	  'proflef': 'proflef.png',
