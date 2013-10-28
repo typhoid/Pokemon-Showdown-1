@@ -775,6 +775,14 @@ var commands = exports.commands = {
 	 	    'Ace: Yanmega <br />'+
 			'<img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 
+        Gym Leader Ruk: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪Gym Leader Ruk₪ <br />'+
+	 	    '<i>"Imma Never Let U Win The Match"</i> <br />'+
+	 	    'Ace: Heracross <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/blaziken.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/heracross.gif">')},		
+ 
+
 	queenofdubstep: 'qod',
 	qod: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
