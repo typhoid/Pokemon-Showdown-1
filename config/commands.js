@@ -839,6 +839,15 @@ var commands = exports.commands = {
 	 	    'Ace: Mega Charizard Y <br />'+
 		    '<img src="http://www.mmii.info/_ign/42346.gif"> <img src="http://play.pokemonshowdown.com/sprites/bw/charizard-mega-y.png">')},		
 			
+	 e4yanmega: 'yanmega',
+	 yanmega: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('E4 Yanmega <br />'+
+	 	    '<i>"Do You Even Know What Hazards Are"</i> <br />'+
+	 	    'Ace: Yanmega <br />'+
+		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
+			
+	
 	proflef: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Prof. Le❄f <br />'+
