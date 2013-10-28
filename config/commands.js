@@ -818,7 +818,7 @@ var commands = exports.commands = {
 	gymleaderaltirex: 'altirex',
 	altirex: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('boo118 <br />'+
+	 	this.sendReplyBox('Gym Leader AltireX <br />'+
 	 	    '<i>"I\'m The Best Fuck The Rest"</i> <br />'+
 	 	    'Ace: Aegislash <br />'+
 			'<img src="http://images.wikia.com/dragonballfanon/images/f/ff/Goku_Sprite.gif"><img src="http://play.pokemonshowdown.com/sprites/bw/aegislash-blade.png">')},		
