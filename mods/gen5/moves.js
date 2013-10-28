@@ -55,6 +55,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		onTryHit: function() {}
 	},
+	crabhammer: {
+		inherit: true,
+		basePower: 90
+	},
 	defog: {
 		inherit: true,
 		desc: "Lowers one adjacent target's evasion by 1 stage. Whether or not the target's evasion was affected, the effects of Reflect, Light Screen, Safeguard, Mist, Spikes, Toxic Spikes, and Stealth Rock end for the target's side. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves. Ignores a target's Substitute, although a Substitute will still block the evasion lowering.",
@@ -104,6 +108,10 @@ exports.BattleMovedex = {
 	flamethrower: {
 		inherit: true,
 		basePower: 95
+	},
+	followme: {
+		inherit: true,
+		priority: 3
 	},
 	frostbreath: {
 		inherit: true,
@@ -194,7 +202,6 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 70
 	},
-	hiddenpowerfairy: null,
 	hiddenpowerfighting: {
 		inherit: true,
 		basePower: 70
@@ -257,6 +264,7 @@ exports.BattleMovedex = {
 	},
 	incinerate: {
 		inherit: true,
+		basePower: 30,
 		desc: "Deals damage to all adjacent foes and destroys any Berry they may be holding.",
 		shortDesc: "Destroys the foe(s) Berry.",
 		onHit: function(pokemon, source) {
@@ -281,6 +289,11 @@ exports.BattleMovedex = {
 	lowsweep: {
 		inherit: true,
 		basePower: 60
+	},
+	meteormash: {
+		inherit: true,
+		accuracy: 85,
+		basePower: 100
 	},
 	minimize: {
 		inherit: true,
@@ -315,12 +328,33 @@ exports.BattleMovedex = {
 		inherit: true,
 		accuracy: 80
 	},
+	poisonpowder: {
+		inherit: true,
+		onTryHit: function() {}
+	},
 	powergem: {
 		inherit: true,
 		basePower: 70
 	},
+	ragepowder: {
+		num: 476,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		desc: "Until the end of the turn, all single-target attacks from the foe's team are redirected to the user if they are in range. Such attacks are redirected to the user before they can be reflected by Magic Coat or the Ability Magic Bounce, or drawn in by the Abilities Lightningrod or Storm Drain. Fails if it is not a double or triple battle. Priority +3.",
+		shortDesc: "The foes' moves target the user on the turn used.",
+		id: "ragepowder",
+		name: "Rage Powder",
+		pp: 20,
+		priority: 3,
+		volatileStatus: 'followme',
+		secondary: false,
+		target: "self",
+		type: "Bug"
+	},
 	roar: {
 		inherit: true,
+		accuracy: 100,
 		isNotProtectable: false
 	},
 	rocktomb: {
@@ -333,6 +367,10 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 100,
 		pp: 15
+	},
+	sleeppowder: {
+		inherit: true,
+		onTryHit: function() {}
 	},
 	smog: {
 		inherit: true,
@@ -350,6 +388,14 @@ exports.BattleMovedex = {
 		inherit: true,
 		basePower: 40
 	},
+	stringshot: {
+		inherit: true,
+		desc: "Lowers all adjacent foes' Speed by 1 stage. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
+		shortDesc: "Lowers the foe(s) Speed by 1.",
+		boosts: {
+			spe: -1
+		}
+	},
 	strugglebug: {
 		inherit: true,
 		basePower: 30
@@ -365,6 +411,14 @@ exports.BattleMovedex = {
 	sweetkiss: {
 		inherit: true,
 		type: "Normal"
+	},
+	sweetscent: {
+		inherit: true,
+		desc: "Lowers all adjacent foes' evasion by 1 stage. Pokemon protected by Magic Coat or the Ability Magic Bounce are unaffected and instead use this move themselves.",
+		shortDesc: "Lowers the foe(s) evasion by 1.",
+		boosts: {
+			evasion: -1
+		}
 	},
 	swordsdance: {
 		inherit: true,
@@ -391,6 +445,14 @@ exports.BattleMovedex = {
 		basePower: 35,
 		pp: 15
 	},
+	wakeupslap: {
+		inherit: true,
+		basePower: 60,
+		basePowerCallback: function(pokemon, target) {
+			if (target.status === 'slp') return 120;
+			return 60;
+		}
+	},
 	waterpledge: {
 		inherit: true,
 		basePower: 50,
@@ -405,6 +467,7 @@ exports.BattleMovedex = {
 	},
 	whirlwind: {
 		inherit: true,
+		accuracy: 100,
 		isNotProtectable: false
 	},
 	willowisp: {

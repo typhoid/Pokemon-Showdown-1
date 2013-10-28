@@ -65,11 +65,19 @@ exports.BattleAbilities = {
 		num: 106
 	},
 	"aerilate": {
-		desc: "Turn all of this Pokemon's Normal-typed attacks into Flying-typed.",
-		shortDesc: "This Pokemon's Normal moves become Flying.",
-		onModifyMove: function(move) {
-			if (move.type === 'Normal') {
+		desc: "Turns all of this Pokemon's Normal-typed attacks into Flying-typed. Does 1.3x damage. Does not affect Hidden Power.",
+		shortDesc: "This Pokemon's Normal moves become Flying. Does 1.3x damage.",
+		onModifyMove: function(move, pokemon) {
+			if (move.type === 'Normal' && move.id !== 'hiddenpower') {
 				move.type = 'Flying';
+				pokemon.addVolatile('aerilate');
+			}
+		},
+		effect: {
+			duration: 1,
+			onBasePowerPriority: 8,
+			onBasePower: function(basePower, pokemon, target, move) {
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		id: "aerilate",
@@ -415,8 +423,8 @@ exports.BattleAbilities = {
 		num: 6
 	},
 	"darkaura": {
-		desc: "Increases the power of all Dark-type moves in battle.",
-		shortDesc: "Increases the power of all Dark-type moves in battle.",
+		desc: "Increases the power of all Dark-type moves in battle to 1.3x.",
+		shortDesc: "Increases the power of all Dark-type moves in battle to 1.3x.",
 		onBasePowerPriority: 8,
 		onBasePower: function(basePower, attacker, defender, move) {
 			var reverseAura = false;
@@ -433,8 +441,7 @@ exports.BattleAbilities = {
 				}
 			}
 			if (move.type === 'Dark') {
-				this.debug('Dark Aura boost: x' + (reverseAura? 0.8 : 1.2));
-				return this.chainModify(reverseAura? 0.8 : 1.2);
+				return this.chainModify(reverseAura? 0.75 : 1.3);
 			}
 		},
 		id: "darkaura",
@@ -588,8 +595,8 @@ exports.BattleAbilities = {
 		num: 27
 	},
 	"fairyaura": {
-		desc: "Increases the power of all Fairy-type moves in battle.",
-		shortDesc: "Increases the power of all Fairy-type moves in battle.",
+		desc: "Increases the power of all Fairy-type moves in battle to 1.3x.",
+		shortDesc: "Increases the power of all Fairy-type moves in battle to 1.3x.",
 		onBasePowerPriority: 8,
 		onBasePower: function(basePower, attacker, defender, move) {
 			var reverseAura = false;
@@ -606,8 +613,7 @@ exports.BattleAbilities = {
 				}
 			}
 			if (move.type === 'Fairy') {
-				this.debug('Fairy Aura boost: x' + (reverseAura? 0.8 : 1.2));
-				return this.chainModify(reverseAura? 0.8 : 1.2);
+				return this.chainModify(reverseAura? 0.75 : 1.3);
 			}
 		},
 		id: "fairyaura",
@@ -910,7 +916,7 @@ exports.BattleAbilities = {
 		shortDesc: "This Pokemon's Defense is boosted in Grassy Terrain.",
 		onModifyDefPriority: 6,
 		onModifyDef: function(pokemon) {
-			if (this.pseudoWeather['grassyterrain']) return this.chainModify(1.5);
+			if (this.isTerrain('grassyterrain')) return this.chainModify(1.5);
 		},
 		id: "grasspelt",
 		name: "Grass Pelt",
@@ -1465,12 +1471,12 @@ exports.BattleAbilities = {
 		num: 63
 	},
 	"megalauncher": {
-		desc: "Boosts the power of pulse moves such as Water Pulse and Dark Pulse.",
-		shortDesc: "Boosts the power of pulse moves.",
+		desc: "Boosts the power of Aura and Pulse moves, such as Aura Sphere and Dark Pulse, by 50%.",
+		shortDesc: "Boosts the power of Aura/Pulse moves by 50%.",
 		onBasePowerPriority: 8,
 		onBasePower: function(basePower, attacker, defender, move) {
 			if (move.isPulseMove) {
-				return this.chainModify(1.2);
+				return this.chainModify(1.5);
 			}
 		},
 		id: "megalauncher",
@@ -1756,9 +1762,25 @@ exports.BattleAbilities = {
 		num: 20
 	},
 	"parentalbond": {
-		desc: "Allows the Pokemon to hit twice with the same move in one turn.",
-		shortDesc: "Hits twice in one turn.",
-		//todo
+		desc: "Allows the Pokemon to hit twice with the same move in one turn. Second hit has 0.5x base power. Does not affect Status or multihit moves.",
+		shortDesc: "Hits twice in one turn. Second hit has 0.5x base power.",
+		onModifyMove: function(move, pokemon) {
+			if (move.category !== 'Status' && !move.multihit && move.target === "normal") {
+				move.multihit = 2;
+				pokemon.addVolatile('parentalbond');
+			}
+		},
+		effect: {
+			duration: 1,
+			onBasePowerPriority: 8,
+			onBasePower: function(basePower) {
+				if (this.effectData.hit) {
+					return this.chainModify(0.5);
+				} else {
+					this.effectData.hit = true;
+				}
+			}
+		},
 		id: "parentalbond",
 		name: "Parental Bond",
 		rating: 3,
@@ -1811,11 +1833,19 @@ exports.BattleAbilities = {
 		num: 124
 	},
 	"pixilate": {
-		desc: "Turn all of this Pokemon's Normal-typed attacks into Fairy-typed.",
-		shortDesc: "This Pokemon's Normal moves become Fairy.",
-		onModifyMove: function(move) {
-			if (move.type === 'Normal') {
+		desc: "Turns all of this Pokemon's Normal-typed attacks into Fairy-typed. Does 1.3x damage. Does not affect Hidden Power.",
+		shortDesc: "This Pokemon's Normal moves become Fairy. Does 1.3x damage.",
+		onModifyMove: function(move, pokemon) {
+			if (move.type === 'Normal' && move.id !== 'hiddenpower') {
 				move.type = 'Fairy';
+				pokemon.addVolatile('pixilate');
+			}
+		},
+		effect: {
+			duration: 1,
+			onBasePowerPriority: 8,
+			onBasePower: function(basePower, pokemon, target, move) {
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		id: "pixilate",
@@ -1924,9 +1954,11 @@ exports.BattleAbilities = {
 		desc: "Changes user's type to match the user's current move before it attacks.",
 		shortDesc: "Changes user's type to match its move.",
 		onBeforeMove: function(pokemon, target, move) {
-			if (move && pokemon.types.join() !== move.type) {
-				this.add('-start', pokemon, 'typechange', move.type, '[from] Protean');
-				pokemon.types = [move.type];
+			if (!move) return;
+			var moveType = (move.id === 'hiddenpower' ? pokemon.hpType : move.type);
+			if (pokemon.types.join() !== moveType) {
+				this.add('-start', pokemon, 'typechange', moveType, '[from] Protean');
+				pokemon.types = [moveType];
 			}
 		},
 		id: "protean",
@@ -2002,11 +2034,19 @@ exports.BattleAbilities = {
 		num: 120
 	},
 	"refrigerate": {
-		desc: "Turn all of this Pokemon's Normal-typed attacks into Ice-typed.",
-		shortDesc: "This Pokemon's Normal moves become Ice.",
-		onModifyMove: function(move) {
-			if (move.type === 'Normal') {
+		desc: "Turns all of this Pokemon's Normal-typed attacks into Ice-typed. Does 1.3x damage. Does not affect Hidden Power.",
+		shortDesc: "This Pokemon's Normal moves become Ice. Does 1.3x damage.",
+		onModifyMove: function(move, pokemon) {
+			if (move.type === 'Normal' && move.id !== 'hiddenpower') {
 				move.type = 'Ice';
+				pokemon.addVolatile('refrigerate');
+			}
+		},
+		effect: {
+			duration: 1,
+			onBasePowerPriority: 8,
+			onBasePower: function(basePower, pokemon, target, move) {
+				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		id: "refrigerate",
@@ -2448,6 +2488,7 @@ exports.BattleAbilities = {
 	"stancechange": {
 		desc: "The Pokemon changes form depending on how it battles. Defense form for King's Shield, and Offense form for attacking moves.",
 		shortDesc: "The Pokemon changes form depending on how it battles.",
+		onBeforeMovePriority: 10,
 		onBeforeMove: function(attacker, defender, move) {
 			if (attacker.template.baseSpecies !== 'Aegislash') return;
 			if (move.category === 'Status' && move.id !== 'kingsshield') return;
