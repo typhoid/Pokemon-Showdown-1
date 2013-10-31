@@ -697,7 +697,12 @@ var commands = exports.commands = {
 	 	    'Ace: Staraptor <br />'+
 			'<img src="http://i.imgur.com/7FypAPq.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/staraptor.gif">')},
 	
-	frontierheadskarr: 'skarr',
+	frontierheadskarr: function(target, room, user) {  
+                 if (!this.canBroadcast()) return;
+                 this.sendReplyBox('<center><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="blue"><font size="6"><b><i>FrontierHead Skarr</b></i></font></font><br><font color="red"><blink>Ace: Talonflame</blink></font><br>Skarrr');
+        },
+	
+	
 	skarr: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Skarr <br />'+
