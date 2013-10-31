@@ -699,7 +699,7 @@ var commands = exports.commands = {
 	
 	frontierheadskarr: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
-                 this.sendReplyBox('<center><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="blue"><font size="6"><b><i>FrontierHead Skarr</b></i></font></font><br><font color="red"><blink>Ace: Talonflame</blink></font><br>Skarrr');
+                 this.sendReplyBox('<center><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="blue"><font size="6"><b><i>Frontier Head Skarr</b></i></font></font><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="red"><blink>Ace: Talonflame</blink></font><br>Skarrr');
         },
 	
 	
@@ -1010,6 +1010,7 @@ var commands = exports.commands = {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Room Operator ($) can use:<br />' +
 			'- /warn <em>username</em>: Warns The Person<br />' +
+			'<br />' +
 			'Room drivers (%) can use:<br />' +
 			'- /mute <em>username</em>: 7 minute mute<br />' +
 			'- /hourmute <em>username</em>: 60 minute mute<br />' +
@@ -1027,6 +1028,7 @@ var commands = exports.commands = {
 			'- /declare <em>message</em>: make a global declaration<br />' +
 			'- /roommod, /roomdriver <em>username</em>: appoint a room moderator/driver<br />' +
 			'- /roomdemod, /roomdedriver <em>username</em>: remove a room moderator/driver<br />' +
+			'<br />' +
 			'Room owners (#) can also use:<br />' +
 			'- /roomleader <em>username</em>: appoint a room leader<br />' +
 			'- /declare <em>message</em>: make a global declaration<br />' +
