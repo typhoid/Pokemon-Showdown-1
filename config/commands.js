@@ -699,7 +699,7 @@ var commands = exports.commands = {
 	
 	frontierheadskarr: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
-                 this.sendReplyBox('<center><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="blue"><font size="6"><b><i>Frontier Head Skarr</b></i></font></font><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="red"><blink>Ace: Talonflame</blink></font><br>Skarrr');
+                 this.sendReplyBox('<center><img src="http://pldh.net/media/dreamworld/479-wash.png"><br><font color="blue"><font size="6"><b><i>Frontier Head Skarr</b></i></font></font><img src="http://images2.wikia.nocookie.net/__cb20130612135008/po-ke-mon/es/images/3/36/Talonflame_XY.png"><br><font color="red"><blink>Ace: Talonflame</blink></font><br>Skarrr');
         },
 	
 	
