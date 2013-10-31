@@ -271,6 +271,7 @@ exports.groups = {
 		jurisdiction: 'u',
 		roomdriver: true,
 		roomoperator: true,
+		roomleader: true,
 		roommod: true,
 		roomonly: true,
 		declare: true,

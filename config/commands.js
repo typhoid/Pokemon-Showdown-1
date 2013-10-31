@@ -1003,7 +1003,9 @@ var commands = exports.commands = {
 	roomhelp: function(target, room, user) {
 		if (room.id === 'lobby') return this.sendReply('This command is too spammy for lobby.');
 		if (!this.canBroadcast()) return;
-		this.sendReplyBox('Room drivers (%) can use:<br />' +
+		this.sendReplyBox('Room Operator ($) can use:<br />' +
+			'- /warn <em>username</em>: Warns The Person<br />' +
+			'Room drivers (%) can use:<br />' +
 			'- /mute <em>username</em>: 7 minute mute<br />' +
 			'- /hourmute <em>username</em>: 60 minute mute<br />' +
 			'- /unmute <em>username</em>: unmute<br />' +
@@ -1016,10 +1018,12 @@ var commands = exports.commands = {
 			'- /roomdevoice <em>username</em>: remove a room voice<br />' +
 			'- /modchat <em>level</em>: set modchat (to turn off: /modchat off)<br />' +
 			'<br />' +
-			'Room owners (#) can also use:<br />' +
-			'- /roomdesc <em>description</em>: set the room description on the room join page<br />' +
+			'Room leader (&) can also use:<br />' +
+			'- /declare <em>message</em>: make a global declaration<br />' +
 			'- /roommod, /roomdriver <em>username</em>: appoint a room moderator/driver<br />' +
 			'- /roomdemod, /roomdedriver <em>username</em>: remove a room moderator/driver<br />' +
+			'Room owners (#) can also use:<br />' +
+			'- /roomleader <em>username</em>: appoint a room leader<br />' +
 			'- /declare <em>message</em>: make a global declaration<br />' +
 			'</div>');
 	},
