@@ -191,6 +191,7 @@ exports.customavatars = {
 	  'gymleaderaltirex': 'gymleaderaltirex.gif',
 	  'e4ericaj': 'e4ericaj.png',
 	  'gymleadermichiko': 'gymleadermichiko.png',
+	  'vaderdarkside': 'vaderdarkside.gif',
 	  
 };
 
