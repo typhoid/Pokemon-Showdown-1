@@ -239,13 +239,13 @@ exports.appealurl = '';
 //     - potd: Set PotD.
 //     - forcewin: /forcewin command.
 //     - battlemessage: /a command.
-exports.groupsranking = [' ', '+', '$', '%', '₪', '@', '#', '&', '~'];
+exports.groupsranking = [' ', '+', '$', '%', '@', '#', '&', '~'];
 exports.groups = {
 	'~': {
 		id: "admin",
 		name: "Administrator",
 		root: true,
-		rank: 8
+		rank: 7
 	},
 	'&': {
 		id: "leader",
@@ -263,7 +263,7 @@ exports.groups = {
 		forcejoin: true,
 		permaban: true,
 		makeroom: true,
-		rank: 7
+		rank: 6
 	},
 	'#': {
 		id: "owner",
@@ -277,7 +277,7 @@ exports.groups = {
 		roomonly: true,
 		declare: true,
 		modchatall: true,
-		rank: 6
+		rank: 5
 	},
 	'@': {
 		id: "mod",
@@ -289,27 +289,7 @@ exports.groups = {
 		forcerename: true,
 		ip: true,
 		alts: '@u',
-		rank: 5
-	},
-	'₪': {
-		id: "gymleader",
-		name: "Gym Leader",
-		inherit: '%',
-		jurisdiction: 'u',
-		announce: true,
-		warn: true,
-		kick: true,
-		mute: true,
-		lock: true,
-		forcerename: true,
-		timer: true,
-		modlog: true,
-		alts: '%u',
-		bypassblocks: 'u%@&~',
-		receiveauthmessages: true,
-		roomvoice: true,
 		rank: 4
-
 	},
 	'%': {
 		id: "driver",
