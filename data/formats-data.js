@@ -4258,9 +4258,11 @@ exports.BattleFormatsData = {
 		tier: "Limbo"
 	},
 	fletchling: {
+		viableMoves: {"acrobatics":1,"roost":1,"swordsdance":1,"uturn":1,"return":1},
 		tier: "LC"
 	},
 	fletchinder: {
+		viableMoves: {"acrobatics":1,"roost":1,"swordsdance":1,"uturn":1,"return":1},
 		tier: "NFE"
 	},
 	talonflame: {
@@ -4268,12 +4270,15 @@ exports.BattleFormatsData = {
 		tier: "Limbo"
 	},
 	scatterbug: {
+		viableMoves: {"tackle":1,"stringshot":1,"stunspore":1,"bugbite":1},
 		tier: "LC"
 	},
 	spewpa: {
+		viableMoves: {"tackle":1,"stringshot":1,"stunspore":1,"bugbite":1},
 		tier: "NFE"
 	},
 	vivillon: {
+		viableMoves: {"sleeppowder":1,"quiverdance":1,"hurricane":1,"bugbuzz":1,"roost":1},
 		tier: "Limbo"
 	},
 	litleo: {
@@ -4298,9 +4303,11 @@ exports.BattleFormatsData = {
 		tier: "Limbo"
 	},
 	pancham: {
+		viableMoves: {"partingshot":1,"skyuppercut":1,"crunch":1,"circlethrow":1,"workup":1,"bodyslam":1},
 		tier: "LC"
 	},
 	pangoro: {
+		viableMoves: {"partingshot":1,"skyuppercut":1,"crunch":1,"circlethrow":1,"workup":1,"bodyslam":1,"lowsweep":1},
 		tier: "Limbo"
 	},
 	furfrou: {
@@ -4447,6 +4454,7 @@ exports.BattleFormatsData = {
 		tier: "Limbo"
 	},
 	noibat: {
+		viableMoves: {"airslash":1,"hurricane":1,"dracometeor:":1,"uturn":1,"roost":1},
 		tier: "LC"
 	},
 	noivern: {
