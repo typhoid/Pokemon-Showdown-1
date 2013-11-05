@@ -881,6 +881,10 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/cloyster.gif">')},		
 			
 	
+	arshm: function(target, room, user) {  
+                 if (!this.canBroadcast()) return;
+                 this.sendReplyBox('<center><img src="http://i.imgur.com/otDPUQU.png"><br><img src="http://i.imgur.com/eZw2ZzA.png"><img src="http://i.imgur.com/V2pL6Xe.png"><img src="http://pldh.net/media/pokemon/conquest/sprite/398.png"><br><font color="brown"><blink>Ace: Staraptor</blink><br><font color="brown">Trolltraptor is gonna troll ur ass off')],
+	
 	dejavu: 'n',
         n: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
