@@ -432,6 +432,8 @@ var commands = exports.commands = {
 				return this.sendReply('You do not have enough bucks for this. You need ' + (price - user.money) + ' more bucks to buy ' + target + '.');
 			}
 		}
+		
+		
 		if (match === true) {
 			var re = new RegExp(line,"g");
 			fs.readFile('config/money.csv', 'utf8', function (err,data) {
@@ -443,7 +445,64 @@ var commands = exports.commands = {
 				if (err) return console.log(err);
 			});
 			});
-		}
+		} else {
+					var log = fs.createWriteStream('config/money.csv', {'flags': 'a'});
+					log.write("\n"+user.userid+','+user.money);
+				}
+
+				
+				var lore = fs.readFileSync('config/coins.csv','utf8')
+        var match = false;
+        var coins = 0;
+        var spag = (''+lore).split("\n");
+        var hetti = '';
+        for (var i = spag.length; i > -1; i--) {
+            if (!spag[i]) continue;
+            var parts = spag[i].split(",");
+            var userid = toUserid(parts[0]);
+		    if (user.userid == userid) {
+            var y = Number(parts[1]);
+            var coins = y;
+            match = true;
+            if (match === true) {
+                hetti = hetti + spag[i];
+                 break;
+            }
+            }
+        }
+		user.coins = coins;
+		var bunnywheel = 0;
+		var stringbit = 0;
+		if (target === 'buck') {
+		bunnywheel = 100;
+		price = 1;
+		if  (!user.canSpin) {
+		    if (bunnywheel <= user.coins) {
+				user.coins =user.coins - bunnywheel;
+		        user.canSpin = true;
+
+
+				this.sendReply('You put together 100 coins and put it in buck machine!');
+				this.sendReply(' Type /take to accept the money!');
+				this.add('!!!' + user.name + ' has activated the buck machine!');
+			} else {
+                return this.sendReply('You do not have enough to do this! You need ' + (bunnywheel - user.coins) + ' more coins to make a  bucks!');
+            } }
+			else { return this.sendReply(' You still have coins in the machine. take it first!use /take') }
+			}
+		
+			if (match === true) {
+            var be = new RegExp(hetti,"g");
+            fs.readFile('config/coins.csv', 'utf8', function (err,lore) {
+             if (err) {
+                 return console.log(err);
+            }
+            var result = lore.replace(be, user.userid+','+user.coins);
+            fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
+                if (err) return console.log(err);
+            });
+            });
+	    }
 	},
 
 	customsymbol: function(target, room, user) {
@@ -462,6 +521,52 @@ var commands = exports.commands = {
 		user.canCustomSymbol = false;
 	},
 
+take: function(target, room, user) {
+	if(!user.canSpin) return this.sendReply(' you have to put coins in the machine before you can take it!');
+	else	var data = fs.readFileSync('config/money.csv','utf8')
+		var match = false;
+		var money = 0;
+		var line = '';
+		var row = (''+data).split("\n");
+		for (var i = row.length; i > -1; i--) {
+			if (!row[i]) continue;
+			var parts = row[i].split(",");
+			var userid = toUserid(parts[0]);
+			if (user.userid == userid) {
+			var x = Number(parts[1]);
+			var money = x;
+			match = true;
+			if (match === true) {
+				line = line + row[i];
+				break;
+			}
+			}
+		}
+		 user.money = money;
+ 	     var stringbit = 1;
+		 user.money =user.money + stringbit;
+		this.sendReply('you collect the buck and put it in your wallet!');
+		this.add('Through hard work and the sacrifice of many coins' + user.name + ' has made one  whole buck!');
+
+		 
+		 if (match === true) {
+			var re = new RegExp(line,"g");
+			fs.readFile('config/money.csv', 'utf8', function (err,data) {
+			if (err) {
+				return console.log(err);
+			}
+			var result = data.replace(re, user.userid+','+user.money);
+			fs.writeFile('config/money.csv', result, 'utf8', function (err) {
+				if (err) return console.log(err);
+			});
+			});
+		} else {
+					var log = fs.createWriteStream('config/money.csv', {'flags': 'a'});
+					log.write("\n"+user.userid+','+user.money);
+				}
+	user.canSpin = false;
+	},
+	
 	shop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('<center><h4><b><u>Kill The Noise Shop</u></b></h4><table border="1" cellspacing ="0" cellpadding="3"><tr><th>Command</th><th>Description</th><th>Cost</th></tr>' +
@@ -472,7 +577,9 @@ var commands = exports.commands = {
 			'<tr><td>Trainer</td><td>Buys a trainer card which shows information through a command such as /blakjack (note: third image costs 10 bucks extra, ask for more details)</td><td>40</td></tr>' +
 			'<tr><td>Fix</td><td>Buys the ability to alter your current custom avatar or trainer card (don\'t buy if you have neither)!</td><td>10</td></tr>' +
 			'<tr><td>Declare</td><td>You get the ability to get two declares from an Admin in lobby. This can be used for league advertisement (not server)</td><td>25</td></tr>' +
-			'</table><br />To buy an item from the shop, use /buy [command]. <br />Also do /moneycommands to view money based commands.</center>');
+			'</table><br />To buy an item from the shop, use /buy [command]. <br />Also do /moneycommands to view money based commands.</center>' +
+			'<center><table border="1" cellspacing ="0" cellpadding="4"><tr><th>Command</th><th>Money converter!</th><th>PAYOUT</th></tr>' +
+		        '<tr><td>buck</td><td>Turns <b>100 coins</b> into <b>1 buck</b>!</td><td>1</td></tr>' );
 		if (closeShop) return this.sendReply('|raw|<center><h3><b>The shop is currently closed and will open shortly.</b></h3></center>');
 	},
 
