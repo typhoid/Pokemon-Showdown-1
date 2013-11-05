@@ -189,7 +189,7 @@ exports.customavatars = {
 	  'kingarani': 'kingarani.gif',
 	  'gymleaderruki': 'gymleaderruki.gif',
 	  'gymleaderaltirex': 'gymleaderaltirex.gif',
-	  'e4ericaj': 'e4ericaj.png',
+	  'e4ericaj': 'e4ericaj.gif',
 	  'gymleadermichiko': 'gymleadermichiko.png',
 	  'vaderdarkside': 'vaderdarkside.gif',
 	  'kupo': 'kupo.png',
