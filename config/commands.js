@@ -754,7 +754,7 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('₪Gym Leader HaxRus₪ <br />'+
 	 	    '<i>"They say dragons never truly die. No matter how many times you kill them."</i> <br />'+
 	 	    'Ace: Salamence <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif">')},		
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/garchomp.gif">')},		
 
 	
 	tak: 'e4takuto', 	    
@@ -924,15 +924,17 @@ var commands = exports.commands = {
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    		
          	
+     	e4gazz: 'zep',
+     	gazz: 'zep',
      	zeppy: 'zep',
      	e4zeppy: 'zep',
      	zep: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('E4 Zeppy <br />'+
+	 	this.sendReplyBox('E4 Gazz<br />'+
 		    '<i>"Even in the toughest of situations, quitting is never an option."</i> <br />'+
-	 	    'Ace: Politoed <br />'+
+	 	    'Ace: Greninja <br />'+
 	 	    'Rules: No Hazards and No Sub/Protect/Detect <br />'+
-		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="http://sprites.pokecheck.org/i/186.gif">');	
+		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="play.pokemonshowdown.com/sprites/bw/greninja.png">');	
 	 	    	
      	}, 
 	opensource: function(target, room, user) {
