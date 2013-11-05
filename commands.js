@@ -2730,9 +2730,9 @@ function getRandMessage(user){
 			break;
 		case 4: message = message + user.name + ' was squished by pandaw\'s large behind!';
 			break;
-		case 5: message = message + user.name + ' became EnerG\'s slave!';
+		case 5: message = message + user.name + ' became BlakJack\'s slave!';
 			break;
-		case 6: message = message + user.name + ' became kupo\'s love slave!';
+		case 6: message = message + user.name + ' became Skarr\'s love slave!';
 			break;
 		case 7: message = message + user.name + ' has left the building.';
 			break;
