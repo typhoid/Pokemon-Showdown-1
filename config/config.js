@@ -197,6 +197,7 @@ exports.customavatars = {
 	  'frontierakash': 'frontierakash.gif',
 	  'unovachampionn': 'n.lpg',
 	  'gymleaderdejavu': 'n.jpg',
+	  'gymleaderhaxrus': 'haxrus.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
