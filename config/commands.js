@@ -747,6 +747,16 @@ var commands = exports.commands = {
 	 	    'Rules:No Priority And Hazards<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/charizard.gif">')}, 	    
 	
+	
+	gymleaderhaxrus: 'haxrus',
+        haxrus: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪Gym Leader HaxRus₪ <br />'+
+	 	    '<i>"They say dragons never truly die. No matter how many times you kill them."</i> <br />'+
+	 	    'Ace: Salamence <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif">')},		
+
+	
 	tak: 'e4takuto', 	    
 	e4takuto: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
