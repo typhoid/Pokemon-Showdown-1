@@ -933,7 +933,8 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('E4 Gazz<br />'+
 		    '<i>"Even in the toughest of situations, quitting is never an option."</i> <br />'+
 	 	    'Ace: Greninja <br />'+
-	 	    'Rules: No Hazards and No Sub/Protect/Detect <br />'+
+	 	    'Rules: No Direct status (Toxic, Spore, Will-O-wisp) <br />'+
+		    'No Recovering (Wish/Rest/Roost/Recover) <br />'+
 		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="play.pokemonshowdown.com/sprites/bw/greninja.png">');	
 	 	    	
      	}, 
