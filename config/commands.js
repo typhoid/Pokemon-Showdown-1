@@ -774,7 +774,6 @@ var commands = exports.commands = {
 	 	    'Ace: Metagross <br />'+
 			'<img src="http://sprites.pokecheck.org/t/114.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/metagross.gif">')},
 			
-	heart: 'e4arsh',
 	e4arsh: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Arsh₪ <br />'+
@@ -782,6 +781,15 @@ var commands = exports.commands = {
 	 	    'Ace: Yanmega <br />'+
 			'<img src="http://sprites.pokecheck.org/t/187.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 
+        frontierakash: 'akash',
+        akash: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪Frontier Akash₪ <br />'+
+	 	    '<i>"Fly High Or Die"</i> <br />'+
+	 	    'Ace: Thundurus <br />'+
+			'<img src="http://s17.postimg.org/4gxh1eut7/1675598_L5_E3tg_K.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/thundurus.gif">')},		
+
+        
         gymleaderruki: 'ruki',
         ruki: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
