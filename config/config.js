@@ -193,6 +193,7 @@ exports.customavatars = {
 	  'gymleadermichiko': 'gymleadermichiko.png',
 	  'vaderdarkside': 'vaderdarkside.gif',
 	  'kupo': 'kupo.png',
+	  'e4shadow': 'e4shadow.png',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
