@@ -902,7 +902,15 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Champion Zard <br />'+
 	 	    '<i>"Whoever Stands In My Way Will Feel My Rage"</i> <br />'+
 	 	    'Ace: Infernape <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},				
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},
+	
+	e4wonder: 'wonder',
+	wonder: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('E4 Wonder <br />'+
+	 	    '<i>"Your fate was sealed the moment you challenged me"</i> <br />'+
+	 	    'Ace: Ludicolo <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/ludicolo.gif">')},		
 					
 			
 	championlugi: function(target, room, user) {  
