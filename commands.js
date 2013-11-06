@@ -518,21 +518,21 @@ take: function(target, room, user) {
 		this.add('Through hard work and the sacrifice of many bucks ' + user.name + ' has made one  whole coin!');
 
 		 
-          if (match === true) {
-                    var be = new RegExp(hetti,"g");
-                    fs.readFile('config/coins.csv', 'utf8', function (err,lore) {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        var result = lore.replace(be,  targetUser.userid+','+targetUser.coins);
-                        fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
-                            if (err) return console.log(err);
-                        });
-                    });
-                } else {
-                    var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
-                    log.write("\n"+ targetUser.userid+','+targetUser.coins);
-                }
+			if (match === true) {
+			var re = new RegExp(line,"g");
+			fs.readFile('config/coins.csv', 'utf8', function (err,data) {
+			if (err) {
+				return console.log(err);
+			}
+			var result = data.replace(re, targetUser.userid+','+targetUser.coins);
+			fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
+				if (err) return console.log(err);
+			});
+			});
+		} else {
+			var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
+			log.write("\n"+targetUser.userid+','+targetUser.coins);
+		}
 	user.canSpin = false;
 	},
 
