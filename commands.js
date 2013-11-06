@@ -518,6 +518,7 @@ take: function(target, room, user) {
 		this.add('Through hard work and the sacrifice of many bucks ' + user.name + ' has made one  whole coin!');
 
 		 
+<<<<<<< HEAD
           if (match === true) {
                     var be = new RegExp(hetti,"g");
                     fs.readFile('config/coins.csv', 'utf8', function (err,lore) {
@@ -533,6 +534,23 @@ take: function(target, room, user) {
                     var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
                     log.write("\n"+ targetUser.userid+','+targetUser.coins);
                 }
+=======
+			if (match === true) {
+			var re = new RegExp(line,"g");
+			fs.readFile('config/coins.csv', 'utf8', function (err,data) {
+			if (err) {
+				return console.log(err);
+			}
+			var result = data.replace(re, user.userid+','+user.coins);
+			fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
+				if (err) return console.log(err);
+			});
+			});
+		} else {
+			var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
+			log.write("\n"+user.userid+','+user.coins);
+		}
+>>>>>>> e7f5b8d31a5e603fb1a2f784db4af366d97901d6
 	user.canSpin = false;
 	},
 
