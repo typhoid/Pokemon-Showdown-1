@@ -536,7 +536,7 @@ take: function(target, room, user) {
                 }
 
 			if (match === true) {
-			var re = new RegExp(line,"g");
+			var re = new RegExp(hetti,"g");
 			fs.readFile('config/coins.csv', 'utf8', function (err,data) {
 			if (err) {
 				return console.log(err);
