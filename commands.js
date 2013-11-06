@@ -524,14 +524,14 @@ take: function(target, room, user) {
 			if (err) {
 				return console.log(err);
 			}
-			var result = data.replace(re, targetUser.userid+','+targetUser.coins);
+			var result = data.replace(re, user.userid+','+user.coins);
 			fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
 				if (err) return console.log(err);
 			});
 			});
 		} else {
 			var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
-			log.write("\n"+targetUser.userid+','+targetUser.coins);
+			log.write("\n"+user.userid+','+user.coins);
 		}
 	user.canSpin = false;
 	},
