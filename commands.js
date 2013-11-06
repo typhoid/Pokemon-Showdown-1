@@ -437,7 +437,9 @@ var commands = exports.commands = {
 		               var bunnywheel = 0;
                 var stringbit = 0;
                 if (target === 'coin') {
-                bunnywheel = 100;
+              //COST OF A COINv
+                bunnywheel = 100; // <--- edit the '100' to change how many bucks a coin costs.
+              //COST OF A COIN^
                 price = 1;
                 if  (!user.canSpin) {
                     if (bunnywheel <= user.money) {
@@ -445,7 +447,7 @@ var commands = exports.commands = {
                         user.canSpin = true;
 
 
-                                this.sendReply('You put together 100 bucks and put it in coin machine!');
+                                this.sendReply('You put together ' +bunnywheel +' bucks and put it in coin machine!');
                                 this.sendReply(' Type /take to accept the coin!');
                                 this.add('!!!' + user.name + ' has activated the coin machine!');
                         } else {
@@ -513,7 +515,9 @@ var commands = exports.commands = {
             }
         }
                 user.coins = coins;
- 	     var stringbit = 1;
+//CHANGE HOW MANY COINS YOU GETv
+ 	       var stringbit = 1; //<----
+//CHANGE HOW MANY COINS YOU GET^
 		 user.coins =user.coins + stringbit;
 		this.sendReply('you collect the almighty coin and put it in your wallet!');
 		this.add('Through hard work and the sacrifice of many bucks ' + user.name + ' has made one  whole coin!');
