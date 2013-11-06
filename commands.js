@@ -434,6 +434,26 @@ var commands = exports.commands = {
 		}
 		
 		
+		               var bunnywheel = 0;
+                var stringbit = 0;
+                if (target === 'coin') {
+                bunnywheel = 100;
+                price = 1;
+                if  (!user.canSpin) {
+                    if (bunnywheel <= user.money) {
+                                user.money =user.money - bunnywheel;
+                        user.canSpin = true;
+
+
+                                this.sendReply('You put together 100 bucks and put it in coin machine!');
+                                this.sendReply(' Type /take to accept the coin!');
+                                this.add('!!!' + user.name + ' has activated the coin machine!');
+                        } else {
+                return this.sendReply('You do not have enough to do this! You need ' + (bunnywheel - user.coin) + ' more bucks to make a  coin!');
+            } }
+                        else { return this.sendReply(' You still have bucks in the machine. take the coin first!use /take') }
+                        }
+                        
 		if (match === true) {
 			var re = new RegExp(line,"g");
 			fs.readFile('config/money.csv', 'utf8', function (err,data) {
@@ -451,58 +471,7 @@ var commands = exports.commands = {
 				}
 
 				
-				var lore = fs.readFileSync('config/coins.csv','utf8')
-        var match = false;
-        var coins = 0;
-        var spag = (''+lore).split("\n");
-        var hetti = '';
-        for (var i = spag.length; i > -1; i--) {
-            if (!spag[i]) continue;
-            var parts = spag[i].split(",");
-            var userid = toUserid(parts[0]);
-		    if (user.userid == userid) {
-            var y = Number(parts[1]);
-            var coins = y;
-            match = true;
-            if (match === true) {
-                hetti = hetti + spag[i];
-                 break;
-            }
-            }
-        }
-		user.coins = coins;
-		var bunnywheel = 0;
-		var stringbit = 0;
-		if (target === 'buck') {
-		bunnywheel = 100;
-		price = 1;
-		if  (!user.canSpin) {
-		    if (bunnywheel <= user.coins) {
-				user.coins =user.coins - bunnywheel;
-		        user.canSpin = true;
 
-
-				this.sendReply('You put together 100 coins and put it in buck machine!');
-				this.sendReply(' Type /take to accept the money!');
-				this.add('!!!' + user.name + ' has activated the buck machine!');
-			} else {
-                return this.sendReply('You do not have enough to do this! You need ' + (bunnywheel - user.coins) + ' more coins to make a  bucks!');
-            } }
-			else { return this.sendReply(' You still have coins in the machine. take it first!use /take') }
-			}
-		
-			if (match === true) {
-            var be = new RegExp(hetti,"g");
-            fs.readFile('config/coins.csv', 'utf8', function (err,lore) {
-             if (err) {
-                 return console.log(err);
-            }
-            var result = lore.replace(be, user.userid+','+user.coins);
-            fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
-                if (err) return console.log(err);
-            });
-            });
-	    }
 	},
 
 	customsymbol: function(target, room, user) {
@@ -522,50 +491,51 @@ var commands = exports.commands = {
 	},
 
 take: function(target, room, user) {
-	if(!user.canSpin) return this.sendReply(' you have to put coins in the machine before you can take it!');
-	else	var data = fs.readFileSync('config/money.csv','utf8')
-		var match = false;
-		var money = 0;
-		var line = '';
-		var row = (''+data).split("\n");
-		for (var i = row.length; i > -1; i--) {
-			if (!row[i]) continue;
-			var parts = row[i].split(",");
-			var userid = toUserid(parts[0]);
-			if (user.userid == userid) {
-			var x = Number(parts[1]);
-			var money = x;
-			match = true;
-			if (match === true) {
-				line = line + row[i];
-				break;
-			}
-			}
-		}
-		 user.money = money;
+	if(!user.canSpin) return this.sendReply(' you have to put bucks in the machine before you can take it!');
+                            var lore = fs.readFileSync('config/coins.csv','utf8')
+        var match = false;
+        var coins = 0;
+        var spag = (''+lore).split("\n");
+        var hetti = '';
+        for (var i = spag.length; i > -1; i--) {
+            if (!spag[i]) continue;
+            var parts = spag[i].split(",");
+            var userid = toUserid(parts[0]);
+                    if (user.userid == userid) {
+            var y = Number(parts[1]);
+            var coins = y;
+            match = true;
+            if (match === true) {
+                hetti = hetti + spag[i];
+                 break;
+            }
+            }
+        }
+                user.coins = coins;
  	     var stringbit = 1;
-		 user.money =user.money + stringbit;
-		this.sendReply('you collect the buck and put it in your wallet!');
-		this.add('Through hard work and the sacrifice of many coins' + user.name + ' has made one  whole buck!');
+		 user.coins =user.coins + stringbit;
+		this.sendReply('you collect the almighty coin and put it in your wallet!');
+		this.add('Through hard work and the sacrifice of many bucks ' + user.name + ' has made one  whole coin!');
 
 		 
-		 if (match === true) {
+			if (match === true) {
 			var re = new RegExp(line,"g");
-			fs.readFile('config/money.csv', 'utf8', function (err,data) {
+			fs.readFile('config/coins.csv', 'utf8', function (err,data) {
 			if (err) {
 				return console.log(err);
 			}
-			var result = data.replace(re, user.userid+','+user.money);
-			fs.writeFile('config/money.csv', result, 'utf8', function (err) {
+			var result = data.replace(re, targetUser.userid+','+targetUser.coins);
+			fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
 				if (err) return console.log(err);
 			});
 			});
 		} else {
-					var log = fs.createWriteStream('config/money.csv', {'flags': 'a'});
-					log.write("\n"+user.userid+','+user.money);
-				}
+			var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
+			log.write("\n"+targetUser.userid+','+targetUser.coins);
+		}
 	user.canSpin = false;
 	},
+
 	
 	shop: function(target, room, user) {
 		if (!this.canBroadcast()) return;
@@ -579,7 +549,7 @@ take: function(target, room, user) {
 			'<tr><td>Declare</td><td>You get the ability to get two declares from an Admin in lobby. This can be used for league advertisement (not server)</td><td>25</td></tr>' +
 			'</table><br />To buy an item from the shop, use /buy [command]. <br />Also do /moneycommands to view money based commands.</center>' +
 			'<center><table border="1" cellspacing ="0" cellpadding="4"><tr><th>Command</th><th>Money converter!</th><th>PAYOUT</th></tr>' +
-		        '<tr><td>buck</td><td>Turns <b>100 coins</b> into <b>1 buck</b>!</td><td>1</td></tr>' );
+		        '<tr><td>/buy coin</td><td>Turns <b>100 bucks</b> into <b>1 coin</b>!</td><td>1</td></tr>' );
 		if (closeShop) return this.sendReply('|raw|<center><h3><b>The shop is currently closed and will open shortly.</b></h3></center>');
 	},
 
