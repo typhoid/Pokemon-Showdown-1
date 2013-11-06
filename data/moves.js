@@ -1983,6 +1983,7 @@ exports.BattleMovedex = {
 		name: "Cotton Spore",
 		pp: 40,
 		priority: 0,
+		isPowder: true,
 		boosts: {
 			spe: -2
 		},
@@ -2193,7 +2194,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback: function(pokemon, target) {
-			return 120*target.hp/target.maxhp;
+			return Math.floor(Math.floor((120 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) || 1;
 		},
 		category: "Physical",
 		desc: "Deals damage to one adjacent target. Power is equal to 120 * (target's current HP / target's maximum HP), rounded half down, but not less than 1. Makes contact.",
@@ -3257,10 +3258,6 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback: function(pokemon, target) {
-			var sourceSpeMod = 1;
-			sourceSpeMod = this.runEvent('ModifySpe', pokemon, target, null, sourceSpeMod);
-			var foeSpeMod = 1;
-			sourceSpeMod = this.runEvent('ModifySpe', target, pokemon, null, foeSpeMod);
 			var ratio = (pokemon.getStat('spe') / target.getStat('spe'));
 			this.debug([40, 60, 80, 120, 150][(Math.floor(ratio) > 4 ? 4 : Math.floor(ratio))] + ' bp');
 			if (ratio >= 4) {
@@ -5418,10 +5415,6 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback: function(pokemon, target) {
-			var sourceSpeMod = 1;
-			sourceSpeMod = this.runEvent('ModifySpe', pokemon, target, null, sourceSpeMod);
-			var foeSpeMod = 1;
-			sourceSpeMod = this.runEvent('ModifySpe', target, pokemon, null, foeSpeMod);
 			var power = (Math.floor(25 * target.getStat('spe') / pokemon.getStat('spe')) || 1);
 			if (power > 150) power = 150;
 			this.debug(''+power+' bp');
@@ -6980,14 +6973,21 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 65,
 		category: "Physical",
-		desc: "Deals damage to one adjacent target and causes it to drop its held item. This move cannot force Pokemon with the Ability Sticky Hold to lose their held item, or force a Giratina, an Arceus, or a Genesect to lose their Griseous Orb, Plate, or Drive, respectively. Items lost to this move cannot be regained with Recycle. Makes contact.",
-		shortDesc: "Removes the target's held item.",
+		desc: "Deals damage to one adjacent target and causes it to drop its held item. Does 50% more damage if the target is holding an item. This move cannot force Pokemon with the Ability Sticky Hold to lose their held item, or force a Giratina, an Arceus, or a Genesect to lose their Griseous Orb, Plate, or Drive, respectively. It also cannot remove Mega Stones. Items lost to this move cannot be regained with Recycle. Makes contact.",
+		shortDesc: "Removes the target's held item. 1.5x damage if the target is holding an item.",
 		id: "knockoff",
 		isViable: true,
 		name: "Knock Off",
 		pp: 20,
 		priority: 0,
 		isContact: true,
+		onBasePowerPriority: 4,
+		onBasePower: function(basePower, pokemon, target) {
+			var item = target.getItem();
+			if (item.id && !item.megaStone) {
+				return this.chainModify(1.5);
+			}
+		},
 		onHit: function(target, source) {
 			var item = target.getItem();
 			if (item.id === 'mail') {
@@ -9249,6 +9249,7 @@ exports.BattleMovedex = {
 		name: "Play Rough",
 		pp: 10,
 		priority: 0,
+		isContact: true,
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -12465,6 +12466,7 @@ exports.BattleMovedex = {
 		name: "Spore",
 		pp: 15,
 		priority: 0,
+		isPowder: true,
 		onTryHit: function(target, source) {
 			if (target.hasType('Grass')) return false;
 		},
@@ -12783,6 +12785,7 @@ exports.BattleMovedex = {
 		name: "Stun Spore",
 		pp: 30,
 		priority: 0,
+		isPowder: true,
 		onTryHit: function(target, source) {
 			if (target.hasType('Grass')) return false;
 		},
@@ -14805,7 +14808,7 @@ exports.BattleMovedex = {
 		accuracy: 100,
 		basePower: 0,
 		basePowerCallback: function(pokemon, target) {
-			return 120*target.hp/target.maxhp;
+			return Math.floor(Math.floor((120 * (100 * Math.floor(target.hp * 4096 / target.maxhp)) + 2048 - 1) / 4096) / 100) || 1;
 		},
 		category: "Special",
 		desc: "Deals damage to one adjacent target. Power is equal to 120 * (target's current HP / target's maximum HP), rounded half down, but not less than 1. Makes contact.",
