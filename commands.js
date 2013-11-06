@@ -490,69 +490,7 @@ var commands = exports.commands = {
 		user.canCustomSymbol = false;
 	},
 
-take: function(target, room, user) {
-	if(!user.canSpin) return this.sendReply(' you have to put bucks in the machine before you can take it!');
-                            var lore = fs.readFileSync('config/coins.csv','utf8')
-        var match = false;
-        var coins = 0;
-        var spag = (''+lore).split("\n");
-        var hetti = '';
-        for (var i = spag.length; i > -1; i--) {
-            if (!spag[i]) continue;
-            var parts = spag[i].split(",");
-            var userid = toUserid(parts[0]);
-                    if (user.userid == userid) {
-            var y = Number(parts[1]);
-            var coins = y;
-            match = true;
-            if (match === true) {
-                hetti = hetti + spag[i];
-                 break;
-            }
-            }
-        }
-                user.coins = coins;
- 	     var stringbit = 1;
-		 user.coins =user.coins + stringbit;
-		this.sendReply('you collect the almighty coin and put it in your wallet!');
-		this.add('Through hard work and the sacrifice of many bucks ' + user.name + ' has made one  whole coin!');
 
-		 
-
-          if (match === true) {
-                    var be = new RegExp(hetti,"g");
-                    fs.readFile('config/coins.csv', 'utf8', function (err,lore) {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        var result = lore.replace(be,  targetUser.userid+','+targetUser.coins);
-                        fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
-                            if (err) return console.log(err);
-                        });
-                    });
-                } else {
-                    var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
-                    log.write("\n"+ targetUser.userid+','+targetUser.coins);
-                }
-
-			if (match === true) {
-			var re = new RegExp(hetti,"g");
-			fs.readFile('config/coins.csv', 'utf8', function (err,data) {
-			if (err) {
-				return console.log(err);
-			}
-			var result = data.replace(re, user.userid+','+user.coins);
-			fs.writeFile('config/coins.csv', result, 'utf8', function (err) {
-				if (err) return console.log(err);
-			});
-			});
-		} else {
-			var log = fs.createWriteStream('config/coins.csv', {'flags': 'a'});
-			log.write("\n"+user.userid+','+user.coins);
-		}
-
-	user.canSpin = false;
-	},
 
 	
 	shop: function(target, room, user) {
