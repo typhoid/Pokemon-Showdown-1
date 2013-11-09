@@ -202,6 +202,7 @@ exports.customavatars = {
 	  'frontieryousef': 'frontieryousef.jpg',
 	  'jackdaw': 'jackdaw.gif',
 	  'gymldrkdrew': 'kdrew.gif',
+	  'gymldrstark': 'stark.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
