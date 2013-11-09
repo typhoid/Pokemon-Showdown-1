@@ -889,7 +889,7 @@ var commands = exports.commands = {
 	ucn: 'n',
         n: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
-                 this.sendReplyBox('<center><img src="http://www.smogon.com/media/forums/data/avatars/l/13/13073.jpg.m.1375935517"><br><img src="http://i.imgur.com/KyLb7Xb.gif"><img src="http://i.imgur.com/dJti6HU.png"><img src="http://i.imgur.com/Z7f9imD.png"><br><font color="orange"><blink> Ace: Infernape</font></blink><br><font color="brown"> Kickin\' Ass Since Day 1')},
+                 this.sendReplyBox('<center><img src="http://www.smogon.com/media/forums/data/avatars/l/13/13073.jpg.m.1375935517"><br><img src="http://pldh.net/media/pokemon/conquest/sprite/392.png"><img src="http://i.imgur.com/KyLb7Xb.gif"><img src="http://i.imgur.com/Z7f9imD.png"><br><font color="orange"><blink> Ace: Infernape</font></blink><br><font color="brown"> Kickin\' Ass Since Day 1')},
 	
 	sooperpooper: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
