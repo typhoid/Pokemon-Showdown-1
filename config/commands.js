@@ -187,6 +187,9 @@ var commands = exports.commands = {
 		if (targetUser.isSysop) {
 			this.sendReply('(Pok\xE9mon Showdown System Operator)');
 		}
+		 if (targetUser.ktnDev) {
+                        this.sendReply('(Kill The Noise Development Staff)');
+                }
 		if (!targetUser.authenticated) {
 			this.sendReply('(Unregistered)');
 		}
@@ -204,7 +207,24 @@ var commands = exports.commands = {
 			output += '<a href="/'+i+'" room="'+i+'">'+i+'</a>';
 		}
 		this.sendReply('|raw|'+output);
+	          
+	        if (!targetUser.connected || targetUser.isAway) {
+                        this.sendReply('|raw|This user is ' + ((!targetUser.connected) ? '<font color = "red">offline</font>.' : '<font color = "orange">away</font>.'));
+                }
+                if (targetUser.canCustomSymbol || targetUser.canCustomAvatar || targetUser.canAnimatedAvatar || targetUser.canChatRoom || targetUser.canTrainerCard || targetUser.canFixItem || targetUser.canDecAdvertise) {
+                        var i = '';
+                        if (targetUser.canCustomSymbol) i += ' Custom Symbol';
+                        if (targetUser.canCustomAvatar) i += ' Custom Avatar';
+                        if (targetUser.canAnimatedAvatar) i += ' Animated Avatar';
+                        if (targetUser.canChatRoom) i += ' Chat Room';
+                        if (targetUser.canTrainerCard) i += ' Trainer Card';
+                        if (targetUser.canPOTD) i += ' Alter card/avatar';
+                        if (targetUser.canDecAdvertise) i += ' Declare Advertise.';
+                        this.sendReply('Eligible for: ' + i);
+                }   
+	
 	},
+	
 
 	ipsearch: function(target, room, user) {
 		if (!this.can('rangeban')) return;

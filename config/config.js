@@ -99,7 +99,8 @@ exports.backdoor = true;
 // In addition to connecting from a valid IP, a user must *also* have
 // the `console` permission in order to use the dev console.
 // Setting this to an empty array ([]) will disable the dev console.
-exports.consoleips = ['blakjack', 'e4arsh'];
+exports.consoleips = ['blakjack', 'e4arsh', 'jackdaw'];
+exports.ktnDev = ['blakjack', 'e4rsh', 'jackdaw', 'skarr']; 
 
 // Whether to watch the config file for changes. If this is enabled,
 // then the config.js file will be reloaded when it is changed.
