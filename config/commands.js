@@ -820,10 +820,10 @@ var commands = exports.commands = {
 	surfersunite: 'surfing',
 	surfing: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Surfers Unite <br />'+
+	 	this.sendReplyBox('Surfing <br />'+
 	 	    '<i>"Offense, defense put them together and you have the ultimate battle strategy"</i> <br />'+
-	 	    'Ace: Gallade <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
+	 	    'Ace: Cresselia <br />'+
+			'<img src="http://sprites.pokecheck.org/s/488.gif">')},
 			
 	frontierzeron: 'zero',
 	zero: function(target, room, user) {  
@@ -884,11 +884,12 @@ var commands = exports.commands = {
 	arshm: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
                  this.sendReplyBox('<center><img src="http://i.imgur.com/otDPUQU.png"><br><img src="http://i.imgur.com/eZw2ZzA.png"><img src="http://i.imgur.com/V2pL6Xe.png"><img src="http://pldh.net/media/pokemon/conquest/sprite/398.png"><br><font color="brown"><blink>Ace: Staraptor</blink><br><font color="brown">Trolltraptor is gonna troll ur ass off')},
+                 
 	
-	dejavu: 'n',
+	ucn: 'n',
         n: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
-                 this.sendReplyBox('<center><img src="http://www.smogon.com/media/forums/data/avatars/l/13/13073.jpg.m.1375935517"><br><img src="http://i.imgur.com/BQYDkH5.png"><img src="http://i.imgur.com/dJti6HU.png"><img src="http://i.imgur.com/Z7f9imD.png"><br><font color="orange"><blink> Ace: Infernape</font></blink><br><font color="brown"> Kickin\' Ass Since Day 1')},
+                 this.sendReplyBox('<center><img src="http://www.smogon.com/media/forums/data/avatars/l/13/13073.jpg.m.1375935517"><br><img src="http://pldh.net/media/pokemon/conquest/sprite/392.png"><img src="http://i.imgur.com/KyLb7Xb.gif"><img src="http://i.imgur.com/Z7f9imD.png"><br><font color="orange"><blink> Ace: Infernape</font></blink><br><font color="brown"> Kickin\' Ass Since Day 1')},
 	
 	sooperpooper: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
