@@ -149,7 +149,7 @@ exports.customavatars = {
 	  'ejdrago': 'ejdrago.gif',
 	  'e4velocifaptor': 'e4velocifaptor.png',
 	  'masterblazing': 'masterblazing.png',
-	  'gymleadersurfing': 'gymleadersurfing.gif',
+	  'gymldrsurfing': 'gymleadersurfing.gif',
 	  'elitefouryousef': 'elitefouryousef.gif',
 	  'elitefourmario': 'elitefourmario.gif',
 	  'supersilverex': 'supersilverex.jpg',
