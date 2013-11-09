@@ -820,10 +820,10 @@ var commands = exports.commands = {
 	surfersunite: 'surfing',
 	surfing: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Surfers Unite <br />'+
+	 	this.sendReplyBox('Surfing <br />'+
 	 	    '<i>"Offense, defense put them together and you have the ultimate battle strategy"</i> <br />'+
-	 	    'Ace: Gallade <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/gallade.gif">')},
+	 	    'Ace: Cresselia <br />'+
+			'<img src="http://sprites.pokecheck.org/s/488.gif">')},
 			
 	frontierzeron: 'zero',
 	zero: function(target, room, user) {  
