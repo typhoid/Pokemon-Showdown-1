@@ -31,6 +31,28 @@ exports.BattleFormats = {
 		ruleset: ['Sleep Clause Mod', 'Species Clause', 'OHKO Clause', 'Evasion Moves Clause', 'HP Percentage Mod'],
 		banlist: ['Illegal', 'Moody']
 	},
+	standardgbu: {
+		effectType: 'Banlist',
+		ruleset: ['Species Clause', 'Item Clause'],
+		banlist: ['Unreleased', 'Illegal', 'Dark Void', 'Soul Dew',
+			'Mewtwo',
+			'Lugia',
+			'Ho-Oh',
+			'Kyogre',
+			'Groudon',
+			'Rayquaza',
+			'Dialga',
+			'Palkia',
+			'Giratina', 'Giratina-Origin',
+			'Arceus', 'Arceus-Bug', 'Arceus-Dark', 'Arceus-Dragon', 'Arceus-Electric', 'Arceus-Fairy', 'Arceus-Fighting', 'Arceus-Fire', 'Arceus-Flying', 'Arceus-Ghost', 'Arceus-Grass', 'Arceus-Ground', 'Arceus-Ice', 'Arceus-Poison', 'Arceus-Psychic', 'Arceus-Rock', 'Arceus-Steel', 'Arceus-Water',
+			'Reshiram',
+			'Zekrom',
+			'Kyurem-White',
+			'Xerneas',
+			'Yveltal',
+			'Zygarde'
+		]
+	},
 	pokemon: {
 		effectType: 'Banlist',
 		validateSet: function(set, format) {
@@ -97,7 +119,15 @@ exports.BattleFormats = {
 				if (template.isMega) {
 					// Mega evolutions evolve in-battle
 					set.species = template.baseSpecies;
-					set.ability = Tools.getTemplate(set.species).abilities['0'];
+					var baseAbilities = Tools.getTemplate(set.species).abilities;
+					var niceAbility = false;
+					for (var i in baseAbilities) {
+						if (baseAbilities[i] === set.ability) {
+							niceAbility = true;
+							break;
+						}
+					}
+					if (!niceAbility) set.ability = baseAbilities['0'];
 				}
 				if (item.name !== template.requiredItem) {
 					problems.push((set.name||set.species) + ' needs to hold '+template.requiredItem+'.');
