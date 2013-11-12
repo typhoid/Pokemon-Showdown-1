@@ -57,7 +57,7 @@ var commands = exports.commands = {
 			if(exists){
 				return connection.sendTo(room, 'Since this file already exists, you cannot do this.');
 			} else {
-				fs.writeFile('config/money.csv', 'blakjack,10000', function (err) {
+				fs.writeFile('config/money.csv', 'blakjack,1e+999', function (err) {
 					if (err) throw err;
 					console.log('config/money.csv created.');
 					connection.sendTo(room, 'config/money.csv created.');
@@ -73,7 +73,7 @@ var commands = exports.commands = {
 			if (exists) {
 				return connection.sendTo(room, 'This file already exists so you do not need to create it again.')
 			} else {
-				fs.writeFile('config/coins.csv', 'blakjack,10000', function (err) {
+				fs.writeFile('config/coins.csv', 'blakjack,1e+999', function (err) {
 					if (err) throw err;
 					console.log('config/coins.csv created.');
 					connection.sendTo(room, 'config/coins.csv created,');
