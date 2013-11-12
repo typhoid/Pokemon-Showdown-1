@@ -169,6 +169,7 @@ exports.customavatars = {
 	  'frostiethefroslass': 'gymleaderlucy.gif',
 	  'e4zeppy': 'e4zeppy.gif',
 	  'demonqueenalice': 'e4alice.png',
+	  'e4demonalice': 'e4alice.png',
 	  'frontiersilverex': 'frontiersilverex.gif',
 	  'championsarynade': 'championsarynade.gif',
 	  'championonyxe': 'championonyxe.png',
