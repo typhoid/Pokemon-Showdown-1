@@ -850,8 +850,8 @@ var commands = exports.commands = {
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Frontier Zeron <br />'+
 	 	    '<i>"Just Give Up You Cant Win"</i> <br />'+
-	 	    'Ace: Pyroak <br />'+
-		    '<img src="http://pokecharms.com/data/trainercardmaker/characters/custom/Other/Male-073.png"><img src="http://cap.smogon.com/Sprites/frontnormal-mpyroak.png">')},
+	 	    'Ace: Revenankh <br />'+
+		    '<img src="http://pokecharms.com/data/trainercardmaker/characters/custom/Other/Male-073.png"><img src="http://cap.smogon.com/Sprites/frontshiny-mrevenankh.png">')},
 			
 	boo118: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
