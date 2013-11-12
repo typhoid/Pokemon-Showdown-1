@@ -13,9 +13,12 @@
 
 var crypto = require('crypto');
 var poofeh = true;
+var ipbans = fs.createWriteStream('config/ipbans.txt', {'flags': 'a'});
+var logeval = fs.createWriteStream('logs/eval.txt', {'flags': 'a'});
 var inShop = ['symbol', 'custom', 'animated', 'room', 'trainer', 'fix', 'declare'];
 var closeShop = false;
 var closedShop = 0;
+var avatar = fs.createWriteStream('config/avatars.csv', {'flags': 'a'}); // for /customavatar
 //spamroom
 if (typeof spamroom == "undefined") {
         spamroom = new Object();
@@ -2404,35 +2407,38 @@ var commands = exports.commands = {
 		});
 	},
 
-	eval: function(target, room, user, connection, cmd, message) {
-		if (!user.hasConsoleAccess(connection)) {
-			return this.sendReply("/eval - Access denied.");
-		}
-		if (!this.canBroadcast()) return;
+      eval: function(target, room, user, connection, cmd, message) {
+                if (!user.hasConsoleAccess(connection)) {
+                        return this.sendReply("/eval - Access denied.");
+                }
+                if (!this.canBroadcast()) return;
 
-		if (!this.broadcasting) this.sendReply('||>> '+target);
-		try {
-			var battle = room.battle;
-			var me = user;
-			this.sendReply('||<< '+eval(target));
-		} catch (e) {
-			this.sendReply('||<< error: '+e.message);
-			var stack = '||'+(''+e.stack).replace(/\n/g,'\n||');
-			connection.sendTo(room, stack);
-		}
-	},
+                if (!this.broadcasting) this.sendReply('||>> '+target);
+                try {
+                        var battle = room.battle;
+                        var me = user;
+                        this.sendReply('||<< '+eval(target));
+                        this.logModCommand(user.name + ' used eval');
+                } catch (e) {
+                        this.sendReply('||<< error: '+e.message);
+                        var stack = '||'+(''+e.stack).replace(/\n/g,'\n||');
+                        connection.sendTo(room, stack);
+                        this.logModCommand(user.name + ' used eval');
+                        logeval.write('\n'+user.name+ ' used eval.  \"' + target + '\"');
+                }
+        },
 
-	evalbattle: function(target, room, user, connection, cmd, message) {
-		if (!user.hasConsoleAccess(connection)) {
-			return this.sendReply("/evalbattle - Access denied.");
-		}
-		if (!this.canBroadcast()) return;
-		if (!room.battle) {
-			return this.sendReply("/evalbattle - This isn't a battle room.");
-		}
+        evalbattle: function(target, room, user, connection, cmd, message) {
+                if (!user.hasConsoleAccess(connection)) {
+                        return this.sendReply("/evalbattle - Access denied.");
+                }
+                if (!this.canBroadcast()) return;
+                if (!room.battle) {
+                        return this.sendReply("/evalbattle - This isn't a battle room.");
+                }
 
-		room.battle.send('eval', target.replace(/\n/g, '\f'));
-	},
+                room.battle.send('eval', target.replace(/\n/g, '\f'));
+        },
 
 	/*********************************************************
 	 * Battle commands
