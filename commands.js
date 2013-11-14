@@ -1715,7 +1715,7 @@ var commands = exports.commands = {
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
 		if (!this.can('permaban', targetUser)) return false;
-		if (targetUser.group === '~' || targetUser.frostDev) return false;
+		if (targetUser.group === '~' || targetUser.ktnDev) return false;
 		if (!targetUser) {
 			return this.sendReply('User '+this.targetUsername+' not found.');
 		}
