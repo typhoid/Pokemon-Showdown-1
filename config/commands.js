@@ -877,6 +877,15 @@ var commands = exports.commands = {
 	 	    'Ace: Hitmonlee <br />'+
 			'<img src="http://fc07.deviantart.net/fs48/f/2009/208/d/d/sasuke_cursed_seal_2_by_wazzaworks.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/hitmonlee.gif">')},		
 			
+        frontieryousef: 'yousef',
+        yousef: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Frontier Yousef<br />'+
+	 	    '<i>" Prepare For Trouble My Scrafty Will Jump On Your Souls"</i> <br />'+
+	 	    'Ace: Scrafty <br />'+
+			'<img src="http://sprites.pokecheck.org/t/115.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/scrafty.gif">')},		
+
+        
         frontiersilverex: 'silverex',
         silverex: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
