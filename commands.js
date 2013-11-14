@@ -1872,110 +1872,37 @@ var commands = exports.commands = {
 		this.logModCommand(user.name+' set modchat to '+room.modchat);
 	},
 
-    spop: 'sendpopup',
-        sendpopup: function(target, room, user) {
-                if (!this.can('hotpatch')) return false;
-                
-                target = this.splitTarget(target);
-                var targetUser = this.targetUser;
+	declare: function(target, room, user) {
+		if (!target) return this.parse('/help declare');
+		if (!this.can('declare', null, room)) return false;
 
-                if (!targetUser) return this.sendReply('/sendpopup [user], [message] - You missed the user');
-                if (!target) return this.sendReply('/sendpopup [user], [message] - You missed the message');
+		if (!this.canTalk()) return;
 
-                targetUser.popup(target);
-                this.sendReply(targetUser.name + ' got the message as popup: ' + target);
-                
-                targetUser.send(user.name+' sent a popup message to you.');
-                
-                this.logModCommand(user.name+' send a popup message to '+targetUser.name);
-        },
+		this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
+		this.logModCommand(user.name+' declared '+target);
+	},
 
-        declaregreen: 'declare',
-        declarered: 'declare',
-        declare: function(target, room, user, connection, cmd) {
-                if (!target) return this.parse('/help declare');
-                if (!this.can('declare', null, room)) return false;
+	gdeclare: 'globaldeclare',
+	globaldeclare: function(target, room, user) {
+		if (!target) return this.parse('/help globaldeclare');
+		if (!this.can('gdeclare')) return false;
 
-                if (!this.canTalk()) return;
+		for (var id in Rooms.rooms) {
+			if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>'+target+'</b></div>');
+		}
+		this.logModCommand(user.name+' globally declared '+target);
+	},
 
-                if (cmd === 'declare') {
-                        this.add('|raw|<div class="broadcast-blue"><b>'+target+'</b></div>');
-                }
-                else if (cmd === 'declarered') {
-                        this.add('|raw|<div class="broadcast-red"><b>'+target+'</b></div>');
-                }
-                else if (cmd === 'declaregreen') {
-                        this.add('|raw|<div class="broadcast-green"><b>'+target+'</b></div>');
-                }
-                if (!room.auth) {
-                        this.logModCommand(user.name+' declared '+target);
-                }
-                this.logRoomCommand(user.name+' declared '+target, room.id);
-        },
+	cdeclare: 'chatdeclare',
+	chatdeclare: function(target, room, user) {
+		if (!target) return this.parse('/help chatdeclare');
+		if (!this.can('gdeclare')) return false;
 
-        gdeclarered: 'gdeclare',
-        gdeclaregreen: 'gdeclare',
-        gdeclare: function(target, room, user, connection, cmd) {
-                if (!target) return this.parse('/help gdeclare');
-                if (!this.can('lockdown')) return false;
-
-                var roomName = (room.isPrivate)? 'a private room' : room.id;
-
-                if (cmd === 'gdeclare'){
-                        for (var id in Rooms.rooms) {
-                                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
-                        }
-                }
-                if (cmd === 'gdeclarered'){
-                        for (var id in Rooms.rooms) {
-                                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-red"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
-                        }
-                }
-                else if (cmd === 'gdeclaregreen'){
-                        for (var id in Rooms.rooms) {
-                                if (id !== 'global') Rooms.rooms[id].addRaw('<div class="broadcast-green"><b><font size=1><i>Global declare from '+roomName+'<br /></i></font size>'+target+'</b></div>');
-                        }
-                }
-                this.logModCommand(user.name+' globally declared '+target);
-        },
-        
-        pgdeclare: function(target, room, user) {
-                if (!target) return this.sendReply('/declareall - Declares a message in all chatrooms. Requires ~');
-                if (!this.can('lockdown')) return;
-
-                if (!this.canTalk()) return;
-
-                for (var r in Rooms.rooms) {
-                        if (Rooms.rooms[r].type === 'chat') Rooms.rooms[r].add('|raw|<b>'+target+'</b></div>');
-                }
-
-                this.logModCommand(user.name+' declared '+target+' to all rooms.');
-        },
-
-        modmsg: 'declaremod',
-        moddeclare: 'declaremod',
-        declaremod: function(target, room, user) {
-                if (!target) return this.sendReply('/declaremod [message] - Also /moddeclare and /modmsg');
-                if (!this.can('declare', null, room)) return false;
-
-                if (!this.canTalk()) return;
-
-                this.privateModCommand('|raw|<div class="broadcast-red"><b><font size=1><i>Private Auth (Driver +) declare from '+user.name+'<br /></i></font size>'+target+'</b></div>');
-
-                this.logModCommand(user.name+' mod declared '+target);
-        },
-
-        cdeclare: 'chatdeclare',
-        chatdeclare: function(target, room, user) {
-                if (!target) return this.parse('/help chatdeclare');
-                if (!this.can('gdeclare')) return false;
-
-                for (var id in Rooms.rooms) {
-                        if (id !== 'global') if (Rooms.rooms[id].type !== 'battle') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>'+target+'</b></div>');
-                }
-                this.logModCommand(user.name+' globally declared (chat level) '+target);
-        },
-
+		for (var id in Rooms.rooms) {
+			if (id !== 'global') if (Rooms.rooms[id].type !== 'battle') Rooms.rooms[id].addRaw('<div class="broadcast-blue"><b>'+target+'</b></div>');
+		}
+		this.logModCommand(user.name+' globally declared (chat level) '+target);
+	},
 
 	wall: 'announce',
 	announce: function(target, room, user) {
@@ -2030,57 +1957,6 @@ var commands = exports.commands = {
 			this.sendReply("User "+targetUser.name+" is no longer using that name.");
 		}
 	},
-	
-	cry: 'complain',
-        bitch: 'complain',
-        complaint: 'complain',
-        complain: function(target, room, user) {
-                if(!target) return this.parse('/help complaint');
-                if (user.userid === "mentalninja") {
-                        user.ban();
-                        user.send('|popup|nice try fucker')
-                }
-                this.sendReplyBox('Thanks for your input. We\'ll review your feedback soon. The complaint you submitted was: ' + target);
-                this.logComplaint(target);
-        },
-        
-        complaintslist: 'complaintlist',
-        complaintlist: function(target, room, user, connection) {
-                if (!this.can('declare')) return false;
-                var lines = 0;
-                if (!target.match('[^0-9]')) { 
-                        lines = parseInt(target || 15, 10);
-                        if (lines > 100) lines = 100;
-                }
-                var filename = 'logs/complaint.txt';
-                var command = 'tail -'+lines+' '+filename;
-                var grepLimit = 100;
-                if (!lines || lines < 0) { // searching for a word instead
-                        if (target.match(/^["'].+["']$/)) target = target.substring(1,target.length-1);
-                        command = "awk '{print NR,$0}' "+filename+" | sort -nr | cut -d' ' -f2- | grep -m"+grepLimit+" -i '"+target.replace(/\\/g,'\\\\\\\\').replace(/["'`]/g,'\'\\$&\'').replace(/[\{\}\[\]\(\)\$\^\.\?\+\-\*]/g,'[$&]')+"'";
-                }
-
-                require('child_process').exec(command, function(error, stdout, stderr) {
-                        if (error && stderr) {
-                                connection.popup('/complaintlist erred - the complaints list does not support Windows');
-                                console.log('/complaintlog error: '+error);
-                                return false;
-                        }
-                        if (lines) {
-                                if (!stdout) {
-                                        connection.popup('The complaints list is empty. Great!');
-                                } else {
-                                        connection.popup('Displaying the last '+lines+' lines of complaints:\n\n'+stdout);
-                                }
-                        } else {
-                                if (!stdout) {
-                                        connection.popup('No complaints containing "'+target+'" were found.');
-                                } else {
-                                        connection.popup('Displaying the last '+grepLimit+' logged actions containing "'+target+'":\n\n'+stdout);
-                                }
-                        }
-                });
-        },
 
 	modlog: function(target, room, user, connection) {
 		if (!this.can('modlog')) return false;
