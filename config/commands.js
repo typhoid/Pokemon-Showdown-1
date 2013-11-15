@@ -909,7 +909,7 @@ var commands = exports.commands = {
 	 	this.sendReplyBox('Gym Ldr. Stark<br />'+
 	 	    '<i>"  The only "normal" pokemon are the ones you don\'t know very well."</i> <br />'+
 	 	    'Ace: Meloetta<br />'+
-			'<img src="sprites.pokecheck.org/t/097.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/meloetta.gif">')},	
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani/meloetta.gif"><img src="http://sprites.pokecheck.org/t/097.gif">')},	
 	
 	proflef: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
