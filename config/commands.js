@@ -903,7 +903,7 @@ var commands = exports.commands = {
 		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 			
 	
-	gymldrstark
+	gymldrstark: 'stark',
         stark: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Gym Ldr. Stark<br />'+
