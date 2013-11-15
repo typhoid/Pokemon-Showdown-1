@@ -860,10 +860,11 @@ var commands = exports.commands = {
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
 			
-	gymleaderaltirex: 'altirex',
-	altirex: function(target, room, user) {  
+	frontierroxtar: 'rishi',
+	roxtar: 'rishi',
+	rishi: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Gym Leader AltireX <br />'+
+	 	this.sendReplyBox('Rishi <br />'+
 	 	    '<i>"I\'m The Best Fuck The Rest"</i> <br />'+
 	 	    'Ace: Aegislash <br />'+
 			'<img src="http://images.wikia.com/dragonballfanon/images/f/ff/Goku_Sprite.gif"><img src="http://play.pokemonshowdown.com/sprites/bw/aegislash-blade.png">')},		
@@ -876,6 +877,15 @@ var commands = exports.commands = {
 	 	    'Ace: Hitmonlee <br />'+
 			'<img src="http://fc07.deviantart.net/fs48/f/2009/208/d/d/sasuke_cursed_seal_2_by_wazzaworks.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/hitmonlee.gif">')},		
 			
+        frontieryousef: 'yousef',
+        yousef: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Frontier Yousef<br />'+
+	 	    '<i>" Prepare For Trouble My Scrafty Will Jump On Your Souls"</i> <br />'+
+	 	    'Ace: Scrafty <br />'+
+			'<img src="http://sprites.pokecheck.org/t/115.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/scrafty.gif">')},		
+
+        
         frontiersilverex: 'silverex',
         silverex: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
