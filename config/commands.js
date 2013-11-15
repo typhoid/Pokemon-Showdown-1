@@ -903,6 +903,14 @@ var commands = exports.commands = {
 		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
 			
 	
+	gymldrstark
+        stark: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('Gym Ldr. Stark<br />'+
+	 	    '<i>"  The only "normal" pokemon are the ones you don\'t know very well."</i> <br />'+
+	 	    'Ace: Meloetta<br />'+
+			'<img src="sprites.pokecheck.org/t/097.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/meloetta.gif">')},	
+	
 	proflef: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('Prof. Le❄f <br />'+
