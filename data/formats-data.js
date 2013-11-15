@@ -1808,7 +1808,7 @@ exports.BattleFormatsData = {
 			{"generation":3,"level":70,"moves":["blazekick","slash","mirrormove","skyuppercut"]},
 			{"generation":5,"level":50,"isHidden":false,"moves":["flareblitz","highjumpkick","thunderpunch","stoneedge"],"pokeball":"cherishball"}
 		],
-		tier: "OU"
+		tier: "Uber"
 	},
 	blazikenmega: {
 		requiredItem: "Blazikenite"
@@ -2696,7 +2696,7 @@ exports.BattleFormatsData = {
 			{"generation":5,"level":100,"moves":["nastyplot","darkpulse","recover","psychoboost"],"pokeball":"duskball"}
 		],
 		isUnreleased: true,
-		tier: "OU"
+		tier: "Uber"
 	},
 	deoxysattack: {
 		viableMoves: {"psychoboost":1,"superpower":1,"extremespeed":1,"icebeam":1,"thunderbolt":1,"firepunch":1,"spikes":1,"stealthrock":1},
@@ -4583,6 +4583,11 @@ exports.BattleFormatsData = {
 	},
 	malaconda: {
 		viableMoves: {"powerwhip":1,"glare":1,"crunch":1,"toxic":1,"suckerpunch":1,"rest":1,"substitute":1,"uturn":1,"synthesis":1,"rapidspin":1},
+		isNonstandard: true,
+		tier: "CAP"
+	},
+	cawmodore: {
+		viableMoves: {"bellydrum":1,"bulletpunch":1,"drainpunch":1,"acrobatics":1,"drillpeck":1,"substitute":1,"ironhead":1,"quickattack":1},
 		isNonstandard: true,
 		tier: "CAP"
 	},

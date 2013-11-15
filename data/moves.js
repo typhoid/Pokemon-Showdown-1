@@ -1057,7 +1057,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		isBounceable: true,
 		onHit: function(target) {
-			target.addVolatile('trapped');
+			if (!target.addVolatile('trapped')) {
+				this.add('-fail', target);
+			}
 		},
 		secondary: false,
 		target: "normal",
@@ -7783,13 +7785,13 @@ exports.BattleMovedex = {
 				this.add('-singleturn', target, 'Mat Block');
 			},
 			onTryHitPriority: 3,
-			onTryHit: function(target, source, move) {
+			onAllyTryHit: function(target, source, move) {
 				if (move.breaksProtect) {
 					target.removeVolatile('Mat Block');
 					return;
 				}
 				if (move && (move.target === 'self' || move.category === 'Status')) return;
-				this.add('-activate', target, 'Mat Block');
+				this.add('-activate', target, 'Mat Block', move.name);
 				var lockedmove = source.getVolatile('lockedmove');
 				if (lockedmove) {
 					// Outrage counter is reset
@@ -7856,7 +7858,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		isBounceable: true,
 		onHit: function(target) {
-			target.addVolatile('trapped');
+			if (!target.addVolatile('trapped')) {
+				this.add('-fail', target);
+			}
 		},
 		secondary: false,
 		target: "normal",
@@ -12336,7 +12340,9 @@ exports.BattleMovedex = {
 		priority: 0,
 		isBounceable: true,
 		onHit: function(target) {
-			target.addVolatile('trapped');
+			if (!target.addVolatile('trapped')) {
+				this.add('-fail', target);
+			}
 		},
 		secondary: false,
 		target: "normal",
