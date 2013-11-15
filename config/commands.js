@@ -737,7 +737,7 @@ var commands = exports.commands = {
 	crypt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('<img src="http://i.imgur.com/wNz63qa.png"> <br />'+
-	 	    '<font size ="16"> Thats Me Bitches</font>')},
+	 	    '<font size =16> Thats Me Bitches</font>')},
 
 	
 	alice: 'e4alice',
