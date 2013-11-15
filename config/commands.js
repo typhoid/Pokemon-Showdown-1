@@ -737,7 +737,7 @@ var commands = exports.commands = {
 	crypt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('<img src="http://i.imgur.com/wNz63qa.png"> <br />'+
-	 	    '<font size ="28"> Thats Me Bitches</font>')},
+	 	    '<font size ="16"> Thats Me Bitches</font>')},
 
 	
 	alice: 'e4alice',
@@ -803,6 +803,15 @@ var commands = exports.commands = {
 	 	    'Ace: Kyurem-Black<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 
 			
+	
+	gymldrkdrew: 'kdrew',
+	kdrew: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('₪Gym Ldr Kdrew₪ <br />'+
+	 	    '<i>"I am not alone. I can hear them... I can hear everyone\'s voices... I can sense everyone\'s feelings... I am not alone..."</i> <br />'+
+	 	    'Ace: Tyranitar<br />'+
+	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/tyranitar.gif">')},
+	
 	e4ericaj: 'erica',
 	erica: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
