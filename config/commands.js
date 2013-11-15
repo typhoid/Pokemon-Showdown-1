@@ -733,6 +733,13 @@ var commands = exports.commands = {
 	 	    'Rules:Dont be ass<br />'+
 	 	    '<img src="http://i.imgur.com/TbzLf0c.gif"><b>VS.</b><img src="http://play.pokemonshowdown.com/sprites/bwani/terrakion.gif">')},
 	 	    
+	
+	crypt: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('<img src="http://i.imgur.com/wNz63qa.png"> <br />'+
+	 	    '<font size ="28"> Thats Me Bitches</font>')},
+
+	
 	alice: 'e4alice',
 	e4alice: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
