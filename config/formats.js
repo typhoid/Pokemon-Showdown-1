@@ -496,7 +496,7 @@ exports.Formats = [
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew']
 	},
 	{  
-	   name: "[Gen 6] OU Monotype",
+	        name: "[Gen 6] OU Monotype",
                 section: "Other Metagames",
 
                 ruleset: ['Pokemon', 'Standard Pokebank', 'Same Type Clause', 'Evasion Abilities Clause', 'Team Preview'],
