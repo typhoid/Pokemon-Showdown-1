@@ -14,6 +14,13 @@ exports.Formats = [
 		noPokebank: true,
 		banlist: ['Uber', 'Soul Dew']
 	},
+	{  
+	        name: "OU Monotype (beta)",
+                section: "Other Metagames",
+
+                ruleset: ['Pokemon', 'Standard Pokebank', 'Same Type Clause', 'Evasion Abilities Clause', 'Team Preview'],
+                banlist: ['Uber', 'Soul Dew']
+        },
 	{
 		name: "Ubers (beta)",
 		section: "XY Singles",
@@ -118,7 +125,7 @@ exports.Formats = [
 		section: "BW2 Singles",
 
 		mod: 'gen5',
-		ruleset: ['CAP Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
+		ruleset: ['Pokemon', 'Standard', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew', "Tomohawk", "Necturna", "Mollux", "Aurumoth", "Malaconda", "Syclant", "Revenankh", "Pyroak", "Fidgit", "Stratagem", "Arghonaut", "Kitsunoh", "Cyclohm", "Colossoil", "Krilowatt", "Voodoom"]
 	},
 	{
@@ -495,13 +502,7 @@ exports.Formats = [
 		ruleset: ['Pokemon', 'Standard', 'Same Type Clause', 'Evasion Abilities Clause', 'Team Preview'],
 		banlist: ['Uber', 'Drizzle ++ Swift Swim', 'Soul Dew']
 	},
-	{  
-	        name: "[Gen 6] OU Monotype",
-                section: "Other Metagames",
-
-                ruleset: ['Pokemon', 'Standard Pokebank', 'Same Type Clause', 'Evasion Abilities Clause', 'Team Preview'],
-                banlist: ['Uber', 'Soul Dew']
-        },
+	
 	{
 		name: "[Gen 5] Glitchmons",
 		section: "Other Metagames",
