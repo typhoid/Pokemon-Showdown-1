@@ -863,7 +863,12 @@ var commands = exports.commands = {
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
 			
-
+        shadow: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('E4 Shadow <br />'+
+	 	    '<i>"you swat after me? Burn them to a crisp Volcarona"</i> <br />'+
+	 	    'Ace: The Whole Fucking Swarm <br />'+
+			'<img src="http://play.pokemonshowdown.com/sprites/bwani-shiny/genesect.gif">')},
 
 	
 	gymldrstark: 'stark',
