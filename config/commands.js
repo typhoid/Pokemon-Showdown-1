@@ -793,50 +793,7 @@ var commands = exports.commands = {
 	 	    'Rules:No Priority And Hazards<br />'+
 	 	    '<img src="http://fc08.deviantart.net/fs71/f/2012/071/0/a/saber_alter_sprite_by_houkuha-d4qvx3v.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/cradily.gif">')}, 	    
 
-        e4cat: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪E4 Cat₪ <br />'+
-	 	    '<i>"Tell me what you cherish the most...I\'ll enjoy destroying it"</i> <br />'+
-	 	    'Ace: Bisharp <br />'+
-	 	    'Rules:No Hazards And No Speed Boosting Abilities<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/bisharp.gif">')},
-	
-	gymleaderdemelza: 'demelza',
-	demelza: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪GymLeader Demelza₪ <br />'+
-	 	    '<i>" Welcome to the Fairy world, I will be your guide."</i> <br />'+
-	 	    'Ace: Mega-Gardevoir<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bw/gardevoir-mega.png">')},
-	
-	e4frostie: 'frostie', 	    
-	frostie: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪E4♥Frostie₪ <br />'+
-	 	    '<i>" Are you prepared to go down in a glorious inferno?"</i> <br />'+
-	 	    'Ace: Charizard <br />'+
-	 	    'Rules:No Priority And Hazards<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/froslass.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/charizard.gif">')}, 	    
-	
-	
-	gymleaderhaxrus: 'haxrus',
-        haxrus: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪Gym Leader HaxRus₪ <br />'+
-	 	    '<i>"They say dragons never truly die. No matter how many times you kill them."</i> <br />'+
-	 	    'Ace: Salamence <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/salamence.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/garchomp.gif">')},		
-
-	
-	tak: 'e4takuto', 	    
-	e4takuto: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪E4 Takuto₪ <br />'+
-	 	    '<i>"Life shows us many paths, but only one leads to victory"</i> <br />'+
-	 	    'Ace: Kyurem-Black<br />'+
-	 	    'Rules:No Hazards And No Stat Boosting Moves<br />'+
-	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif">')}, 	    
-	
+       
 	
 	snowman: 'winx', 	    
 	gymleadersnowman: 'winx',
@@ -856,14 +813,7 @@ var commands = exports.commands = {
 	 	    'Ace: Tyranitar<br />'+
 	 	    '<img src="http://play.pokemonshowdown.com/sprites/bwani/tyranitar.gif">')},
 	
-	e4ericaj: 'erica',
-	erica: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('E4 EricaJ <br />'+
-	 	    '<i>"The Iron Lady"</i> <br />'+
-	 	    'Ace: Metagross <br />'+
-			'<img src="http://sprites.pokecheck.org/t/114.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/metagross.gif">')},
-			
+	
 	e4arsh: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('₪E4 Arsh₪ <br />'+
@@ -880,14 +830,7 @@ var commands = exports.commands = {
 			'<img src="http://s17.postimg.org/4gxh1eut7/1675598_L5_E3tg_K.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/thundurus.gif">')},		
 
         
-        gymleaderruki: 'ruki',
-        ruki: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('₪Gym Leader Ruk₪ <br />'+
-	 	    '<i>"Show Me Your Fighting Sprit And Battle Me Till The End!"</i> <br />'+
-	 	    'Ace: Heracross <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/blaziken.gif"> <img src="http://play.pokemonshowdown.com/sprites/bwani/heracross.gif">')},		
- 
+       
 
 	queenofdubstep: 'qod',
 	qod: function(target, room, user) {  
@@ -905,10 +848,10 @@ var commands = exports.commands = {
 	 	    'Ace: Cresselia <br />'+
 			'<img src="http://sprites.pokecheck.org/s/488.gif">')},
 			
-	frontierzeron: 'zero',
+	frontierheadzeron: 'zero',
 	zero: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Frontier Zeron <br />'+
+	 	this.sendReplyBox('Frontier Head Zeron <br />'+
 	 	    '<i>"Just Give Up You Cant Win"</i> <br />'+
 	 	    'Ace: Revenankh <br />'+
 		    '<img src="http://pokecharms.com/data/trainercardmaker/characters/custom/Other/Male-073.png"><img src="http://cap.smogon.com/Sprites/frontshiny-mrevenankh.png">')},
@@ -920,48 +863,8 @@ var commands = exports.commands = {
 	 	    'Ace: Porygon 2 <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/porygon2.gif">')},
 			
-	frontierroxtar: 'rishi',
-	roxtar: 'rishi',
-	rishi: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Rishi <br />'+
-	 	    '<i>"I\'m The Best Fuck The Rest"</i> <br />'+
-	 	    'Ace: Aegislash <br />'+
-			'<img src="http://images.wikia.com/dragonballfanon/images/f/ff/Goku_Sprite.gif"><img src="http://play.pokemonshowdown.com/sprites/bw/aegislash-blade.png">')},		
-			
-			
-	vaderdarkside: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('VaderDarkside<br />'+
-	 	    '<i>" Laugh My Friend And The Whole Worlds Laught With You"</i> <br />'+
-	 	    'Ace: Hitmonlee <br />'+
-			'<img src="http://fc07.deviantart.net/fs48/f/2009/208/d/d/sasuke_cursed_seal_2_by_wazzaworks.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/hitmonlee.gif">')},		
-			
-        frontieryousef: 'yousef',
-        yousef: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Frontier Yousef<br />'+
-	 	    '<i>" Prepare For Trouble My Scrafty Will Jump On Your Souls"</i> <br />'+
-	 	    'Ace: Scrafty <br />'+
-			'<img src="http://sprites.pokecheck.org/t/115.gif"><img src="http://play.pokemonshowdown.com/sprites/bwani/scrafty.gif">')},		
 
-        
-        frontiersilverex: 'silverex',
-        silverex: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Frontier SilverEX <br />'+
-	 	    '<i>"I never back down or give up.... and neither should you"</i> <br />'+
-	 	    'Ace: Mega Charizard Y <br />'+
-		    '<img src="http://www.mmii.info/_ign/42346.gif"> <img src="http://play.pokemonshowdown.com/sprites/bw/charizard-mega-y.png">')},		
-			
-	 e4yanmega: 'yanmega',
-	 yanmega: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('E4 Yanmega <br />'+
-	 	    '<i>"Do You Even Know What Hazards Are"</i> <br />'+
-	 	    'Ace: Yanmega <br />'+
-		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/yanmega.gif">')},		
-			
+
 	
 	gymldrstark: 'stark',
         stark: function(target, room, user) {  
@@ -971,13 +874,7 @@ var commands = exports.commands = {
 	 	    'Ace: Meloetta<br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/meloetta.gif"><img src="http://sprites.pokecheck.org/t/097.gif">')},	
 	
-	proflef: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Prof. Le❄f <br />'+
-	 	    '<i>"grass cannot harm me as the icy chill of death close upon you"</i> <br />'+
-	 	    'Ace: Cloyster <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/cloyster.gif">')},		
-			
+
 	
 	arshm: function(target, room, user) {  
                  if (!this.canBroadcast()) return;
@@ -996,61 +893,16 @@ var commands = exports.commands = {
 	 	    'Ace: Ampharos <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/bwani/ampharos.gif">')},	
 
-       championzard: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Champion Zard <br />'+
-	 	    '<i>"Whoever Stands In My Way Will Feel My Rage"</i> <br />'+
-	 	    'Ace: Infernape <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/infernape.gif">')},
-	
-	e4wonder: 'wonder',
-	wonder: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('E4 Wonder <br />'+
-	 	    '<i>"Your fate was sealed the moment you challenged me"</i> <br />'+
-	 	    'Ace: Ludicolo <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/bwani/ludicolo.gif">')},		
-					
-			
-	championlugi: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('Champion Lugi. <br />'+
-		    'Tranquility League.<br/>'+
-	 	    '<i>"All Warfare Is Based On Deception."</i> <br />'+
-	 	    'Ace: Kyurem-Black <br />'+
-	 	    'Format OU/Ubers. <br />'+
-		    '<img src="http://play.pokemonshowdown.com/sprites/bwani/kyurem-black.gif"><br />'+
-		    'Rules: Only Gen 5 and under Moves/Abilities/Items/Pokemon.<br />'+
-		    'http://tranquilityleague.weebly.com/')},
-			
-	champvolt: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('♚ChampVolt♚ <br />'+
-		    '<i>"Were Going High"</i> <br />'+
-	 	    'Ace: Gyarados <br />'+
-			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
-	 	    
+       
   	ncrypt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('nCrypt <br />'+
 	 	    'Ace: Terrakion <br />'+
 	 	    '<i>" Fighting is my passion,strenght is my only friend and punches are the only things I trust!!"</i> <br />'+
-			'<img src="http://i.imgur.com/eaNvlMY.png">')},	
+			'<img src="http://i.imgur.com/eaNvlMY.png">');	
          	
-     	e4gazz: 'zep',
-     	gazz: 'zep',
-     	zeppy: 'zep',
-     	e4zeppy: 'zep',
-     	zep: function(target, room, user) {  
-	 	if (!this.canBroadcast()) return;
-	 	this.sendReplyBox('E4 Gazz<br />'+
-		    '<i>"Even in the toughest of situations, quitting is never an option."</i> <br />'+
-	 	    'Ace: Greninja <br />'+
-	 	    'Rules: No Direct status (Toxic, Spore, Will-O-wisp) <br />'+
-		    'No Recovering (Wish/Rest/Roost/Recover) <br />'+
-		    '<img src="http://sprites.pokecheck.org/t/138.gif"><img src="play.pokemonshowdown.com/sprites/bw/greninja.png">');	
-	 	    	
-     	}, 
+     
+      	}, 
 	opensource: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 		this.sendReplyBox('Pokemon Showdown is open source:<br />- Language: JavaScript<br />- <a href="https://github.com/Zarel/Pokemon-Showdown/commits/master">What\'s new?</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown">Server source code</a><br />- <a href="https://github.com/Zarel/Pokemon-Showdown-Client">Client source code</a>');
