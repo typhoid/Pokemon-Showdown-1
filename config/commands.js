@@ -986,12 +986,12 @@ var commands = exports.commands = {
 	 	    'Ace: Gyarados <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
 	 	    
-	 	    	nCrypt: function(target, room, user) {  
+  	ncrypt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('nCrypt <br />'+
 	 	    'Ace: Terrakion <br />'+
 	 	    '<i>" Fighting is my passion,strenght is my only friend and punches are the only things I trust!!"</i> <br />'+
-			'<img src="http://imgur.com/eaNvlMY.gif">')},	
+			'<img src="http://i.imgur.com/eaNvlMY.png">')},	
          	
      	e4gazz: 'zep',
      	gazz: 'zep',
