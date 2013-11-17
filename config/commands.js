@@ -737,7 +737,7 @@ var commands = exports.commands = {
 	crypt: function(target, room, user) {  
 	 	if (!this.canBroadcast()) return;
 	 	this.sendReplyBox('<img src="http://i.imgur.com/wNz63qa.png"> <br />'+
-	 	    ' Thats Me Bitches')},
+	 	    '<i> Yep,Thats Me Bitches </i>')},
 
 	
 	alice: 'e4alice',
@@ -985,7 +985,13 @@ var commands = exports.commands = {
 		    '<i>"Were Going High"</i> <br />'+
 	 	    'Ace: Gyarados <br />'+
 			'<img src="http://play.pokemonshowdown.com/sprites/trainers/99.png"><img src="http://play.pokemonshowdown.com/sprites/bwani/gyarados.gif">')},		
-	 	    		
+	 	    
+	 	    	nCrypt: function(target, room, user) {  
+	 	if (!this.canBroadcast()) return;
+	 	this.sendReplyBox('nCrypt <br />'+
+	 	    'Ace: Terrakion <br />'+
+	 	    '<i>" Fighting is my passion,strenght is my only friend and punches are the only things I trust!!"</i> <br />'+
+			'<img src="http://imgur.com/eaNvlMY.gif">')},	
          	
      	e4gazz: 'zep',
      	gazz: 'zep',
