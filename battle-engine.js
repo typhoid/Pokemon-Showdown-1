@@ -744,8 +744,9 @@ var BattlePokemon = (function() {
 				if (this.hasType(type[i])) return true;
 			}
 		} else {
-			if (this.types[0] === type) return true;
-			if (this.types[1] === type) return true;
+			for (var i=0; i<this.types.length; i++) {
+				if (this.types[i] === type) return true;
+			}
 		}
 		return false;
 	};
@@ -2721,8 +2722,13 @@ var Battle = (function() {
 		}
 		basePower = clampIntRange(basePower, 1);
 
-		move.critRatio = clampIntRange(move.critRatio, 0, 5);
-		var critMult = [0, 16, 8, 4, 3, 2];
+		if (this.gen <= 5) {
+			move.critRatio = clampIntRange(move.critRatio, 0, 5);
+			var critMult = [0, 16, 8, 4, 3, 2];
+		} else {
+			move.critRatio = clampIntRange(move.critRatio, 0, 4);
+			var critMult = [0, 16, 8, 2, 1];
+		}
 
 		move.crit = move.willCrit || false;
 		if (move.willCrit === undefined) {
