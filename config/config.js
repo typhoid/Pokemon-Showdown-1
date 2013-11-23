@@ -212,6 +212,7 @@ exports.customavatars = {
 	  'chaosherosilver': 'silver.gif',
 	  'drspiderman': 'm1.jpg',
 	  'frontierseryu': 'seryu.gif',
+	  'e4photon': 'photon.gif',
 };
 
 // appealurl - specify a URL containing information on how users can appeal
