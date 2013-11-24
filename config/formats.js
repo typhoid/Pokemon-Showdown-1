@@ -525,16 +525,6 @@ exports.Formats = [
 			this.p2.pokemonLeft = this.p2.pokemon.length;
 		}
 	},
-	//Almost done! ~Silver
-	{
-                name: "C&E",
-                section: "Other Metagames",
-
-                searchShow: false,
-                debug: true,
-                ruleset: ruleset: ['Pokemon', 'Standard Pokebank', 'Team Preview'],
-                banlist: ['Soul Dew', 'Uber', 'Farfetchd', 'Kangaskhan', 'Pinsir', 'Heracross', 'unown', 'girafarig', 'dunsparce', 'shuckle', 'articuno', 'zapdos', 'moltres', 'qwilfish', 'corsola', 'delibird', 'stantler', 'smeargle', 'skarmory', 'miltank', 'tauros', 'lapras', 'ditto', 'aerodactyl', 'sableye', 'mawile', 'plusle', 'minum', 'volbeat', 'illumise', 'torkoal', 'spinda', 'seviper', 'zangoose', 'lunatone', 'solrock', 'castform', 'kecleon', 'tropius', 'absol', 'relicanth', 'luvdisc', 'pachirisu']
-        },
 	{
 		name: "Hackmons",
 		section: "Other Metagames",
