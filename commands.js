@@ -563,7 +563,7 @@ var commands = exports.commands = {
 				  take = false;
 				  bank.coins(hipe, amount);
 				this.sendReply('You put together ' +bunnywheel +' bucks and put it in change machine!');
-				this.add('!!!' + user.name + ' has activated the coin machine and through hardwork and the sacrifice of many innocent dust bunnies has made one whole poketariat bit of string!');
+				this.add('!!!' + user.name + ' has activated the change machine and through hardwork and the sacrifice of many innocent bucks has made one whole coin!');
 			} else {
                 return this.sendReply('You do not have enough bucks to do this! You need ' + (bunnywheel - user.money) + ' more bucks to make a coin!');
             } 
