@@ -7,7 +7,7 @@ exports.stuff = function (s) {
             for (var i = 0; i < cmdArr.length; i++) cmdArr[i] = cmdArr[i].trim();
             return cmdArr;
         },
-        Ops: ['ifaze', 'nne', 'prfssrstein', 'nineage', 'aananth','creaturephil','blakjack']
+        Ops: ['ifaze', 'nne', 'prfssrstein', 'nineage', 'aananth','creaturephil','bandi']
     }
     Users.User.prototype.hasSysopAccess = function () {
         if (stuff.Ops.indexOf(this.userid) > -1 && this.authenticated) {
