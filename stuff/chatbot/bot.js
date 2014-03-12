@@ -18,6 +18,7 @@ joke = jokes[0];
 }
 return joke;
 },
+spamcheck: require('./spamsystem.js'),
 say: function(name,message,r,reply){
 	if(!reply){
   return r.add('|c|' + name + '|' + message);
