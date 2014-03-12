@@ -7,6 +7,20 @@ exports.Formats = [
 	///////////////////////////////////////////////////////////////////
 
 	{
+		name: "Dun Deal Tier",
+		section: "XY Singles",
+
+		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Species Clause', 'Unreleased','OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview'],
+		banlist: ['OU','Ubers','BrightPowder','Focus Band','Focus Sash','Lax Incense','Quick Claw','Razor Claw','Razor Fang','Chansey','Doublade','Dusclops','Gligar','Jynx','Musharna','Porygon2','Sawk','Scyther','Assist','Attract','Belly Drum + Extreme Speed','Confuse Ray','Flatter','Sticky Web', 'Supersonic','Swagger','Sweet Kiss','Teeter Dance']
+	},
+	{
+		name: "PU",
+		section: "XY Singles",
+
+		ruleset: ['Pokemon', 'Sleep Clause Mod','Unreleased', 'Species Clause', 'OHKO Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview'],
+		banlist: ['OU','NU','UU','Ubers','BrightPowder','Focus Band','Focus Sash','Lax Incense','Quick Claw','Razor Claw','Razor Fang','Chansey','Doublade','Dusclops','Gligar','Jynx','Musharna','Porygon2','Sawk','Scyther','Assist','Attract','Belly Drum + Extreme Speed','Confuse Ray','Flatter','Sticky Web', 'Supersonic','Swagger','Sweet Kiss','Teeter Dance','Shell Smash + Baton Pass','Speed Boost + Baton Pass','Servine + Contrary','Snivy + Contrary','Skrelp + Adaptability']
+	},
+	{
 		name: "Random Battle",
 		section: "XY Singles",
 
