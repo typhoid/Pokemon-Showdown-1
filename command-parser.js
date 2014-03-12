@@ -191,7 +191,7 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
         return otherresult;
     } else {
         if (message.substr(0, 1) === bot.commandchar && comd) {
-            return connection.sendTo(room.id, 'The bot command "' + bot.commandchar + comd + '" was unrecognized. To send a message starting with "' + bot.commandchar + comd + '", type "' + bot.commandcha + comd + '".');
+            return connection.sendTo(room.id, 'The bot command "' + bot.commandchar + comd + '" was unrecognized. To send a message starting with "' + bot.commandchar + comd + '", type "' + bot.commandchar + comd + '".');
         }
     }
     var cmd = '',
