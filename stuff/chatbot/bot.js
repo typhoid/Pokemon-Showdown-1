@@ -149,12 +149,13 @@ ask: function(target, user, room) {
       	}
       }
       if(!this.canTalk(target)) return false;
-      else{
+      else {
         return bot.say(bot.name,'The new Message Of the Day is: ' +target,room);	
         bot.MOTD = target;
 		bot.MOTDon = true;
 		if(bot.Int){
 		clearInterval(bot.Int);
+		bot.Int = setInterval(function(){return bot.say(bot.name,bot.MOTD,room);},300000);
 		}
 		bot.Int = setInterval(function(){return bot.say(bot.name,bot.MOTD,room);},300000);
       }
