@@ -1,3 +1,4 @@
+exports.CheckBannedsites 
 exports.canTalk = function(user, room, connection, message){
    global.today = new Date();
 	    if ((today.getMinutes() - user.o3omessagetime) < 0) {
@@ -42,7 +43,6 @@ exports.canTalk = function(user, room, connection, message){
 	                return false;
 	            }
 	        }
-
 	        if (spamroom[user.userid]) {
 	            Rooms.rooms.spamroom.add('|c|' + user.getIdentity() + '|' + message);
 	            connection.sendTo(room, "|c|" + user.getIdentity() + "|" + message);
