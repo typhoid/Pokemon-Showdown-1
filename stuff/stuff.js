@@ -511,7 +511,10 @@ modmsg: 'declaremod',
 	    	if (!this.canBroadcast()) return;
 	    	this.sendReplyBox('<center><img src=http://play.pokemonshowdown.com/sprites/xyani/charizard-mega-x.gif width="150" length="150"><img src=http://i.imgur.com/afSRAAO.png width="250"><img src=http://play.pokemonshowdown.com/sprites/xyani/charizard-mega-y.gif img width="150" length="150"></center>');
 	},
-        
+        stein: function(target, room, user) {
+	    	if (!this.canBroadcast()) return;
+	    	this.sendReplyBox('<center><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/suicune.gif" width="100" height="80"><img src="http://192.184.93.156:8000/avatars/prfssrstein.png" width="96" height="96"><img src="http://play.pokemonshowdown.com/sprites/xyani-shiny/latios.gif" width="100" height="66"><br><font color="lightblue"> Ace: Suicune </font><br> Are you ready to fight against fear itself? Will you cross beyond that door? Let your souls make the decision for you.');
+        },
         imgdeclare: function(target, room, user) {
 		if (!target) return this.sendReply('|raw|Correct Syntax: /imgdeclare <i>insert img url here</i>');
 		if (!this.can('imgdeclare')) return;
