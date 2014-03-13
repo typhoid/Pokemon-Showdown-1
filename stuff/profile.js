@@ -9,7 +9,7 @@ var profile = exports.profile = {
 			var money = 0;
 			var match = false;
 
-	    	var data = fs.readFileSync('config/money.csv','utf8');
+	    	var data = fs.readFileSync('config/usermoney.csv','utf8');
 
 	        var row = (''+data).split("\n");
 	        for (var i = row.length; i > -1; i--) {
@@ -272,7 +272,7 @@ var cmds = {
 	profile: function(target, room, user) {
 		if (!this.canBroadcast()) return;
 
-		if (target.toLowerCase()==='moderation bot' || target.toLowerCase()==='mod bot') return this.sendReplyBox("I'm always watching.");
+		if (target == bot.name.substr(1,7)) return this.sendReplyBox("I'm always watching.");
 
 		var targetUser = this.targetUserOrSelf(target);
 		if (!targetUser) return this.sendReply('User '+this.targetUsername+' not found.');
