@@ -140,7 +140,31 @@ var cmds = {
         var result = Math.floor(Math.random() * targets.length);
         return this.sendReplyBox(targets[result].trim());
     },
-
+roll: 'dice',
+	dice: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		var d = target.indexOf("d");
+		if (d != -1) {
+			var num = parseInt(target.substring(0,d));
+			faces = NaN;
+			if (target.length > d) var faces = parseInt(target.substring(d + 1));
+			if (isNaN(num)) num = 1;
+			if (isNaN(faces)) return this.sendReply("The number of faces must be a valid integer.");
+			if (faces < 1 || faces > 1000) return this.sendReply("The number of faces must be between 1 and 1000");
+			if (num < 1 || num > 20) return this.sendReply("The number of dice must be between 1 and 20");
+			var rolls = new Array();
+			var total = 0;
+			for (var i=0; i < num; i++) {
+				rolls[i] = (Math.floor(faces * Math.random()) + 1);
+				total += rolls[i];
+			}
+			return this.sendReplyBox('Random number ' + num + 'x(1 - ' + faces + '): ' + rolls.join(', ') + '<br />Total: ' + total);
+		}
+		if (target && isNaN(target) || target.length > 21) return this.sendReply('The max roll must be a number under 21 digits.');
+		var maxRoll = (target)? target : 6;
+		var rand = Math.floor(maxRoll * Math.random()) + 1;
+		return this.sendReplyBox('Random number (1 - ' + maxRoll + '): ' + rand);
+	},
 
     derpray: function (target, room, user) {
         if (!target) return this.parse('/help ban');
