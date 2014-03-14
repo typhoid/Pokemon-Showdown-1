@@ -76,24 +76,39 @@ exports.canTalk = function (user, room, connection, message) {
         if (message.toLowerCase().indexOf(".psim") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
 
         if (message.toLowerCase().indexOf("play.pokemonshowdown.com") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
 
         if (message.toLowerCase().indexOf("psim") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
         if (message.toLowerCase().indexOf("ps im") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
         if (message.toLowerCase().indexOf("psi m") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
         if (message.toLowerCase().indexOf("p sim") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
@@ -102,5 +117,8 @@ exports.canTalk = function (user, room, connection, message) {
         if (message.toLowerCase().indexOf(".prism") > -1) {
             connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
             return false;
+            user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
         }
-    }
+    };
