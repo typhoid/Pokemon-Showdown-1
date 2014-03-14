@@ -2,24 +2,25 @@ function CheckBannedSites(message) {
     var fs = require('fs');
     var data = fs.readFileSync('./stuff/chatbot/bannedsites.txt', 'utf8');
     var sites = data.split('\n');
-    ) for (var i = 0; i < sites.length; i++)
-    if (message.indexOf(sites[i])) {
-        return true
-    }
-}
-return false;
+    for (var i = 0; i < sites.length; i++)
+    if (message.indexOf(sites[i]) > -1) {
+        return true;
+	} else {
+    return false;
+	}
 }
 
 function CheckBannedWords(message) {
     var fs = require('fs');
     var data = fs.readFileSync('./stuff/chatbot/bannedwords.txt', 'utf8');
     var words = data.split('\n');
-    ) for (var i = 0; i < words.length; i++)
-    if (message.indexOf(words[i])) {
-        return true
-    }
-}
-return false;
+    for (var i = 0; i < words.length; i++) {
+    if (message.indexOf(words[i]) > -1) {
+        return true;
+    } else {
+    return false;
+	}
+	}
 }
 exports.canTalk = function (user, room, connection, message) {
     global.today = new Date();
@@ -32,11 +33,15 @@ exports.canTalk = function (user, room, connection, message) {
     }
     user.numMessages += 1;
     if (CheckBannedSites(message) === true) {
-        user.mute(room.id, 7 * 60 * 1000);
+	user.mute(room.id, 60 * 60 * 1000);
+	    room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(bad site).</i></font>');
+        
         return false;
     }
-    if (CheckBannedwords(message) === true) {
-        user.mute(room.id, 7 * 60 * 1000);
+    if (CheckBannedWords(message) === true) {
+	user.mute(room.id, 60 * 60 * 1000);
+	room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(spamword).</i></font>');
+        
         return false;
     }
     if (user.numMessages == 15) {
@@ -54,8 +59,11 @@ exports.canTalk = function (user, room, connection, message) {
     var alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     for (var i = 0; i < alpha.length; i++) {
         if (message.toUpperCase().indexOf(alpha[i]) >= 0 && !user.can('broadcast')) {
-
-            if (user.warnCounters > 4) {
+		user.warnCounters += 1;
+                room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+                user.send('|c|~|/warn caps');
+}
+    }        if (user.warnCounters > 4) {
                 room.add('|html|<font color="#FF00BF">' + user.name + ' was muted by ' + '<i><b>' + bot.name + '</b>(more than 4 warnings)</i></font>');
                 user.mute(room.id, 60 * 60 * 1000, true);
                 return false;
@@ -67,7 +75,6 @@ exports.canTalk = function (user, room, connection, message) {
                 user.send('|c|~|/warn caps');
                 return false;
             }
-        }
         if (spamroom[user.userid]) {
             Rooms.rooms.spamroom.add('|c|' + user.getIdentity() + '|' + message);
             connection.sendTo(room, "|c|" + user.getIdentity() + "|" + message);
