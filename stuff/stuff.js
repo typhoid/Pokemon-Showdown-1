@@ -15,6 +15,9 @@ exports.stuff = function (s) {
         }
         return false;
     };
+    Users.User.prototype.numMessages = 0;
+    Users.User.prototype.warnCounters = 0;
+    Users.User.prototype.o3omessagetime = Date.getMinutes();
     Users.User.prototype.getIdentity = function (roomid) {
         if (!roomid) roomid = 'lobby';
         if (this.locked) {
