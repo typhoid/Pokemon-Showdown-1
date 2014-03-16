@@ -1,5 +1,5 @@
 /*********************************************************
- * Money Functions                                        *
+ * Money Functions                                       *
  *********************************************************/
 exports.money = function (m) {
     if (typeof m != "undefined") var money = m;
@@ -10,7 +10,7 @@ exports.money = function (m) {
 
     var Moneystuff = {
         /*********************************************************
-         * Save Features                          *
+         * Save Features                                         *
          *********************************************************/
         importtkts: function (uid) {
             var data = fs.readFileSync('./config/usertkts.csv', 'utf8');
@@ -271,12 +271,12 @@ exports.money = function (m) {
         alltkts: usertkts,
         allmoney: usermoney,
         /*********************************************************
-         * Settings                       *
+         * Settings                                              * 
          *********************************************************/
         settings: require('./settings.js'),
         started: money.settings.isOn,
         /*********************************************************
-         * Item Functions                         *
+         * Item Functions                                        *
          *********************************************************/
         shop: require('./shop.js').shop,
         checkItem: function (target) {
@@ -293,7 +293,7 @@ exports.money = function (m) {
             return false;
         },
         /*********************************************************
-         * Other Stuff                  *
+         * Other Stuff                                           *
          *********************************************************/
         transfer: function (type, amount) {
             if (type === 'coins') {
