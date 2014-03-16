@@ -808,6 +808,73 @@ regdate: function(target, room, user, connection) {
 
     	return this.sendReplyBox('<img src="http://i.imgur.com/UEMY7N1.png" title="System Operator" height="14"><b>System Operator</b> - These are the people who make the server tick. Say hello!<br/><img src="http://i.imgur.com/mbdkl0w.png" title="Elite Moderator" height="14"><b>Elite Moderator</b> - Our most experienced and trustworthy moderator squad who help us keep the server safe and fun.<br/><img src="http://i.imgur.com/0IugM.png" title="Broadcaster" height="14"><b>Broadcaster</b> - This icon denotes the person whose channel you\'re currently watching.<br/><img src="http://i.imgur.com/Fqiyjil.png" title="Chat Moderator" height="14"><b>Chat Moderator</b> - Specifically appointed chat moderators for the server.<br/><img src="http://i.imgur.com/kZyJVgU.png" title="Turbo User" height="14"><b>Turbo User</b> - There are the people who donated or contributed to the server.');
     },
+    
+    twitchchat: function(target, room, user) {
+		if (!this.can('mute')) return;
+		if (!target) return this.sendReply('|raw|/twitchchat <i>on</i> OR <i>off</i> - Enables or disenables twitch chat');
+
+		if (target.toLowerCase() === 'on') {
+			user.twitchAccess = true;
+			this.sendReply('Twitch chat activated');
+		} else if (target.toLowerCase() === 'off') {
+			user.twitchAccess = false;
+			this.sendReply('Twitch chat deactivated');
+		} else {
+			return this.sendReply('|raw|/twitchchat <i>on</i> OR <i>off</i>');
+		}
+	},
+
+	twitchreplace: function(target, room, user) {
+		if (!this.can('twitchreplace')) return;
+		if (!target) return this.sendReply('|raw|/twitchreplace <i>username</i>, <i>group</i> - Replaces the user\'s twitch group<br/>' + 'S - <img src="http://i.imgur.com/UEMY7N1.png" title="System Operator" height="14">System Operator<br/>' + 'E - <img src="http://i.imgur.com/mbdkl0w.png" title="Elite Moderator" height="14">Elite Moderator<br/>' + 'B - <img src="http://i.imgur.com/0IugM.png" title="Broadcaster" height="14">Broadcaster<br/>'+'C - <img src="http://i.imgur.com/Fqiyjil.png" title="Chat Moderator" height="14">Chat Moderator<br/>'+'T - <img src="http://i.imgur.com/kZyJVgU.png" title="Turbo User" height="14">Turbo User');
+
+		if (target.indexOf(',') >= 0) {
+			var parts = target.split(',');
+			parts[0] = this.splitTarget(parts[0]);
+			var targetUser = this.targetUser;
+		}
+
+		if (!targetUser) {
+			return this.sendReply('User '+this.targetUsername+' not found.');
+		}
+
+		var data = fs.readFileSync('config/profile/twitchgroups.csv','utf8')
+			var group = parts[1].trim();
+			var match = false;
+			var status = '';
+			var row = (''+data).split("\n");
+			var line = '';
+			for (var i = row.length; i > -1; i--) {
+				if (!row[i]) continue;
+				var parts = row[i].split(",");
+				var userid = toUserid(parts[0]);
+				if (targetUser.userid == userid) {
+					match = true;
+					if (match === true) {
+						line = line + row[i];
+						break;
+					}
+				}
+			}
+			if (match === true) {
+				var re = new RegExp(line,"g");
+				fs.readFile('config/profile/twitchgroups.csv', 'utf8', function (err,data) {
+				if (err) {
+					return console.log(err);
+				}
+				var result = data.replace(re, targetUser.userid+','+group);
+				fs.writeFile('config/profile/twitchgroups.csv', result, 'utf8', function (err) {
+					if (err) return console.log(err);
+				});
+				});
+			} else {
+				var log = fs.createWriteStream('config/profile/twitchgroups.csv', {'flags': 'a'});
+				log.write("\n"+targetUser.userid+','+group);
+			}
+
+			this.sendReply(targetUser.name + '\'s twitch group rank was successfully replace with ' + group + '.');
+			targetUser.send(user.name + ' has change your twitch group rank to ' + group + '.');
+	},
 };
 Object.merge(CommandParser.commands, cmds);
 exports.cmds = cmds;
