@@ -875,6 +875,47 @@ regdate: function(target, room, user, connection) {
 			this.sendReply(targetUser.name + '\'s twitch group rank was successfully replace with ' + group + '.');
 			targetUser.send(user.name + ' has change your twitch group rank to ' + group + '.');
 	},
+	reload: function(target, room, user) {
+		if (!this.can('hotpatch')) return false;
+
+		 try {
+			var path = require("path"),
+    		fs = require("fs");
+
+		 	this.sendReply('Reloading command-parser.js...');
+            CommandParser.uncacheTree(path.join(__dirname, '../', 'command-parser.js'));
+            CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
+
+            this.sendReply('Reloading sysop.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'sysop.js'));
+            sysop = require(path.join(__dirname, './', 'sysop.js')).sysop();
+            
+            this.sendReply('Reloading hangman.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'hangman.js'));
+            hangman = require(path.join(__dirname, './', 'hangman.js')).hangman();
+
+            this.sendReply('Reloading tour.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'tour.js'));
+            tour = require(path.join(__dirname, './', 'tour.js')).tour();
+
+            this.sendReply('Reloading src/commands.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'commands.js'));
+            commands = require(path.join(__dirname, './', 'commands.js'));
+
+			this.sendReply('Reloading economy.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'economy.js'));
+            economy = require(path.join(__dirname, './', 'economy.js'));
+
+            this.sendReply('Reloading profile.js...');
+            CommandParser.uncacheTree(path.join(__dirname, './', 'profile.js'));
+            profile = require(path.join(__dirname, './', 'profile.js'));
+
+            return this.sendReply('Chat commands have been reloaded.');
+	    } catch (e) {
+			return this.sendReply('Something failed while trying to reload: \n' + e.stack);
+	    }
+	},
+
 };
 Object.merge(CommandParser.commands, cmds);
 exports.cmds = cmds;
