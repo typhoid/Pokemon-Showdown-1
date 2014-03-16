@@ -6,7 +6,7 @@ else  bot = {};
 
 var botStuff = {
 //This is the name of your bot. Edit as you please.
-name: '~KazeBot',
+name: '~NovaBot',
 //blahblahblah stuff for the bot
 getRandjoke: function(){
 var fs = require('fs');
@@ -53,7 +53,7 @@ cmds: {
   //faze spruce this up with ur html skeelz
   credits: function(target, room, user) {
  	if(this.can('broadcast')) {
- 		return this.add('|html|The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://kaze.psim.us">Kaze Server<a>. Some of these ideas were used from Quinella\'s chat bot. If you have any suggestions please tell him. Enjoy!');
+ 		return this.add('|html|The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server<a>. Some of these ideas were used from Quinella\'s chat bot. If you have any suggestions please tell him. Enjoy!');
  	}
  	else {
  	return false;	
