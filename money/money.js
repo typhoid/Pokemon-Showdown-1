@@ -9,6 +9,9 @@ exports.money = function (m) {
     var userwealth = usermoney;
 
     var Moneystuff = {
+        /*********************************************************
+         * Save Features                          *
+         *********************************************************/
         importtkts: function (uid) {
             var data = fs.readFileSync('./config/usertkts.csv', 'utf8');
             var match = false;
@@ -253,10 +256,29 @@ exports.money = function (m) {
                 money.importtkts(uid)
             }
         },
-        started: money.settings.isOn,
-        //start item functions 
-        shop: require('./shop.js').shop,
+        save: function (user) {
+            money.exportmoney(user);
+            money.exporttkts(user);
+            money.importcoins(user);
+            money.importbp(user);
+        },
+        read: function (user) {
+            money.importmoney(user);
+            money.importtkts(user);
+            money.importcoins(user);
+            money.importbp(user);
+        },
+        alltkts: usertkts,
+        allmoney: usermoney,
+        /*********************************************************
+         * Settings                       *
+         *********************************************************/
         settings: require('./settings.js'),
+        started: money.settings.isOn,
+        /*********************************************************
+         * Item Functions                         *
+         *********************************************************/
+        shop: require('./shop.js').shop,
         checkItem: function (target) {
             if (money.shop[target] !== undefined) return true
             else {
@@ -270,7 +292,9 @@ exports.money = function (m) {
             }
             return false;
         },
-        //end item functions
+        /*********************************************************
+         * Other Stuff                  *
+         *********************************************************/
         transfer: function (type, amount) {
             if (type === 'coins') {
                 if (user.bp >= amount) {
@@ -291,22 +315,8 @@ exports.money = function (m) {
                 }
             }
         },
-        alltkts: usertkts,
-        allmoney: usermoney,
-        read: function (user) {
-            money.importmoney(user);
-            money.importtkts(user);
-			money.importcoins(user);
-			money.importbp(user);
-        },
-
-        cmds: require('./cmds.js').cmds,
-        save: function (user) {
-            money.exportmoney(user);
-            money.exporttkts(user);
-			money.importcoins(user);
-			money.importbp(user);
-        }
+        //commands
+        cmds: require('./cmds.js').cmds
     };
     Object.merge(CommandParser.commands, Moneystuff.cmds);
     Object.merge(money, Moneystuff);
