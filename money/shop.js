@@ -31,6 +31,13 @@ var shop = {
         promo: '+',
         benefits: 'a promotion to Voice',
     },
+    roommsg: {
+        currency: 'coins',
+        price: 5000,
+        name: 'Room Message',
+        id: 'roommsg',
+        benefits: 'add a welcome message for ur room',
+    },
     tc: {
         currency: 'dollars',
         price: 100000,
@@ -45,7 +52,7 @@ var shop = {
         name: 'Message',
         //add: getRandmsg(),
         id: 'msg',
-        benefits: 'a random message',
+        benefits: 'a random declare message',
     },
     color: {
         currency: 'coins',
@@ -54,6 +61,13 @@ var shop = {
         id: 'color',
         //say: '/superdupersekritnamechange',
         benefits: 'a custom color that appears on the custom client',
+    },
+    rename: {
+        currency: 'coins',
+        price: 775,
+        name: 'Force Rename',
+        id: 'rename',
+        benefits: 'a rename to any name u like (Appropriate names)',
     },
     av: {
         currency: 'coins',
