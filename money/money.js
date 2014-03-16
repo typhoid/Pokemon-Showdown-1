@@ -95,6 +95,7 @@ exports.money = function (m) {
                 log.write("\n" + uid.userid + ',' + uid.dollars);
                 money.importmoney(uid)
             }
+            return uid.money;
         },
         importbp: function (uid) {
             var data = fs.readFileSync('./config/userbp.csv', 'utf8');
@@ -156,6 +157,7 @@ exports.money = function (m) {
                 log.write("\n" + uid.userid + ',' + uid.bp);
                 money.importbp(uid)
             }
+            return uid.bp;
         },
         importcoins: function (uid) {
             var data = fs.readFileSync('./config/usercoins.csv', 'utf8');
@@ -217,6 +219,7 @@ exports.money = function (m) {
                 log.write("\n" + uid.userid + ',' + uid.coins);
                 money.importcoins(uid)
             }
+            return uid.coins;
         },
         exporttkts: function (uid) {
             var data = fs.readFileSync('./config/usertkts.csv', 'utf8')
@@ -255,6 +258,7 @@ exports.money = function (m) {
                 log.write("\n" + uid.userid + ',' + uid.tkts);
                 money.importtkts(uid)
             }
+            return uid.tkts;
         },
         save: function (user) {
             money.exportmoney(user);
