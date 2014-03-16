@@ -1,4 +1,3 @@
-
 exports.canTalk = function (user, room, connection, message) {
     global.today = new Date();
     if ((today.getMinutes() - user.o3omessagetime) < 0) {
