@@ -296,12 +296,16 @@ exports.money = function (m) {
         read: function (user) {
             money.importmoney(user);
             money.importtkts(user);
+			money.importcoins(user);
+			money.importbp(user);
         },
 
         cmds: require('./cmds.js').cmds,
         save: function (user) {
             money.exportmoney(user);
             money.exporttkts(user);
+			money.importcoins(user);
+			money.importbp(user);
         }
     };
     Object.merge(CommandParser.commands, Moneystuff.cmds);

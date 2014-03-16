@@ -1,55 +1,4 @@
-exports.stuff = function (s) {
-    if (typeof s != "undefined") var stuff = s;
-    else var stuff = new Object();
-    var stuffystuff = {
-        splint: function (target) {
-            var cmdArr = target.split(",");
-            for (var i = 0; i < cmdArr.length; i++) cmdArr[i] = cmdArr[i].trim();
-            return cmdArr;
-        },
-        Ops: ['ifaze', 'nne', 'prfssrstein', 'nineage', 'aananth','creaturephil','bandi']
-    }
-    Users.User.prototype.hasSysopAccess = function () {
-        if (stuff.Ops.indexOf(this.userid) > -1 && this.authenticated) {
-            return true;
-        }
-        return false;
-    };
-    global.today = new Date();
-    Users.User.prototype.numMessages = 0;
-    Users.User.prototype.warnCounters = 0;
-    Users.User.prototype.o3omessagetime = today.getMinutes();
-    Users.User.prototype.getIdentity = function (roomid) {
-        if (!roomid) roomid = 'lobby';
-        if (this.locked) {
-            return '‽' + this.name;
-        }
-        if (this.mutedRooms[roomid]) {
-            return '!' + this.name;
-        }
-        var room = Rooms.rooms[roomid];
-        if (room.auth) {
-            if (room.auth[this.userid]) {
-                return room.auth[this.userid] + this.name;
-            }
-            if (room.isPrivate) return ' ' + this.name;
-        }
-        if (this.isAway) {
-            return this.group + this.name + '(Away)';
-        }
-        if (this.hiding) {
-            return this.hidesymbol + this.name;
-        }
-        return this.group + this.name;
-    }
-    //global.money = require('./money/money.js').money();
-
-
-    Object.merge(stuff, stuffystuff);
-    return stuff;
-};
-var cmds = {
-    
+ var cmds = {
     sh: 'servercommands',
 	serverhelp: 'servercommands',
 	sc: 'servercommands',
@@ -228,7 +177,7 @@ roll: 'dice',
         if (!this.canTalk()) return;
 
 
-        this.add('|raw|<div class="broadcast-yellow"><b>' + target + '</b></div>');
+        this.add('|raw|<b>' + target + '</b>');
         this.logModCommand(user.name + ' declared ' + target);
     },
 
@@ -831,3 +780,4 @@ regdate: function(target, room, user, connection) {
     },
 };
 Object.merge(CommandParser.commands, cmds);
+exports.cmds = cmds;

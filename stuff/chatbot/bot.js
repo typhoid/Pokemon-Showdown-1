@@ -14,10 +14,27 @@ var data = fs.readFileSync('./stuff/chatbot/jokes.txt','utf8');
 var line = data.split('\n');
 var joke = String(line[Math.floor(Math.random()*line.length)]);
 if(joke.length<1){
-joke = jokes[0];
+joke = line[0];
 }
 return joke;
 },
+BannedStuff: function(message) {
+     var fs = require('fs');
+     fs.readFile('./stuff/chatbot/bannedstuff.txt', function (err, data) {
+	 if (err) throw err;
+     bot.d = ('' + data).split(",");
+ });
+ for (var i = 0; i < bot.d.length; i++) {
+     if((''+bot.d).split('\n')[i].indexOf(message.toLowerCase()) > -1) {
+	 bot.bw = true;
+	 }
+  else {
+ bot.bw = false;
+ }
+ }
+return bot.bw;
+},
+
 spamcheck: require('./spamsystem.js').canTalk,
 say: function(name,message,r,reply){
 	if(!reply){
@@ -33,8 +50,6 @@ MOTD: '',
 MOTDon: false,
 //this is what your custom commands will start with, if u want it just as "/", then just put "/". Edit as you please
 commandchar: '?',
-//this is what you broadcast commands start with, if u want them as ! then just put !
-brodcastchar: '$',
 //The rest is of this is blahblah stuff edit if you know what you are doing.
 Int: undefined,
 spammers: new Array('gavigator','professorgavin','suk','ilikewangs','nharmoniag','gavgar','gym leader dukeeee','soles','soles shadow'),
@@ -59,7 +74,7 @@ cmds: {
  	return false;	
  	}
  },
-ask: function(target, user, room) {
+/*ask: function(target, user, room) {
  if(!this.canBroadcast()) return;
  var unanswerable = ['god']; //if anymore unanswered questions just add them
  if(!target){
@@ -98,7 +113,21 @@ ask: function(target, user, room) {
  bot.say(bot.name,r,room,this.sendReply)
  }
  },
- 
+ */
+ lol: function(target, room, user) {
+ 	if(!target){ 
+ 	this.sendReply('What user would you like to say this.'); return false;
+ 	}
+ 	else{
+ 	if(this.can('broadcast')){
+ 	bot.say(target,'lol',room);
+	this.logModCommand(user.name + ' used ?lol on ' + target + '.');
+ 	}
+ 	else {
+ 	return false;
+ 	}
+ 	}
+ },
  merp: function(target, room, user) {
  	if(!target){ 
  	this.sendReply('What user would you like to say this.'); return false;
@@ -106,6 +135,7 @@ ask: function(target, user, room) {
  	else{
  	if(this.can('broadcast')){
  	bot.say(target,'/me merps',room);
+	this.logModCommand(user.name + ' used ?merp on ' + target + '.');
  	}
  	else {
  	return false;
@@ -119,7 +149,8 @@ ask: function(target, user, room) {
  	}
  	else{
  	if(this.can('broadcast')){
- 	bot.say(target,'o3os',room);
+ 	bot.say(target,'o3o',room);
+	this.logModCommand(user.name + ' used ?o3o on ' + target + '.');
  	}
  	else {
  	return false;
@@ -134,6 +165,7 @@ ask: function(target, user, room) {
  	else{
  	if(this.can('broadcast')){
  	bot.say(target,'/me derps in a pool :P',room);
+	this.logModCommand(user.name + ' used ?derp on ' + target + '.');
  	}
  	else {
  	return false;
@@ -147,19 +179,14 @@ ask: function(target, user, room) {
       	return bot.say(bot.name,bot.MOTD,room);	
       	}
       }
-      if(!this.canTalk(target)) return false;
       else {
         return bot.say(bot.name,'The new Message Of the Day is: ' +target,room);	
         bot.MOTD = target;
 		bot.MOTDon = true;
-		if(bot.Int){
-		clearInterval(bot.Int);
-		bot.Int = setInterval(function(){return bot.say(bot.name,bot.MOTD,room);},300000);
-		}
 		bot.Int = setInterval(function(){return bot.say(bot.name,bot.MOTD,room);},300000);
       }
     }
-    else{ 
+    else { 
       return false;
     }
   },
@@ -169,7 +196,7 @@ ask: function(target, user, room) {
 	if(bot.MOTDon){
       return this.add('The MOTD function is now off');
       bot.MOTD = undefined;
-	  clearInterval(bot.Int)
+	  clearInterval(bot.Int);
 	  }
 	  else {
 	  return this.sendReply('There is no MOTD on.');
@@ -184,7 +211,7 @@ ask: function(target, user, room) {
 say: function(target, room, user){
   if(this.can('broadcast')) {
   if(!target) return this.sendReply('Please specify a message.');  
-    this.logModCommand(user.name + ' used /say to say ' + target + '.');
+    this.logModCommand(user.name + ' used '+bot.commandchar+'say to say ' + target + '.');
     return bot.say(bot.name, target, room)
 
   } else {

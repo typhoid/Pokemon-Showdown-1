@@ -433,10 +433,11 @@ fs.readFile('./config/ipbans.txt', function (err, data) {
 	Users.checkRangeBanned = Cidr.checker(rangebans);
 });
 global.spamroom = {};
-global.bot = require('./stuff/chatbot/bot.js').bot();
-global.stuff = require('./stuff/stuff.js').stuff();
+global.bot = require('./src/chatbot/bot.js').bot();
+global.customcommands = require('./src/custom-commands.js');
+global.sysop = require('./src/sysop.js').sysopOperation();
 global.tour = require('./tour.js').tour();
-global.roul = require('./money/casino/roul.js')
+//global.roul = require('./money/casino/roul.js')
 try {
 	global.hangman = require('./hangman.js').hangman();
 } catch (e) {
