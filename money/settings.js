@@ -27,12 +27,7 @@ rps: {
 on: false, 
 boton: false,
 ls: false,
-},
-tour: {
-on: false,
-randtier: false,
-commontier: false
-},
+}
 };
  
 exports.autodollars = {
