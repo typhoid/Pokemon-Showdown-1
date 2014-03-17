@@ -270,13 +270,13 @@ givemoney: function (target, room, user) {
 			'<tr>' +
 			'<td>Trainer Card</td>' +
 			'<td>50,000 Dollars</td>' +
-			'<td>A custom color that will appear on our client</td>' +
-			'<td>color</td>' +
-			'</tr>' +'
+			'<td>A trainer card</td>' +
+			'<td>tc</td>' +
+			'</tr>' +
 			'<tr>' +
 			'<td>Custom Color</td>' +
 			'<td>50,000 Dollars</td>' +
-			'<td>A custom color that will appear on our client</td>' +
+			'<td>A custom color</td>' +
 			'<td>color</td>' +
 			'</tr>' +
 			'<tr>' +
