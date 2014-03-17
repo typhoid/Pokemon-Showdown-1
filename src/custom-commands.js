@@ -887,29 +887,20 @@ regdate: function(target, room, user, connection) {
             CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
 
             this.sendReply('Reloading sysop.js...');
-            CommandParser.uncacheTree(path.join(__dirname, './', 'sysop.js'));
-            sysop = require(path.join(__dirname, './', 'sysop.js')).sysop();
+            CommandParser.uncacheTree('./sysop.js');
+            sysop = require('./sysop.js').sysop();
             
             this.sendReply('Reloading hangman.js...');
             CommandParser.uncacheTree(path.join(__dirname, './', 'hangman.js'));
             hangman = require(path.join(__dirname, './', 'hangman.js')).hangman();
 
-            this.sendReply('Reloading tour.js...');
-            CommandParser.uncacheTree(path.join(__dirname, './', 'tour.js'));
-            tour = require(path.join(__dirname, './', 'tour.js')).tour();
-
-            this.sendReply('Reloading src/commands.js...');
-            CommandParser.uncacheTree(path.join(__dirname, './', 'commands.js'));
-            commands = require(path.join(__dirname, './', 'commands.js'));
-
-			this.sendReply('Reloading economy.js...');
-            CommandParser.uncacheTree(path.join(__dirname, './', 'economy.js'));
-            economy = require(path.join(__dirname, './', 'economy.js'));
+            this.sendReply('Reloading custom-commands.js...');
+            CommandParser.uncacheTree('./custom-commands.js');
+            customcommands = require('./custom-commands.js');
 
             this.sendReply('Reloading profile.js...');
-            CommandParser.uncacheTree(path.join(__dirname, './', 'profile.js'));
-            profile = require(path.join(__dirname, './', 'profile.js'));
-
+            CommandParser.uncacheTree('./profile.js');
+            profile = require('./profile.js');
             return this.sendReply('Chat commands have been reloaded.');
 	    } catch (e) {
 			return this.sendReply('Something failed while trying to reload: \n' + e.stack);
