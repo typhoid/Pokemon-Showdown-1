@@ -62,10 +62,9 @@ cmds: {
 
 
   },
-  //faze spruce this up with ur html skeelz
   credits: function(target, room, user) {
  	if(this.can('broadcast')) {
- 		return this.add('|html|The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server<a>. Some of these ideas were used from Quinella\'s chat bot. If you have any suggestions please tell him. Enjoy!');
+ 		return this.add('|html|The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server<a>. Some of these ideas were used from Quinella\'s chat bot. <a href="http://creativecommons.org/licenses/by/3.0/us/">Attribution License</a>. If you have any suggestions please tell him. Enjoy!');
  	}
  	else {
  	return false;	
