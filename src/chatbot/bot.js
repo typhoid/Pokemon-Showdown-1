@@ -20,18 +20,15 @@ return joke;
 },
 BannedStuff: function(message) {
      var fs = require('fs');
-     fs.readFile('./stuff/chatbot/bannedstuff.txt', function (err, data) {
-	 if (err) throw err;
-     bot.d = ('' + data).split(",");
- });
- for (var i = 0; i < bot.d.length; i++) {
-     if((''+bot.d).split('\n')[i].indexOf(message.toLowerCase()) > -1) {
-	 bot.bw = true;
-	 }
-  else {
- bot.bw = false;
- }
- }
+     var bw = '';
+     var data = fs.readFileSync('./stuff/chatbot/bannedstuff.txt','utf8');
+     var word = String(data).split('\n');
+     for(var i=0; word.length>i; i++)
+     if(message.toLowerCase().indexOf(word[i]) > -1) {
+     	bw = true
+     } else {
+     	bw = false
+     }
 return bot.bw;
 },
 
