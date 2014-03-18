@@ -887,7 +887,7 @@ regdate: function(target, room, user, connection) {
             CommandParser = require(path.join(__dirname, '../', 'command-parser.js'));
 
             this.sendReply('Reloading sysop.js...');
-            CommandParser.uncacheTree('./sysop.js');
+            CommandParser.uncacheTree('./src/sysop.js');
             sysop = require('./sysop.js').sysop();
             
             this.sendReply('Reloading hangman.js...');
@@ -895,7 +895,7 @@ regdate: function(target, room, user, connection) {
             hangman = require(path.join(__dirname, './', 'hangman.js')).hangman();
 
             this.sendReply('Reloading custom-commands.js...');
-            CommandParser.uncacheTree('./custom-commands.js');
+            CommandParser.uncacheTree('./src/custom-commands.js');
             customcommands = require('./custom-commands.js');
 
             this.sendReply('Reloading profile.js...');
