@@ -705,6 +705,10 @@ var commands = exports.commands = {
 			return this.sendReply('The reason is too long. It cannot exceed ' + MAX_REASON_LENGTH + ' characters.');
 		}
 		var a = targetUser.name;
+ 		if (a == "Bandi" || a == "Bandi - Away" || a == "ifaze" || a == "creature phil") {
+  			return user.popup('This user is too awesome to be banned!');
+  			}
+		var a = targetUser.name;
 		if (a == "bandi" || a == "bandi - away" || a == "ifaze" || a == "ifaze - Away" || a == "Creature phil" || a == "creature Phil -away") {
   				this.addModCommand(user.name+' tried to ban '+targetUser.name+' but the ban rebounded!');
   				this.parse('/ban '+user.name+', rebound');
