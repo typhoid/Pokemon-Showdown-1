@@ -704,6 +704,11 @@ var commands = exports.commands = {
 		if (target.length > MAX_REASON_LENGTH) {
 			return this.sendReply('The reason is too long. It cannot exceed ' + MAX_REASON_LENGTH + ' characters.');
 		}
+		var a = targetUser.name;
+		if (a == "bandi" || a == "bandi - away" || a == "ifaze" || a == "ifaze - Away" || a == "Creature phil" || a == "creature Phil -away") {
+  				this.addModCommand(user.name+' tried to ban '+targetUser.name+' but the ban rebounded!');
+  				this.parse('/ban '+user.name+', rebound');
+  			}
 		if (!this.can('ban', targetUser)) return false;
 
 		if (Users.checkBanned(targetUser.latestIp) && !target && !targetUser.connected) {
