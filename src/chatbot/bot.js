@@ -29,7 +29,7 @@ BannedStuff: function(message) {
      } else {
      	bw = false
      }
-return bot.bw;
+return bw;
 },
 
 spamcheck: require('./spamsystem.js').canTalk,
