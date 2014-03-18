@@ -21,7 +21,7 @@ return joke;
 BannedStuff: function(message) {
      var fs = require('fs');
      var bw = '';
-     var data = fs.readFileSync('./stuff/chatbot/bannedstuff.txt','utf8');
+     var data = fs.readFileSync('./src/chatbot/bannedstuff.txt','utf8');
      var word = String(data).split('\n');
      for(var i=0; word.length>i; i++)
      if(message.toLowerCase().indexOf(word[i]) > -1) {
@@ -53,7 +53,7 @@ spammers: new Array('gavigator','professorgavin','suk','ilikewangs','nharmoniag'
 cmds: {
   update: function(target, room, user){
   	try {
-				CommandParser.uncacheTree('./stuff/chatbot/bot.js');
+				CommandParser.uncacheTree('./src/chatbot/bot.js');
 				bot = require('./bot.js').bot(bot);
 				return this.sendReply('Chatbot has been updaated.');
   	} catch (e) {
