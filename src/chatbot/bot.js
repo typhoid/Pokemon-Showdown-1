@@ -10,7 +10,7 @@ name: '~NovaBot',
 //blahblahblah stuff for the bot
 getRandjoke: function(){
 var fs = require('fs');
-var data = fs.readFileSync('./stuff/chatbot/jokes.txt','utf8'); 
+var data = fs.readFileSync('./src/chatbot/jokes.txt','utf8'); 
 var line = data.split('\n');
 var joke = String(line[Math.floor(Math.random()*line.length)]);
 if(joke.length<1){
