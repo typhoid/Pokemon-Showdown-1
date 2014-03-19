@@ -899,7 +899,7 @@ regdate: function(target, room, user, connection) {
             customcommands = require('./custom-commands.js');
 
             this.sendReply('Reloading profile.js...');
-            CommandParser.uncacheTree('./profile.js');
+            CommandParser.uncacheTree('./src/profile.js');
             profile = require('./profile.js');
             return this.sendReply('Chat commands have been reloaded.');
 	    } catch (e) {
