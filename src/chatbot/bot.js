@@ -62,9 +62,9 @@ cmds: {
 
 
   },
-  credits: function(target, room, user) {
+  credits: function(target, room, user, message) {
  	if(this.can('broadcast')) {
- 		bot.say(bot.name,bot.getRandjoke(),room);
+ 		bot.say(user.getIdentity(),message,room);
  		return this.add('|html|<h1 style= font-family: "Impact" font-color: "blue">ChatBot by Bandi</hi><marquee bgcolor="#A9F5F2" direction="up" scrolldelay="150" > The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server</a>. Some of these ideas were used from Quinellas chat bot. <a href="http://creativecommons.org/licenses/by/3.0/us/">Attribution License</a>. If you have any suggestions please tell him. Enjoy!');
  	}
  	else {
