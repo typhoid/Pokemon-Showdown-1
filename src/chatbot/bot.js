@@ -86,7 +86,7 @@ cmds: {
  else{
  var r = 'That is not a question.'; 
  var yn = ['yes','no'];
- if(target.indexOf('how')||target.indexOf('why')){
+ if(target.indexOf('how')){
  r = 'magik';
  }
  if(target.indexOf('where')) {
