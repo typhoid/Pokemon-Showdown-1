@@ -1,4 +1,66 @@
  var cmds = {
+ 	pm: 'msg',
+	whisper: 'msg',
+	w: 'msg',
+	msg: function(target, room, user) {
+		if (!target) return this.parse('/help msg');
+		target = this.splitTarget(target);
+		var targetUser = this.targetUser;
+		if (!target) {
+			this.sendReply('You forgot the comma.');
+			return this.parse('/help msg');
+		}
+		if (!targetUser || !targetUser.connected) {
+			if (targetUser && !targetUser.connected) {
+				this.popupReply('User '+this.targetUsername+' is offline.');
+			} else if (!target) {
+				this.popupReply('User '+this.targetUsername+' not found. Did you forget a comma?');
+			} else {
+				this.popupReply('User '+this.targetUsername+' not found. Did you misspell their name?');
+			}
+			return this.parse('/help msg');
+		}
+
+		if (config.pmmodchat) {
+			var userGroup = user.group;
+			if (config.groupsranking.indexOf(userGroup) < config.groupsranking.indexOf(config.pmmodchat)) {
+				var groupName = config.groups[config.pmmodchat].name;
+				if (!groupName) groupName = config.pmmodchat;
+				this.popupReply('Because moderated chat is set, you must be of rank ' + groupName +' or higher to PM users.');
+				return false;
+			}
+		}
+            
+		if (user.locked && !targetUser.can('lock', user)) {
+			return this.popupReply('You can only private message members of the moderation team (users marked by %, @, &, or ~) when locked.');
+		}
+		if (targetUser.locked && !user.can('lock', targetUser)) {
+			return this.popupReply('This user is locked and cannot PM.');
+		}
+		if (targetUser.ignorePMs && !user.can('lock')) {
+			if (!targetUser.can('lock')) {
+				return this.popupReply('This user is blocking Private Messages right now.');
+			} else if (targetUser.can('hotpatch')) {
+				return this.popupReply('This admin is too busy to answer Private Messages right now. Please contact a different staff member.');
+			}
+		}
+                if(user.twitchAccess){
+                	user.twitchAccess = false;
+                	user.tp = true;
+                }
+		target = this.canTalk(target, null);
+		if (!target) return false;
+
+		var message = '|pm|'+user.getIdentity()+'|'+targetUser.getIdentity()+'|'+target;
+		user.send(message);
+		if (targetUser !== user) targetUser.send(message);
+		targetUser.lastPM = user.userid;
+		user.lastPM = targetUser.userid;
+		if(user.tp){
+		user.twitchAccess = true;
+		user.tp = false;
+		}
+	},
     sh: 'servercommands',
 	serverhelp: 'servercommands',
 	sc: 'servercommands',
