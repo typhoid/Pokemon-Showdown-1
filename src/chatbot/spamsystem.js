@@ -30,7 +30,7 @@ exports.canTalk = function (user, room, connection, message) {
   //caps
 			var alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 			for (var i=0;i<alpha.length;i++) {
-				if(message.toUpperCase().indexOf(alpha[i]) >= 0) {
+				if(message.indexOf(alpha[i]) >= 0) {
 					if (message === message.toUpperCase() && message.toUpperCase >= 6) {
 						room.add('|c|'+ user.name+'|'+message);
 						user.warnCounter+
