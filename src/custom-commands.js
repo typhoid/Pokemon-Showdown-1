@@ -975,6 +975,14 @@ regdate: function(target, room, user, connection) {
             });
         });
 	},
+	plaindeclare: 'pdeclare',
+	pdeclare: function(target, room, user) {
+		if (!this.can('pdeclare')) return;
+		if (!target) return this.sendReply('|raw|/pdeclare <i>message</i> - Displays a message without the declare background');
+
+		this.add('|raw|'+target);
+		this.logModCommand(user.name+' declared '+target);
+	},
 
 };
 Object.merge(CommandParser.commands, cmds);
