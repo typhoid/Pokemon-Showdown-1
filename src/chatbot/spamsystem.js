@@ -9,12 +9,12 @@ exports.canTalk = function (user, room, connection, message) {
     }
     user.numMessages += 1;
 
-    /*if (bot.BannedStuff(message) === true) {
+    if (bot.BannedStuff(message) === true) {
         user.lock();
         room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(bad site).</i></font>');
         return false;
     }
-	*/
+	
     if (user.numMessages == 15) {
         user.mute(room.id, 7 * 60 * 1000);
         room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for 7 minutes(flood).</i></font>');
