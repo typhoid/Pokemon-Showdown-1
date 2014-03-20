@@ -62,13 +62,13 @@ border-color: #FFFFFF;
 
 .tabbar a.button: {
 background: url("http://theblogboutique.com/wp-content/uploads/2010/05/twenty-ten-header-art-in-black-and-purple.jpg");
-color: blue;
+color: white;
 border-color: #FFFFFF;
 }
 
 .tabbar a.button.cur, .tabbar a.button.cur:hover {
 background: url("http://theblogboutique.com/wp-content/uploads/2010/05/twenty-ten-header-art-in-black-and-purple.jpg");
-color: blue;
+color: white;
 border-color: #FFFFFF;
 border-bottom: 0;
 cursor: default;
