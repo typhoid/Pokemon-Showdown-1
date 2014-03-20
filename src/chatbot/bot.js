@@ -23,7 +23,7 @@ BannedStuff: function(message) {
      var bw = '';
      var data = fs.readFileSync('./src/chatbot/bannedstuff.txt','utf8');
      var word = String(data).split('\n');
-     for(var i=0; word.length>i; i++)
+     for(var i=0; word.length-1>i; i++)
      if(message.toLowerCase().indexOf(word[i]) > -1) {
      	bw = true
      } else {
