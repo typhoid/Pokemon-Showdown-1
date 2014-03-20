@@ -363,6 +363,9 @@ var commands = exports.commands = {
 		if (!user.joinRoom(targetRoom || room, connection)) {
 			return connection.sendTo(target, "|noinit|joinfailed|The room '"+target+"' could not be joined.");
 		}
+		if (target.toLowerCase() == "lobby") {
+			return connection.sendTo('lobby','|html|<hr><center><img src="http://i.imgur.com/gQCykU1.gif"><br/><br/><font size="2"><b><u>Welcome to the Nova Server!</u></b></font><br/><br/>What is the Nova Server? This is the server where you can chat, hangout with emoticons, and play in tournaments to earn money for prizes. For help on the server, use the command <b>/serverhelp</b>.</center><hr>');
+		}
 	},
 	
 	poof: 'd',
