@@ -215,47 +215,6 @@ roll: 'dice',
         this.add('|unlink|' + targetUser.userid);
         targetUser.ban();
     },
-    unban: function (target, room, user) {
-        if (!target) return this.parse('/help unban');
-        if (!user.can('ban')) {
-            return this.sendReply('/unban - Access denied.');
-        }
-
-
-        var name = Users.unban(target);
-
-
-        if (name) {
-            this.addModCommand('' + name + ' was unbanned by ' + user.name + '.');
-        } else {
-            this.sendReply('User ' + target + ' is not banned.');
-        }
-    },
-    declare2: function (target, room, user) {
-        if (!target) return this.parse('/help declare');
-        if (!this.can('declare', null, room)) return false;
-
-
-        if (!this.canTalk()) return;
-
-
-        this.add('|raw|<b>' + target + '</b>');
-        this.logModCommand(user.name + ' declared ' + target);
-    },
-
-
-    declare: function (target, room, user) {
-        if (!target) return this.parse('/help declare');
-        if (!this.can('declare', null, room)) return false;
-
-
-        if (!this.canTalk()) return;
-
-
-        this.add('|raw|<div class="broadcast-custom"><b>' + target + '</b></div>');
-        this.logModCommand(user.name + ' declared ' + target);
-    },
-
 
     gdeclarered: 'gdeclare',
     gdeclaregreen: 'gdeclare',
@@ -317,8 +276,8 @@ modmsg: 'declaremod',
     	if(!user.can('broadcast')) return false;
     	if(!target){
     		user.hiding = true;
-    		return user.hidesymbol = ' ';
-    		user.updateIdentity()
+                user.hidesymbol = ' ';
+    		user.updateIdentity();
     	}
     	if(config.groupsranking.indexOf(user.group) < config.groupsranking.indexOf(target.substr(0,1))){
     		return this.sendReply('No hiding as a group higher than yours');
