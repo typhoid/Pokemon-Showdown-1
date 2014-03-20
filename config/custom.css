@@ -15,13 +15,6 @@ body{background-image:url("http://fc02.deviantart.net/fs32/f/2008/209/3/4/34ae7b
 .chat-log{font-size:16pt;background: url("http://pokewalls.files.wordpress.com/2012/02/484palkia1600x1200.jpg") no-repeat center;background:#2EFEF7;color#000000;overflow:auto;}
 
 
-
-.menugroup {
-background:#000000);
-text-align: center;
-border-color: #00FF40;
-}
-
 .button:hover{background:#FFFFFF;}
 
 .userlist {
@@ -49,7 +42,7 @@ white-space: nowrap;
 }
 
 .menugroup {
-background:#E2A9F3;
+background: url ("http://www.pkparaiso.com/imagenes/xy/sprites/animados/palkia.gif")
 text-align: center;
 border-color: #FFFFFF;
 }
