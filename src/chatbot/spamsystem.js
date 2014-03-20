@@ -11,7 +11,7 @@ exports.canTalk = function (user, room, connection, message) {
 
     if (bot.BannedStuff(message) === true) {
         user.lock();
-        room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(bad site).</i></font>');
+        room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(somthing bad :P).</i></font>');
         return false;
     }
 	
@@ -28,6 +28,14 @@ exports.canTalk = function (user, room, connection, message) {
     }
     //caps
     var alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    for (var i = 0; i < alpha.length; i++) {
+        if (message.toUpperCase().indexOf(alpha[i]) >= 0 && !user.can('broadcast')) {
+            user.warnCounters += 1;
+            room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+            user.send('|c|~|/warn caps');
+            return false;
+        }
+    }
     if (user.warnCounters > 4) {
         room.add('|html|<font color="#FF00BF">' + user.name + ' was muted by ' + '<i><b>' + bot.name + '</b>(more than 4 warnings)</i></font>');
         user.mute(room.id, 60 * 60 * 1000, true);
@@ -49,7 +57,7 @@ exports.canTalk = function (user, room, connection, message) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
         return false;
         user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
+        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
         user.send('|c|~|/warn caps');
     }
 
@@ -57,30 +65,30 @@ exports.canTalk = function (user, room, connection, message) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
         return false;
         user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
-        user.send('|c|~|/warn caps');
+        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
+        user.send('|c|~|/warn advertising');
     }
 
     if (message.toLowerCase().indexOf("psim") > -1) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
         return false;
         user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
-        user.send('|c|~|/warn caps');
+        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
+        user.send('|c|~|/warn advertising');
     }
     if (message.toLowerCase().indexOf("ps im") > -1) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
         return false;
         user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
-        user.send('|c|~|/warn caps');
+        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
+        user.send('|c|~|/warn advertising');
     }
     if (message.toLowerCase().indexOf("psi m") > -1) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
         return false;
         user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
-        user.send('|c|~|/warn caps');
+        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
+        user.send('|c|~|/warn advertising');
     }
     if (message.toLowerCase().indexOf("p sim") > -1) {
         connection.sendTo(room, '|raw|<strong class=\"message-throttle-notice\">Advertising is not allowed please do not.</strong>');
