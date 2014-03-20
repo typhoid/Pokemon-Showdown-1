@@ -27,6 +27,20 @@ exports.canTalk = function (user, room, connection, message) {
         return false;
     }
   
+  //caps
+			var alpha = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+			for (var i=0;i<alpha.length;i++) {
+				if(message.toUpperCase().indexOf(alpha[i]) >= 0) {
+					if (message === message.toUpperCase() && message.toUpperCase >= 6) {
+						room.add('|c|'+ user.name+'|'+message);
+						user.warnCounter+
+						room.add('|html|<font color="#FF00BF">'+user.name+' was warned by '+'<i><b> Rain Bot </b> '+'.' +  ' (caps)</i></font>');
+						user.send('|c|~|/warn '+'caps');
+						return false;
+					}
+				}
+			}
+			
     if (user.warnCounters > 4) {
         room.add('|html|<font color="#FF00BF">' + user.name + ' was muted by ' + '<i><b>' + bot.name + '</b>(more than 4 warnings)</i></font>');
         user.mute(room.id, 60 * 60 * 1000, true);
