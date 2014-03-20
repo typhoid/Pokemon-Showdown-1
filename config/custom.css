@@ -42,7 +42,7 @@ white-space: nowrap;
 }
 
 .menugroup {
-background: url ("http://www.pkparaiso.com/imagenes/xy/sprites/animados/palkia.gif");
+background: url("http://www.pkparaiso.com/imagenes/xy/sprites/animados/palkia.gif");
 text-align: center;
 border-color: #FFFFFF;
 }
@@ -78,11 +78,15 @@ border-color: #FFFFFF;
         .pm-window h3 {
     background: url("http://theblogboutique.com/wp-content/uploads/2010/05/twenty-ten-header-art-in-black-and-purple.jpg");        
 border-color: #FFFFFF;
+color: #BF00FF;
 }
+
+
 
 .pm-log-add {
         background: url("http://www.hdwallcloud.com/wp-content/uploads/2013/09/Ios-7-Wallpapers.jpg");        
 border-color: #FFFFFF;
+color: #BF00FF;
 }
 
 .challenge {
@@ -93,6 +97,7 @@ color: blue;
 .pad, .ps-popup, .pm-log, .ps-room.ps-room-opaque {
 background: url("http://i.imgur.com/Q8vHT0Y.png");
 overflow: auto;
+color: #BF00FF;
 }
 
 .message-announce {
@@ -102,7 +107,7 @@ border-color: #FFFFFF;
 }
 
 .pm-window h3 small  {
-color: #5e5e5e;        
+color: #BF00FF;        
 border-color: #FFFFFF;
 }
 
@@ -187,9 +192,6 @@ color#000000;
         text-shadow: #000000 1px 1px 0, #000000 1px -1px 0, #000000 -1px 1px 0, #000000 -1px -1px 0;
 }
 
-.menugroup {
-  background: url("");
-}
 
 
 .textbox {
@@ -542,7 +544,7 @@ background-image: url(http://i.imgur.com/rFSFXGg.png);
         background: url(http://i.imgur.com/3tRYvEC.png);
 }
 .mainmenufooter small:after {
-	  content: "Rain Server";
+	  content: "Nova Server";
 }
 
 
