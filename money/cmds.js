@@ -246,36 +246,31 @@ givemoney: function (target, room, user) {
 			'<th>ID</th>' +
 			'</tr>' +
 			'<td>Ticket</td>' +
-			'<td>50 Dollars</td>' +
+			'<td>100 Dollars</td>' +
 			'<td>A ticket</td>' +
 			'<td>tkt</td>' +
 			'</tr>' +
 			'<tr>' +
 			'<td>Ticket Reel</td>' +
-			'<td>1000 Dollars</td>' +
+			'<td>1,000 Dollars</td>' +
 			'<td>A reel of Tickets [10 tkts]</td>' +
 			'<td>reel</td>' +
 			'</tr>' +
-			'<td>Random Message</td>' +
-			'<td>2500 Dollars</td>' +
-			'<td>A box of Tickets [50 tkts]</td>' +
-			'<td>msg</td>' +
-			'</tr>' +
 			'<tr>' +
 			'<td>Ticket Chest</td>' +
-			'<td>10000 Dollars</td>' +
+			'<td>10,000 Dollars</td>' +
 			'<td>A chest of Tickets [100 tkts]</td>' +
 			'<td>chest</td>' +
 			'</tr>' +
 			'<tr>' +
 			'<td>Trainer Card</td>' +
-			'<td>50,000 Dollars</td>' +
+			'<td>10,000 Dollars</td>' +
 			'<td>A trainer card</td>' +
 			'<td>tc</td>' +
 			'</tr>' +
 			'<tr>' +
 			'<td>Custom Color</td>' +
-			'<td>50,000 Dollars</td>' +
+			'<td>775 coins</td>' +
 			'<td>A custom color</td>' +
 			'<td>color</td>' +
 			'</tr>' +
@@ -287,9 +282,19 @@ givemoney: function (target, room, user) {
 			'</tr>' +
 			'<tr>' +
 			'<td>Voice</td>' +
-			'<td>5000 Coins</td>' +
+			'<td>5,000 Coins</td>' +
 			'<td>A promotion to Voice. For more details, use /groups.(this can be taken away)</td>' +
 			'<td>voice</td>' +
+			'</tr>'+
+			'<td>Room Message</td>' +
+			'<td>5,000 Coins</td>' +
+			'<td>A welcome message for your room</td>' +
+			'<td>roommsg</td>' +
+			'</tr>'+
+			'<td>Force Rename</td>' +
+			'<td>10,000 Dollars</td>' +
+			'<td>The ability to forcibly rename yourself to any namethat is appropriate.</td>' +
+			'<td>rename</td>' +
 			'</tr>'
 			);
 	},
