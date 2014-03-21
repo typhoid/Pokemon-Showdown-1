@@ -740,6 +740,7 @@ regdate: function(target, room, user, connection) {
 				data = username+' is not registered.';
 			}
 			self.sendReplyBox(data);
+			room.update();
 		    });
 		});
 		req.end();
