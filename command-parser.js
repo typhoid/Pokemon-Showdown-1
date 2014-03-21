@@ -517,7 +517,7 @@ function canTalk(user, room, connection, message) {
 
                 return 'rgb(' + r + ', ' + g + ', ' + b + ');';
             } else {
-                return customColor(name)
+                return customColor[name];
             }
         }
 
