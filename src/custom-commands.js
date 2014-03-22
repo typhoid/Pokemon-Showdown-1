@@ -821,33 +821,41 @@ regdate: function(target, room, user, connection) {
 		req.end();
 	},
 	
-	afk: 'away',
-	away: function(target, room, user, connection) {
-		if (!this.can('lock')) return false;
-
-		if (!user.isAway) {
-			this.add('|raw|-- <b><font color="#4F86F7">' + user.name +'</font color></b> is now away. '+ (target ? " (" + target + ")" : ""));
-			user.isAway = true;
-			user.updateIdentity()
+	afk: function(target, room, user, connection) {
+		if (!this.canTalk()) return false;
+		if (!this.can('warn')) return false;
+		if (!user.isAfk) {
+			user.realName = user.name
+			var afkName = user.name + ' - afk';
+			delete Users.get(afkName);
+			user.forceRename(afkName, undefined, true);
+			this.send('|html|<b>'+user.realName+'</b> is now Away ('+target+').');
+			user.isAfk = true;
+			user.blockChallenges = true;
 		}
 		else {
-			return this.sendReply('You are already set as away, type /back if you are now back');
+			return this.sendReply('You are already AFK, type /unafk');
 		}
-
 		user.updateIdentity();
 	},
 
-	back: function(target, room, user, connection) {
-		if (!this.can('lock')) return false;
-
-		if (user.isAway) {
-			this.add('|raw|-- <b><font color="#4F86F7">'+user.name +'(Away)'+'</font color></b> is no longer away');
-			user.isAway = false;
+	unafk: function(target, room, user, connection) {
+		if (!user.isAfk) {
+			return this.sendReply('You are not AFK.');
 		}
 		else {
-			return this.sendReply('You are not set as away');
+			if (user.name.slice(-6) !== ' - afk') {
+				user.isAfk = false;
+				return this.sendReply('You are no longer AFK!');
+			}
+			var newName = user.realName;
+			delete Users.get(newName);
+			user.forceRename(newName, undefined, true);
+			user.authenticated = true;
+			this.send('|html|<b>' + newName + '</b> is back');
+			user.isAfk = false;
+			user.blockChallenges = false;
 		}
-                user.forceRename(user.name +'(Away)', false, true)
 		user.updateIdentity();
 	},
     crai: 'cry',
