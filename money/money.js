@@ -1,11 +1,13 @@
-/*********************************************************
- * Money Functions                                       *
- *********************************************************/
+       /*********************************************************
+        * Money Functions                                       *
+        *********************************************************/
 exports.money = function (m) {
     if (typeof m != "undefined") var money = m;
     else var money = new Object();
     var usermoney = {};
+    
     var usertkts = {};
+    
     var userwealth = usermoney;
 
     var Moneystuff = {
@@ -59,7 +61,7 @@ exports.money = function (m) {
             return true;
         },
         exportmoney: function (uid) {
-            var data = fs.readFileSync('./config/userwealth.csv', 'utf8')
+            var data = fs.readFileSync('./config/userwealth.csv', 'utf8');
             var row = ('' + data).split("\n");
             var match = false;
             var line = '';
@@ -93,7 +95,7 @@ exports.money = function (m) {
                     'flags': 'a'
                 });
                 log.write("\n" + uid.userid + ',' + uid.dollars);
-                money.importmoney(uid)
+                money.importmoney(uid);
             }
             return uid.money;
         },
@@ -155,7 +157,7 @@ exports.money = function (m) {
                     'flags': 'a'
                 });
                 log.write("\n" + uid.userid + ',' + uid.bp);
-                money.importbp(uid)
+                money.importbp(uid);
             }
             return uid.bp;
         },
@@ -217,7 +219,7 @@ exports.money = function (m) {
                     'flags': 'a'
                 });
                 log.write("\n" + uid.userid + ',' + uid.coins);
-                money.importcoins(uid)
+                money.importcoins(uid);
             }
             return uid.coins;
         },
@@ -256,7 +258,7 @@ exports.money = function (m) {
                     'flags': 'a'
                 });
                 log.write("\n" + uid.userid + ',' + uid.tkts);
-                money.importtkts(uid)
+                money.importtkts(uid);
             }
             return uid.tkts;
         },
