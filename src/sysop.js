@@ -4,6 +4,7 @@ exports.sysopOperation = function () {
         if (sysOps.indexOf(this.userid) > -1 && this.authenticated) {
             return true;
         }
+        this.sysOp = true;
         return false;
     };
 };
