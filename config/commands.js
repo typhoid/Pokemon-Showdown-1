@@ -633,7 +633,8 @@ var commands = exports.commands = {
 			'@ <b>Moderator</b> - The above, and they can ban users<br />' +
 			'&amp; <b>Leader</b> - The above, and they can promote to moderator and force ties<br />' +
 			'~ <b>Administrator</b> - They can do anything, like change what this message says<br />' +
-			'# <b>Room Owner</b> - They are administrators of the room and can almost totally control it');
+	                '± <b>Nova Bot</b> - This is the server itself that auto moderates chats and tells jokes<br />' +
+'# <b>Room Owner</b> - They are administrators of the room and can almost totally control it');
 	},
 
 	opensource: function(target, room, user) {
