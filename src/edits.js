@@ -51,7 +51,10 @@
 				            if (room.isPrivate) return ' ' + this.name;
 				        }
 				        if (this.hiding) {
-				            return this.hidesymbol + this.name;
+				        return this.hidesymbol + this.name;
+				        }
+				        if(this.hideo3o){
+				        return ' ' + this.name;
 				        }
 				        return this.group + this.name;
 				    }
