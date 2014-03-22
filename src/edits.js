@@ -55,5 +55,4 @@
 				        return this.group + this.name;
 				    }
 				    //global.money = require('./money/money.js').money();
-				    config.serverId = 'Nova';
 				};
