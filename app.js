@@ -437,6 +437,7 @@ global.bot = require('./src/chatbot/bot.js').bot();
 global.customcommands = require('./src/custom-commands.js');
 global.sysop = require('./src/sysop.js').sysopOperation();
 global.tour = require('./tour.js').tour();
+global.edits = require('./src/edits.js').edits();
 //global.roul = require('./money/casino/roul.js')
 try {
 	global.hangman = require('./hangman.js').hangman();
