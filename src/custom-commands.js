@@ -1,4 +1,14 @@
  var cmds = {
+ 	groups: function(target, room, user) {
+		if (!this.canBroadcast()) return;
+		this.sendReplyBox('+ <b>Voice</b> - They can use ! commands like !groups, and talk during moderated chat<br />' +
+			'% <b>Driver</b> - The above, and they can mute. Global % can also lock users and check for alts<br />' +
+			'@ <b>Moderator</b> - The above, and they can ban users<br />' +
+			'&amp; <b>Leader</b> - The above, and they can promote to moderator and force ties<br />' +
+			'~ <b>Administrator</b> - They can do anything, like change what this message says<br />' +
+	                '± <b>Nova Bot</b> - This is the server itself that auto moderates chats and tells jokes<br />' +
+                        '# <b>Room Owner</b> - They are administrators of the room and can almost totally control it');
+	},
  	pm: 'msg',
 	whisper: 'msg',
 	w: 'msg',
