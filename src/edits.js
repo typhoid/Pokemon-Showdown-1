@@ -32,6 +32,7 @@
 				    Users.User.prototype.avatar = getAv(this);
 				    Users.User.prototype.numMessages = 0;
 				    Users.User.prototype.warnCounters = 0;
+				    global.today = new Date();
 				    Users.User.prototype.o3omessagetime = today.getMinutes();
 				    Users.User.prototype.getIdentity = function (roomid) {
 				        if (!roomid) roomid = 'lobby';
