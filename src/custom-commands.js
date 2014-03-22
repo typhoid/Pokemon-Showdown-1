@@ -24,7 +24,7 @@
             
             this.sendReply('Reloading edits.js...');
             CommandParser.uncacheTree('./src/edits.js');
-            edits = require('./edits.js');
+            edits = require('./edits.js').edits();
             
             this.sendReply('Reloading custom-commands.js...');
             CommandParser.uncacheTree('./src/custom-commands.js');
