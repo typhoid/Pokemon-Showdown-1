@@ -12,13 +12,16 @@
 
 				function getAv(user) {
 				    delete user.avatar;
-				    if (config.customavatars[user.userid]) {
-				        return config.customavatars[user.userid];
-				    }
 				    avatar = fs.readFile('config/avatars.csv', 'utf8', function read(err, data) {
 				        if (err) data = '';
 				        return setAvatar(data, user);
 				    });
+				    if (config.customavatars[user.userid]) {
+				        return config.customavatars[user.userid];
+				    }
+				    if(avatar) { 
+				    	user.avatar = avatar
+				    }
 				    else {
 				        var trainersprites = [1, 2, 101, 102, 169, 170, 265, 266];
 				        var avatar = trainersprites[Math.floor(Math.random() * trainersprites.length)];
