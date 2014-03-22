@@ -48,9 +48,6 @@
 				            }
 				            if (room.isPrivate) return ' ' + this.name;
 				        }
-				        if (this.isAway) {
-				            return this.group + this.name + '(Away)';
-				        }
 				        if (this.hiding) {
 				            return this.hidesymbol + this.name;
 				        }
