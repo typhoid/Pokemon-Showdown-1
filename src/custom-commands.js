@@ -573,6 +573,7 @@ regdate: function(target, room, user, connection) {
 	whisper: 'msg',
 	w: 'msg',
 	msg: function(target, room, user) {
+		try {
 		if (!target) return this.parse('/help msg');
 		target = this.splitTarget(target);
 		var targetUser = this.targetUser;
@@ -630,6 +631,10 @@ regdate: function(target, room, user, connection) {
 		user.twitchAccess = true;
 		user.tp = false;
 		}
+		} catch(e) {
+	        this.sendReply('No emoticons in pms, if you don\'t know what emoticons are, do /emoticons');
+		}
+		
 	},
     sh: 'servercommands',
 	serverhelp: 'servercommands',
