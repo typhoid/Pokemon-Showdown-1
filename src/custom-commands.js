@@ -841,13 +841,13 @@ regdate: function(target, room, user, connection) {
 		if (!this.can('lock')) return false;
 
 		if (user.isAway) {
-			this.add('|raw|-- <b><font color="#4F86F7">'+user.name+'</font color></b> is no longer away');
+			this.add('|raw|-- <b><font color="#4F86F7">'+user.name +'(Away)'+'</font color></b> is no longer away');
 			user.isAway = false;
 		}
 		else {
 			return this.sendReply('You are not set as away');
 		}
-
+                user.forceRename(user.name +'(Away)', false, true)
 		user.updateIdentity();
 	},
     crai: 'cry',
