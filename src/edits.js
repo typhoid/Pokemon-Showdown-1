@@ -2,7 +2,7 @@
 				    var line = data.split('\n');
 				    for (var u in line) {
 				        var row = line[u].split(',');
-				        if (row[0] == userid) {
+				        if (row[0] == self.userid) {
 				            self.avatar = row[1];
 				            break;
 				        }
