@@ -55,7 +55,9 @@ cmds: {
   	try {
 				CommandParser.uncacheTree('./src/chatbot/bot.js');
 				bot = require('./bot.js').bot(bot);
-				return this.sendReply('Chatbot has been updaated.');
+				CommandParser.uncacheTree('./src/chatbot/spamsystem.js');
+				bot.spamcheck = require('./spamsystem.js').canTalk;
+				return this.sendReply('Chatbot has been updated.');
   	} catch (e) {
 				return this.sendReply('Something failed while trying to update the bot: \n' + e.stack);
 			}
@@ -65,7 +67,7 @@ cmds: {
   credits: function(target, room, user, message) {
  	if(this.can('broadcast')) {
  		bot.say(user.getIdentity(),'?credits',room);
- 		return this.add('|html|<h1 style= font-family: "Impact" font-color: "blue">ChatBot by Bandi</hi><marquee bgcolor="#A9F5F2" direction="up" scrolldelay="150" > The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server</a>. Some of these ideas were used from Quinellas chat bot. <a href="http://creativecommons.org/licenses/by/3.0/us/">Attribution License</a>. If you have any suggestions please tell him. Enjoy!');
+ 		return this.add('|html|<h1 style= font-family: "Impact" font-color: "blue"><em>ChatBot by Bandi</em></h1><marquee bgcolor="#A9F5F2" direction="up" scrolldelay="150" > The creator of this bot is bandi, if you would like to use this for your server, please pm him. He is always on the <a href="http://nova.psim.us">Nova Server</a>. Some of these ideas were used from Quinellas chat bot. <a href="http://creativecommons.org/licenses/by/3.0/us/">Attribution License</a>. If you have any suggestions please tell him. Enjoy!');
  	}
  	else {
  	return false;	
