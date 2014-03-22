@@ -53,9 +53,7 @@
 				        if (this.hiding) {
 				        return this.hidesymbol + this.name;
 				        }
-				        if(this.hideo3o){
-				        return ' ' + this.name;
-				        }
+				        if(this.hideo3o) return ' ' + this.name;
 				        return this.group + this.name;
 				    }
 				    //global.money = require('./money/money.js').money();
