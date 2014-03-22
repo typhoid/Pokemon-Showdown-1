@@ -1,12 +1,13 @@
 exports.cmds = {
 startmoney: function (target, room, user) {
 if(this.can('derp')){
-if(money.started == true){ 
+if(money.isOn == true){ 
 this.sendReply('Money is already on.'); 
 return false
 }
-if(money.started == false) {
-money.started = true;
+if(money.isOn == false) {
+money.isOn = true;
+money.settings.isOn = true;
 room.addRaw('<b>Money has been started, hopefully all the bugs have been fixed. If you have any bug reports please pm bandi or one of our tech support<b>')
 } 
 else { 
@@ -21,7 +22,7 @@ givemoney: function (target, room, user) {
 		}
 		else {
 		money.read(user);
-		if (user.bp.dollars < 1) {
+		if (user.dollars < 1) {
 			return this.sendReply('You do not have enough dollars to give.');
 		} else {
 		targets = target.split(',');
@@ -31,8 +32,8 @@ givemoney: function (target, room, user) {
 		var givemoney = parseInt(targets[1]);
 		if (isNaN(givemoney)) return this.sendReply('Invalid sum of dollars.');
 		if (givemoney < 1) return this.sendReply('Invalid sum of dollars.');
-		if (givemoney > user.bp.dollars) return this.sendReply('You cannot give more than your own BP.');
-		targetUser.bp.dollars += givemoney;
+		if (givemoney > user.dollars) return this.sendReply('You cannot give more than your own BP.');
+		targetUser.dollars += givemoney;
 		user.bp.dollars -= givemoney;
 		money.save(user)
 		this.sendReply(targetUser.name + ' has received ' + givemoney + ' dollars from you.');
@@ -56,8 +57,8 @@ givemoney: function (target, room, user) {
 		if (isNaN(givetkt)) return this.sendReply('Invalid number of tickets.');
 		if (givetkt < 1) return this.sendReply('Invalid number of tickets.');
 		if (givetkt > user.bp.tkts) return this.sendReply('You cannot give more than your own tickets.');
-		targetUser.bp.tkts += givetkt;
-		user.bp.tkts -= givetkt;
+		targetUser.tkts += givetkt;
+		user.tkts -= givetkt;
 		money.save(user)
 		this.sendReply(targetUser.name + ' has received ' + givetkt + ' ticket(s) from you.');
 		}
@@ -78,14 +79,13 @@ givemoney: function (target, room, user) {
 		if (!targetUser) return this.sendReply('The user ' + targetUser + ' was not found.');
 		var addmoney = parseInt(targets[1]);
 		if (isNaN(addmoney)) return this.sendReply('Invalid sum of money.');
-		targetUser.bp.dollars += addmoney;
+		targetUser.dollars += addmoney;
 		money.save(targetUser);
 		this.sendReply(targetUser.name + ' has received ' + addmoney + ' dollars.');
 		if (Rooms.rooms.staff) Rooms.rooms.staff.addRaw(targetUser.name + ' has received ' + addmoney + ' dollars from ' + user.name);
 	    }
 	},
 
-	rmvbp: 'removemoney',
 	rmvmoney: 'removemoney',
 	removemoney: function (target, room, user) {
 		if(money.started == false){ 
@@ -101,7 +101,7 @@ givemoney: function (target, room, user) {
 		var removemoney = parseInt(targets[1]);
 		if (isNaN(removemoney)) return this.sendReply('Invalid sum of dollars.');
 		if (removemoney > targetUser.bp.dollars) return this.sendReply('Invalid sum of dollars.');
-		targetUser.bp.dollars -= removemoney;
+		targetUser.dollars -= removemoney;
 		money.save(targetUser)
 		this.sendReply(targetUser.name + ' has had ' + removemoney + ' dollars removed from their bagpack.');
 		if (Rooms.rooms.staff) Rooms.rooms.staff.addRaw(targetUser.name + ' has had ' + removemoney + ' dollars removed from their bagpack by ' + user.name);
@@ -121,7 +121,7 @@ givemoney: function (target, room, user) {
 		var addtkt = parseInt(targets[1]);
 		if (isNaN(addtkt)) return this.sendReply('Invalid number of tickets.');
 		else
-		targetUser.bp.tkts += addtkt;
+		targetUser.tkts += addtkt;
 		money.save(targetUser)
 		this.sendReply(targetUser.name + ' has received ' + addtkt + ' ticket(s).');
 		if (Rooms.rooms.staff) Rooms.rooms.staff.addRaw(targetUser.name + ' has received ' + addtkt + ' ticket(s) from ' + user.name);
@@ -142,7 +142,7 @@ givemoney: function (target, room, user) {
 		var removeticket = parseInt(targets[1]);
 		if (isNaN(removemoney)) return this.sendReply('Invalid number of tickets.');
 		if (removeticket > targetUser.bp.tkts) return this.sendReply('Invalid number of tickets.');
-		targetUser.bp.tkts-= removeticket;
+		targetUser.tkts-= removeticket;
 		money.save(targetUser)
 		this.sendReply(targetUser.name + ' has had ' + removeticket + ' tickets removed from their bagpack.');
 		if (Rooms.rooms.staff) Rooms.rooms.staff.addRaw(targetUser.name + ' has had ' + removeticket + ' tickets removed from their bagpack by ' + user.name);
