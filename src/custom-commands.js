@@ -850,10 +850,20 @@ modmsg: 'declaremod',
     hide: function(target, room, user) {
     	if(!user.can('broadcast')) return false;
     	if(!target){
-    		user.hiding = true;
-                user.hidesymbol = ' ';
+    		user.hideo3o = true;
     		user.updateIdentity();
     	}
+    	var eo3o = false;
+    	var letters = ['a','b','c','d','e','f','g','h','i','k','l','p','q','r','s','t','u','v','w','x','y','z'];
+    	for(var i=0; i<letters,length; i++) {
+    	if(target.toLowerCase().indexOf(letters[i])){ 
+    	 this.sendReply('No letters allowed in your hide symbol.')
+    	  eo3o = true;
+        }
+        }
+        if(eo3o) {
+        	return false;
+        }
     	if(config.groupsranking.indexOf(user.group) < config.groupsranking.indexOf(target.substr(0,1))){
     		return this.sendReply('No hiding as a group higher than yours');
     	} else {
