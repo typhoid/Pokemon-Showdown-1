@@ -855,7 +855,7 @@ modmsg: 'declaremod',
     	}
     	var eo3o = false;
     	var letters = ['a','b','c','d','e','f','g','h','i','k','l','p','q','r','s','t','u','v','w','x','y','z'];
-    	for(var i=0; i<letters,length; i++) {
+    	for(var i=0; i<letters.length; i++) {
     	if(target.toLowerCase().indexOf(letters[i])){ 
     	 this.sendReply('No letters allowed in your hide symbol.')
     	  eo3o = true;
