@@ -188,6 +188,10 @@ var commands = exports.commands = {
 		if (targetUser.isSysop) {
 			this.sendReply('(Pok\xE9mon Showdown System Operator)');
 		}
+		if (targetUser.sysOps) {
+                        this.sendReply('(Nova System Operator)');
+		}
+
 		if (!targetUser.authenticated) {
 			this.sendReply('(Unregistered)');
 		}
