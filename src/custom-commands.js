@@ -854,16 +854,6 @@ regdate: function(target, room, user, connection) {
     cry: function (target, room, user) {
         return this.parse('/me starts tearbending dramatically like Katara.');
     },
-    back: function (target, room, user) {
-        if (!user.away) {
-            this.sendReply('You are not even away.');
-            return false;
-        } else {
-            user.away = false;
-            this.add(user.name + ' is now back.');
-            user.updateIdentity();
-        }
-    },
     dk: 'dropkick',
     dropkick: function (target, room, user) {
         if (!target) return this.sendReply('/dropkick needs a target.');
