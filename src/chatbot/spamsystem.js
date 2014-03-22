@@ -11,7 +11,7 @@ exports.canTalk = function (user, room, connection, message) {
 
     if (bot.BannedStuff(message) === true) {
         user.lock();
-        room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for an hour(somthing bad :P).</i></font>');
+        room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> locked ' + user.name + '(somthing bad :P).</i></font>');
         return false;
     }
 	
@@ -46,13 +46,6 @@ exports.canTalk = function (user, room, connection, message) {
         user.mute(room.id, 60 * 60 * 1000, true);
         return false;
     }
-    if (message === message.toUpperCase() && message.length >= 11) {
-        room.add('|c|' + user.name + '|' + message);
-        user.warnCounters += 1;
-        room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(caps)</i></font>');
-        user.send('|c|~|/warn caps');
-        return false;
-    }
     if (spamroom[user.userid]) {
         Rooms.rooms.spamroom.add('|c|' + user.getIdentity() + '|' + message);
         connection.sendTo(room, "|c|" + user.getIdentity() + "|" + message);
@@ -63,7 +56,7 @@ exports.canTalk = function (user, room, connection, message) {
         return false;
         user.warnCounters += 1;
         room.add('|html|<font color="#FF00BF">' + user.name + ' was warned by ' + '<i><b>' + bot.name + '</b>(advertising)</i></font>');
-        user.send('|c|~|/warn caps');
+        user.send('|c|~|/warn advertising');
     }
 
     if (message.toLowerCase().indexOf("play.pokemonshowdown.com") > -1) {
