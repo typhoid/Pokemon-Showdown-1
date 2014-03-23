@@ -469,8 +469,9 @@ function canTalk(user, room, connection, message) {
         }
         if (bot.spamcheck(user, room, connection, message) === false) {
             return false;
-        }
+        } else{
     return message;
+        }
     } 
     return true;
 }
