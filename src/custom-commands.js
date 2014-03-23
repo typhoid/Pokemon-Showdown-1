@@ -40,8 +40,8 @@
 		if (!target) return this.sendReply('|raw|Correct Syntax: /imgdeclare <i>insert img url here</i>');
 		if (!this.can('imgdeclare')) return;
 
-		if (!this.canTalk()) return;
-
+		if (!this.canTalk(target)) return false;
+		else
 		this.add('|raw|'+'<img width="100%" src="'+target+'" >');
 		this.logModCommand(user.name+' declared '+target);
 	},
