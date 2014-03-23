@@ -355,15 +355,9 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
     }
 
     message = canTalk(user, room, connection, message);
-       /*	if(user.twitchAcess === true) {
-	if (!message) return false;
-        if (room && room.id === 'lobby') user.numMessages+=1; 
-	var Source = require('./src/source.js').Source;
-	if(Source.twitchChat(room, user, connection, cmd, message) === false) {
-	return;
-	}
-	}
-	*/
+    if (!message) return false;
+    if (room && room.id === 'lobby') user.numMsg++; //increment numMsg
+    return message;
 };
 
 function splitTarget(target, exactName) {
@@ -470,11 +464,168 @@ function canTalk(user, room, connection, message) {
         }
         if (bot.spamcheck(user, room, connection, message) === false) {
             return false;
-        } 
-    return message;
-    } 
-    return true;
-}
+        }
+        //Username's Color
+
+        var customColor = {
+            bandi: '#40.210cb295e9d494.41cac08312719.249ba5e353f9'
+        };
+
+        function HueToRgb(m1, m2, hue) {
+            var v;
+            if (hue < 0)
+                hue += 1;
+            else if (hue > 1)
+                hue -= 1;
+
+            if (6 * hue < 1)
+                v = m1 + (m2 - m1) * hue * 6;
+            else if (2 * hue < 1)
+                v = m2;
+            else if (3 * hue < 2)
+                v = m1 + (m2 - m1) * (2 / 3 - hue) * 6;
+            else
+                v = m1;
+
+            return (255 * v).toString(16);
+        }
+
+        function hashColor(name) {
+            if (!customColor[name]) {
+                var hash = crypto.createHash('md5').update(name).digest('hex');
+                var H = parseInt(hash.substr(4, 4), 16) % 360;
+                var S = parseInt(hash.substr(0, 4), 16) % 50 + 50;
+                var L = parseInt(hash.substr(8, 4), 16) % 20 + 25;
+
+                var m1, m2, hue;
+                var r, g, b
+                    S /= 100;
+                L /= 100;
+                if (S == 0)
+                    r = g = b = (L * 255).toString(16);
+                else {
+                    if (L <= 0.5)
+                        m2 = L * (S + 1);
+                    else
+                        m2 = L + S - L * S;
+                    m1 = L * 2 - m2;
+                    hue = H / 360;
+                    r = HueToRgb(m1, m2, hue + 1 / 3);
+                    g = HueToRgb(m1, m2, hue);
+                    b = HueToRgb(m1, m2, hue - 1 / 3);
+                }
+
+                return 'rgb(' + r + ', ' + g + ', ' + b + ');';
+            } else {
+                return customColor[name];
+            }
+        }
+
+        //Emoticons
+        function replaceEmoticons(text) {
+            var emoticons = {
+                ':)': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ebf60cd72f7aa600-24x18.png',
+                ':O': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ae4e17f5b9624e2f-24x18.png',
+                ':(': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-d570c4b3b8d8fc4d-24x18.png',
+                ';)': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-cfaf6eac72fe4de6-24x18.png',
+                ':P': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-e838e5e34d9f240c-24x18.png',
+                ';P': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-3407bf911ad2fd4a-24x18.png',
+                'B)': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-2cde79cfe74c6169-24x18.png',
+                'O_o': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-8e128fa8dc1de29c-24x18.png',
+                'R)': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-0536d670860bf733-24x18.png',
+                ':D': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-9f2ac5d4b53913d7-24x18.png',
+                ':z': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-b9cbb6884788aa62-24x18.png',
+                '<3': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-577ade91d46d7edc-24x18.png',
+                'BloodTrail': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f124d3a96eff228a-41x28.png',
+                'BibleThump': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-f6c13c7fc0a5c93d-36x30.png',
+                '4Head': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-76292ac622b0fc38-20x30.png',
+                'Kappa': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-ddc6e3a8732cb50f-25x28.png',
+                'PogChamp': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-60aa1af305e32d49-23x30.png',
+                'ResidentSleeper': 'http://static-cdn.jtvnw.net/jtv_user_pictures/chansub-global-emoticon-1ddcc54d77fc4a61-28x28.png',
+                'crtNova': 'http://static-cdn.jtvnw.net/jtv_user_pictures/emoticon-3227-src-77d12eca2603dde0-28x28.png',
+                'crtSSoH': 'http://static-cdn.jtvnw.net/jtv_user_pictures/emoticon-3228-src-d4b613767d7259c4-28x28.png'
+            }, patterns = [],
+                metachars = /[[\]{}()*+?.\\|^$\-,&#\s]/g;
+
+            // build a regex pattern for each defined property
+            for (var i in emoticons) {
+                if (emoticons.hasOwnProperty(i)) { // escape metacharacters
+                    patterns.push('(' + i.replace(metachars, "\\$&") + ')');
+                }
+            }
+
+            // build the regular expression and replace
+            return text.replace(new RegExp(patterns.join('|'), 'g'), function (match) {
+                return typeof emoticons[match] != 'undefined' ?
+                    '<img src="' + emoticons[match] + '"/>' :
+                    match;
+            });
+        }
+
+        message = replaceEmoticons(message);
+
+        //Twitch Chat
+        if (user.twitchAccess === true) {
+
+            function readTwitchGroup(user) {
+                /*
+				Key:
+				-----------
+				S - <img src="http://i.imgur.com/UEMY7N1.png" title="System Operator" height="14">
+				E - <img src="http://i.imgur.com/mbdkl0w.png" title="Elite Moderator" height="14">
+				B - <img src="http://i.imgur.com/0IugM.png" title="Broadcaster" height="14">
+				C - <img src="http://i.imgur.com/Fqiyjil.png" title="Chat Moderator" height="14">
+				T - <img src="http://i.imgur.com/kZyJVgU.png" title="Turbo User" height="14">
+				*/
+                var twitchGroup = '';
+                var key = '';
+                var match = false;
+
+                var data = fs.readFileSync('config/profile/twitchgroups.csv', 'utf8');
+
+                var row = ('' + data).split("\n");
+                for (var i = row.length; i > -1; i--) {
+                    if (!row[i]) continue;
+                    var parts = row[i].split(",");
+                    var userid = toUserid(parts[0]);
+                    if (user.userid == userid) {
+                        key = String(parts[1]);
+                        if (key.indexOf('S') >= 0) {
+                            twitchGroup += '<img src="http://i.imgur.com/UEMY7N1.png" title="System Operator" height="14">';
+                        }
+                        if (key.indexOf('E') >= 0) {
+                            twitchGroup += '<img src="http://i.imgur.com/mbdkl0w.png" title="Elite Moderator" height="14">';
+                        }
+                        if (key.indexOf('B') >= 0) {
+                            twitchGroup += '<img src="http://i.imgur.com/0IugM.png" title="Broadcaster" height="14">';
+                        }
+                        if (key.indexOf('C') >= 0) {
+                            twitchGroup += '<img src="http://i.imgur.com/Fqiyjil.png" title="Chat Moderator" height="14">';
+                        }
+                        if (key.indexOf('T') >= 0) {
+                            twitchGroup += ' <img src="http://i.imgur.com/kZyJVgU.png" title="Turbo User" height="14">';
+                        }
+                        match = true;
+                        if (match === true) {
+                            break;
+                        }
+                    }
+                }
+                user.twitchGroup = twitchGroup;
+                return user.twitchGroup;
+            }
+
+            room.addRaw('<div class="chat">' + readTwitchGroup(user) + '<strong><font color="' + hashColor(user.name) + '"><span class="username" data-name="' + user.name + '">' + user.name + ':</font></span></strong> <em class="mine">' + message + '</em></div>');
+
+        } else {
+            if (message.indexOf('static-cdn') >= 0) {
+                return room.addRaw('<div class="chat"><strong><small>' + user.group + '</small><font color="' + hashColor(user.name) + '"><span class="username" data-name="' + user.name + '">' + user.name + ':</font></span></strong> <em class="mine">' + message + ' </em></div>');
+            }
+            return message;
+            return true;
+        }
+    }
+};
 exports.package = {};
 fs.readFile('package.json', function (err, data) {
     if (err) return;
