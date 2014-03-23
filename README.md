@@ -114,6 +114,7 @@ Credits
 
 Owner
 
+- Elijah Bandi [bandi] - New Owner, Better than smogon staff
 - Guangcong Luo [Zarel] - Development, Design
 
 Staff
