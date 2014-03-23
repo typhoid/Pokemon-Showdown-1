@@ -184,12 +184,13 @@
 			if (message.length > 300) {
 				connection.popup("Your message is too long:\n\n"+message);
 				return false;
-			}
+			} else {
 			message = Source.escapeHTML(message);
 			message = Twitch.replaceEmoticons(message);
 			
 			room.add('|raw|<div class="chat">'+Twitch.readTwitchGroup(user) + '<strong><font color="'+Color.hashColor(user.name)+'"><span class="username" data-name="'+user.name+'">'+user.name+':</font></span></strong> <em class="mine">'+message+'</em></div>');
 			return false;
+			}
 		} else {
 			if (cmd.substr(1,2) === 'pm') return true;
 			if (cmd.charAt(0) === '!') {
