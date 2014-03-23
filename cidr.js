@@ -4,7 +4,8 @@
  *
  * This file controls support for checking to see if an IP matches a
  * CIDR range.
- *
+ * 
+ * 
  * @license MIT license
  */
 
