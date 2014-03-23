@@ -157,9 +157,9 @@
 	
 	escapeHTML: function(target) {
 		if (!target) return false;
-		target = target.replace(/&(?!\w+;)/g, '&amp;')
-		target = target.replace(/</g, '&lt;')
-		target = target.replace(/>/g, '&gt;')
+		target = target.replace(/&(?!\w+;)/g, '&amp;');
+		target = target.replace(/</g, '&lt;');
+		target = target.replace(/>/g, '&gt;');
 		target = target.replace(/"/g, '&quot;');
 		return target;
 	},
