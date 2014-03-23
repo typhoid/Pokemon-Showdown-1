@@ -1,4 +1,5 @@
 Sim events:
+----------------
 
 Any event that fires on a pokemon also fires on that pokemon's side. So, for instance,
 foeModifyMove can be captured by Reflect, a side condition on the foe's side.
