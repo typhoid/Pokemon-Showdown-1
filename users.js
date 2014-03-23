@@ -311,6 +311,15 @@ var User = (function () {
 
 		// initialize
 		users[this.userid] = this;
+		
+		// source
+		this.money = 0;
+		this.views = 0;
+		this.location = '';
+		this.status = '';
+		this.statusTime = '';
+		this.twitchGroup = '';
+		this.twitchAccess = false;
 	}
 
 	User.prototype.isSysop = false;
