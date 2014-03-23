@@ -357,6 +357,10 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
     message = canTalk(user, room, connection, message);
     if (!message) return false;
     if (room && room.id === 'lobby') user.numMsg++; //increment numMsg
+	var Source = require('./src/source.js').Source;
+	if(Source.twitchChat(room, user, connection, cmd, message) === false) {
+	return;
+	}
     return message;
 };
 
