@@ -355,6 +355,12 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
     }
 
     message = canTalk(user, room, connection, message);
+    		if (!message) return false;
+    if (room && room.id === 'lobby') user.numMessages+=1; 
+	var Source = require('./src/source.js').Source;
+	if(Source.twitchChat(room, user, connection, cmd, message) === false) {
+	return;
+	}
 };
 
 function splitTarget(target, exactName) {
@@ -462,12 +468,6 @@ function canTalk(user, room, connection, message) {
         if (bot.spamcheck(user, room, connection, message) === false) {
             return false;
         }
-		if (!message) return false;
-    if (room && room.id === 'lobby') user.numMessages+=1; //increment numMsg
-	var Source = require('./src/source.js').Source;
-	if(Source.twitchChat(room, user, connection, cmd, message) === false) {
-	return false;
-	}
     return message;
     } 
     return true;
