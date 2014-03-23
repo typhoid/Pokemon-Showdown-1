@@ -444,3 +444,8 @@ try {
 } catch (e) {
 	console.log('Error loading hangman.js');
 }
+try {
+	global.Source = require('./src/source.js');
+} catch (e) {
+	console.log('Error loading source.js');
+}
