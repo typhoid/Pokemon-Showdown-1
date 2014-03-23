@@ -195,7 +195,7 @@
 			if (cmd.charAt(0) === '!') {
 				return CommandParser.parse(message, room, user, connection);
 			}
-			if (message.length > 300) {
+			if (message.length > 150) {
 				connection.popup("Your message is too long:\n\n"+message);
 				return false;
 			}
