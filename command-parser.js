@@ -355,13 +355,12 @@ var parse = exports.parse = function (message, room, user, connection, levelsDee
     }
 
     message = canTalk(user, room, connection, message);
-    if (message){
+    if (!message) return false;
     if (room && room.id === 'lobby') user.numMessages+=1; 
 	var Source = require('./src/source.js').Source;
 	if(Source.twitchChat(room, user, connection, cmd, message) === false) {
-	return message;
+	return;
 	}
-    } 
 };
 
 function splitTarget(target, exactName) {
