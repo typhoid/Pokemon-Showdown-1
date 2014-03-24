@@ -361,7 +361,7 @@ var Profile = {
 	},
 
 	customAvatar: function(user, height) {
-		return '<img src="http://192.184.93.98-5000/avatars/' + user.avatar + '" align="left" height="' + height + '"><br/>';
+		return '<img src="http://192.184.93.98:5000/avatars/' + user.avatar + '" align="left" height="' + height + '"><br/>';
 	},
 
 	name: function(user) {
