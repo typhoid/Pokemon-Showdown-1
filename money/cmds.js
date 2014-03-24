@@ -286,11 +286,13 @@ givemoney: function (target, room, user) {
 			'<td>A promotion to Voice. For more details, use /groups.(this can be taken away)</td>' +
 			'<td>voice</td>' +
 			'</tr>'+
+			'<tr>' +
 			'<td>Room Message</td>' +
 			'<td>5,000 Coins</td>' +
 			'<td>A welcome message for your room</td>' +
 			'<td>roommsg</td>' +
-			'</tr>'+
+			'</tr>' +
+			'<tr>' +
 			'<td>Force Rename</td>' +
 			'<td>10,000 Dollars</td>' +
 			'<td>The ability to forcibly rename yourself to any namethat is appropriate.</td>' +
