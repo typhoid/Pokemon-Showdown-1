@@ -462,12 +462,7 @@ function canTalk(user, room, connection, message) {
                     return false;
                 }
             }
-            if (spamroom[user.userid]) {
-                Rooms.rooms.randomasdfjklspamhell.add('|c|' + user.getIdentity() + '|' + message);
-                connection.sendTo(room, "|c|" + user.getIdentity() + "|" + message);
-                return false;
-        }
-
+           
             if (config.chatfilter) {
                 return config.chatfilter(user, room, connection, message);
             }
