@@ -394,7 +394,7 @@ var Profile = {
 	},
 
 	money: function(user) {
-		Source.stdinNumber('config/userwealth.csv', user, 'dollars');
+		Source.stdinNumber('usermoney.csv', user, 'dollars');
 		return '<i>Money:</i> ' + '<img src="http://cdn.bulbagarden.net/upload/8/8c/Pok%C3%A9monDollar.png" title="PokeDollar">' + user.dollars + '<br/>';
 	},
 	
