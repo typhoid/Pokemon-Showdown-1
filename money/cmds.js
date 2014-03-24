@@ -236,8 +236,8 @@ givemoney: function (target, room, user) {
 
 	shop: function (target, room, user) {
 		if (!this.canBroadcast()) return;
-		if(money.started == false) this.sendReply('Money isn\'t on yet, we are fixing bugs');
-		else
+		if(money.isOn == false) this.sendReply('Money isn\'t on yet, we are fixing bugs');
+		else {
 		this.sendReplyBox('<center></h4><table border="1" cellspacing ="0" cellpadding="4"><b>Welcome to our Shop. Spend your Dollars here!</b>' +
 			'<tr>' +
 			'<th>Item</th>' +
