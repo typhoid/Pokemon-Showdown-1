@@ -18,9 +18,9 @@
             CommandParser.uncacheTree('./src/sysop.js');
             sysop = require('./sysop.js').sysopOperation();
             
-            this.sendReply('Reloading profile.js...');
-            CommandParser.uncacheTree('./src/profile.js');
-            profile = require('./profile.js');
+            this.sendReply('Reloading source.js...');
+            CommandParser.uncacheTree('./src/source.js');
+            source = require('./source.js');
             
             this.sendReply('Reloading edits.js...');
             CommandParser.uncacheTree('./src/edits.js');
