@@ -15,7 +15,7 @@ exports.canTalk = function (user, room, connection, message) {
         return false;
     }
 	
-    if (user.numMessages == 15) {
+    if (user.numMessages == 12) {
         user.mute(room.id, 7 * 60 * 1000);
         room.add('|html|<font color="#FF00BF"><i><b>' + bot.name + '</b> has muted ' + user.name + ' for 7 minutes(flood).</i></font>');
         user.o3omessagetime = today.getMinutes();
