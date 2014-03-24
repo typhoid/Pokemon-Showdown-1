@@ -422,7 +422,7 @@ var cmds = {
 		
 		if (!targetUser) return this.sendReply('User '+this.targetUsername+' not found.');
         
-        var height = 80;
+        var height = 85;
 		
 		Source.stdoutNumber('source-data/views.csv', user, 'views', 1);
 		
