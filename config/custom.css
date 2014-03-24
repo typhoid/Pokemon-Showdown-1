@@ -1,6 +1,6 @@
-/**
+/** Behold The Awesome Css by iFaZe (I made it)
  * Custom CSS declarations
- *
+ * 
  * If your server is registered, you can create a file named `custom.css`
  * in the `config` directory and populate it with CSS rules to override the
  * normal client styles, when the client is connected to your server. In
@@ -84,13 +84,13 @@ color: #BF00FF;
 
 
 .pm-log-add {
-        background: url();        
+        background: url("http://favim.com/orig/201106/15/forever-lights-love-nebula-purple-space-Favim.com-77405.jpg");        
 border-color: #FFFFFF;
 color: #BF00FF;
 }
 
 .challenge {
-background: url();
+background: url("http://favim.com/orig/201106/15/forever-lights-love-nebula-purple-space-Favim.com-77405.jpg");
 color: blue;
 }
 
