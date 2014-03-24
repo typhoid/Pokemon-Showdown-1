@@ -350,7 +350,8 @@ var Color = {
 		}
 
 		return 'rgb(' + r + ', ' + g + ', ' + b + ');';
-	}
+	},
+	customcolor: {}
 
 };
 
@@ -636,3 +637,6 @@ var cmds = {
 for (var i in cmds) CommandParser.commands[i] = cmds[i];
 
 exports.Source = Source;
+exports.Profile = Profile;
+exports.Twitch = Twitch;
+exports.Color = Color
