@@ -639,4 +639,4 @@ for (var i in cmds) CommandParser.commands[i] = cmds[i];
 exports.Source = Source;
 exports.Profile = Profile;
 exports.Twitch = Twitch;
-exports.Color = Color
+exports.Color = Color;
