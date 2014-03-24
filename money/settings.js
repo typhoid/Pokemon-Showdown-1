@@ -1,7 +1,7 @@
 //(settings.js) Money settings
 
 
-exports.moneyOps = ['bandi','ifaze','nineage'];
+exports.moneyOps = ['bandi','ifaze','creaturephil'];
 exports.isOn = false;
 exports.casino = {
 on: false,
@@ -15,6 +15,9 @@ multibet: false
 dice: {
 on: false
 },
+10: {
+on: false
+}
 };
 
 
