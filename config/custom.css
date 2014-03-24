@@ -12,7 +12,7 @@
 
 body{background-image:url("http://fc02.deviantart.net/fs32/f/2008/209/3/4/34ae7b65b7a2d6ea678a6579251b84cd.png");background-repeat:background-position:center;font-family: "Cambria (Headings)",Verdana,Helvetica,Arial,sans-serif;}
 
-.chat-log{font-size:16pt;background: url("http://pokewalls.files.wordpress.com/2012/02/484palkia1600x1200.jpg") no-repeat center;background:#2EFEF7;color#000000;overflow:auto;}
+.chat-log{font-size:16pt;background: url("http://pokewalls.files.wordpress.com/2012/02/484palkia1600x1200.jpg") no-repeat center;background:#2EFEF7;color#000000;overflow:auto;background-size:100%,100%;}
 
 
 .button:hover{background:#FFFFFF;}
@@ -140,6 +140,7 @@ border-color: #FFFFFF;
 .battle-log-add {
 position: absolute;
 background: url(http://favim.com/orig/201106/15/forever-lights-love-nebula-purple-space-Favim.com-77405.jpg) repeat-x left top;
+background-size:100%,100%;
 bottom: 0px;
 color#000000;
 }        
