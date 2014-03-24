@@ -16,7 +16,7 @@ return false
 }
 },
 givemoney: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
@@ -34,7 +34,7 @@ givemoney: function (target, room, user) {
 		if (givemoney < 1) return this.sendReply('Invalid sum of dollars.');
 		if (givemoney > user.dollars) return this.sendReply('You cannot give more than your own BP.');
 		targetUser.dollars += givemoney;
-		user.bp.dollars -= givemoney;
+		user.dollars -= givemoney;
 		money.save(user)
 		this.sendReply(targetUser.name + ' has received ' + givemoney + ' dollars from you.');
 		}
@@ -42,13 +42,13 @@ givemoney: function (target, room, user) {
 	},
 
 	givetkt: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
 	    else {
 		money.read(user);
-		if (user.bp.tkts < 1) return this.sendReply('You do not have enough tickets to give.');
+		if (user.tkts < 1) return this.sendReply('You do not have enough tickets to give.');
 		targets = target.split(',');
 		target = toId(targets[0]);
 		var targetUser = Users.get(target);
@@ -68,7 +68,7 @@ givemoney: function (target, room, user) {
 	
 	award: 'awardmoney',
 	awardmoney: function (target, room, user) {
-		if(money.started == false){ this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
+		if(money.isOn == false){ this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
 		else {
@@ -88,7 +88,7 @@ givemoney: function (target, room, user) {
 
 	rmvmoney: 'removemoney',
 	removemoney: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false;
 		}
@@ -108,7 +108,7 @@ givemoney: function (target, room, user) {
 	    }
 	},
 	awardtkt: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs');
 		return false;
         }		
@@ -129,7 +129,7 @@ givemoney: function (target, room, user) {
 	},
 
 	rmvtkt: function (target, room, user) {
-	    if(money.started == false){ 
+	    if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
@@ -141,7 +141,7 @@ givemoney: function (target, room, user) {
 		if (!targetUser) return this.sendReply('The user ' + targetUser + ' was not found.');
 		var removeticket = parseInt(targets[1]);
 		if (isNaN(removemoney)) return this.sendReply('Invalid number of tickets.');
-		if (removeticket > targetUser.bp.tkts) return this.sendReply('Invalid number of tickets.');
+		if (removeticket > targetUser.tkts) return this.sendReply('Invalid number of tickets.');
 		targetUser.tkts-= removeticket;
 		money.save(targetUser)
 		this.sendReply(targetUser.name + ' has had ' + removeticket + ' tickets removed from their bagpack.');
@@ -151,7 +151,7 @@ givemoney: function (target, room, user) {
 
 	//Check everyone on server if they have over a certain amount of money 
 	checkallmoney: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
@@ -162,22 +162,22 @@ givemoney: function (target, room, user) {
                 else
 		var x = '';
 		for (var i in Users.users) {
-			if (Users.users[i].bp.dollars == target || Users.users[i].bp.dollars > target) {
-				x += Users.users[i].name + ' : ' + Users.users[i].bp.dollars;
+			if (Users.users[i].bp.dollars == target || Users.users[i].dollars > target) {
+				x += Users.users[i].name + ' : ' + Users.users[i].dollars;
 				x += ', ';
 			}
 			//if (i < room.users.length) x += ', ';
 		}
 		if (!x) return this.sendReply('No user has over that amount.');
 
-		this.sendReply('Users in this room with over ' + target + ' Battle Points:');
+		this.sendReply('Users in this room with over ' + target + ' Dollars:');
 		this.sendReply(x);
 		}
 	},
 
 	//Check everyone on server if they have over a certain amount of tickets 
 	checkalltickets: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false
 		}
@@ -188,8 +188,8 @@ givemoney: function (target, room, user) {
 
 		var x = '';
 		for (var i in Users.users) {
-			if (Users.users[i].bp.tkts === target || Users.users[i].bp.tkts > target) {
-				x += Users.users[i].name + ' : ' + Users.users[i].bp.tkts;
+			if (Users.users[i].tkts === target || Users.users[i].tkts > target) {
+				x += Users.users[i].name + ' : ' + Users.users[i].tkts;
 				x += ',';
 			}
 			
@@ -300,7 +300,7 @@ givemoney: function (target, room, user) {
 	},
 
 	buy: function (target, room, user) {
-		if(money.started == false){ 
+		if(money.isOn == false){ 
 		this.sendReply('Money isn\'t on yet, we are fixing bugs'); 
 		return false;
 		}
@@ -318,9 +318,9 @@ givemoney: function (target, room, user) {
 		else {
 	money.read(user);
 	var taritem = money.shop[target];
-	if(taritem.price < user.bp.dollars || user.bp.dollars == taritem.price){
+	if(taritem.price < user[item.currency] || user[item.currency] === taritem.price){
 	this.sendReply('You have successfully purchased a ' + taritem.name + '.You benefit ' + taritem.benefits + ' from ' + taritem.name +'.');
-	user.bp.dollars -= taritem.price;
+        user[item.currency] -= taritem.price;
 	if(taritem.add){
 	room.add(taritem.add)
 	}
