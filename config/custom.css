@@ -121,7 +121,7 @@ element {
 position: absolute;
 text-align: left;
 background: url(http://fc09.deviantart.net/fs71/i/2012/182/a/d/dialga_vs_palkia_by_pvt_llama-d55kne2.png) repeat-y center scroll;
-color#000000;
+color: white;
 top: 9px;
 left: 640px;
 right: -1px;
@@ -142,22 +142,22 @@ position: absolute;
 background: url(http://favim.com/orig/201106/15/forever-lights-love-nebula-purple-space-Favim.com-77405.jpg) repeat-x left top;
 background-size:100%,100%;
 bottom: 0px;
-color#000000;
+color: white;
 }        
  
 .battle-log .chat strong
 {
-        color#000000;
+        color: white;
 }
 .battle-log .chat em
 {
         padding: 1px 4px 1px 3px;
-        color#000000;
+        color: white;
         font-style: normal;
 }
 .battle-log .chat em.mine
 {
-        color#000000; 
+        color: white; 
 }
 
 .sunweather,
