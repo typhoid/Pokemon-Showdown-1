@@ -140,7 +140,7 @@ exports.herokuhack = false;
 // Your server *must* be registered in order for your custom avatars to be
 // displayed in the client.
 exports.customavatars = {
-	//'userid': 'customavatar.png'
+	bandi: 'bandi.gif'
 };
 
 // appealurl - specify a URL containing information on how users can appeal
